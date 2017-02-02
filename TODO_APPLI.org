@@ -1,3 +1,5 @@
 * TO DO APPLI
 
 TODO_APPLI qui indique sommairement les modules du projet, leur affectation, état d'avancement et reste à faire
+
+Modules : aucun commencé, reste tout à faire

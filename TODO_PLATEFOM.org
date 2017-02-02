@@ -2,3 +2,11 @@
 
 
 TODO_PLATFORM qui indique sommairement l'API de la plateforme et les conventions de déclaration de plugins qui sont prévues, et l'état d'avancement
+
+- Les plugins seront déclarés dans le fichier de config json
+- Chaque plugin aura la définition de ses fichiers de config dans un fichier de config dans son dossier
+- Ces fichiers de config comporteront chacune une classe et ses attributs ?
+
+** DONE Décider de la configuration et des classes de bases
+   CLOSED: [2017-02-02 jeu. 19:26]
+** Créer les plugins

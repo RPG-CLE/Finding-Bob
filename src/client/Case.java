@@ -3,6 +3,7 @@ package client;
 public class Case{
 	String nom;
 	int action;
+	
 	public String getNom() {
 		return nom;
 	}
