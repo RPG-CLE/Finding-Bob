@@ -5,13 +5,16 @@ public class Personnage{
 	private double pv; // Les points de vie du perso
 	private double force;
 	private String nom;
+	private int pos_x;
+	private int pos_y;
 	
-	
-	public Personnage(double pv, double force, String nom) {
+	public Personnage(double pv, double force, String nom, int x, int y) {
 		super();
 		this.pv = pv;
 		this.force = force;
 		this.nom = nom;
+		this.pos_x=x;
+		this.pos_y=y;
 	}
 	
 	public double getPv() {
@@ -33,7 +36,18 @@ public class Personnage{
 		this.nom = nom;
 	}
 	
+	public void setPos(int x,int y){
+		this.pos_x = x;
+		this.pos_y = y;
+	}
 	
+	public int getX(){
+		return pos_x;
+	}
+	
+	public int getY(){
+		return pos_y;
+	}
 	
 	@Override
 	public String toString() {
