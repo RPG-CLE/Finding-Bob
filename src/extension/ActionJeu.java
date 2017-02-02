@@ -7,6 +7,7 @@ public class ActionJeu implements IAJ {
 		// TODO Auto-generated method stub
 	   j.deplacer("droite");
 	   j.afficher();
+	   System.out.println();
 	}
 	
 }
