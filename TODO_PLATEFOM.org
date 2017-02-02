@@ -1,0 +1,4 @@
+* TO DO PLATEFORM
+
+
+TODO_PLATFORM qui indique sommairement l'API de la plateforme et les conventions de déclaration de plugins qui sont prévues, et l'état d'avancement
