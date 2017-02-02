@@ -1,5 +1,6 @@
 package client;
 
-public class Case {
-
+public class Case implements Icase {
+	
+// lol
 }
