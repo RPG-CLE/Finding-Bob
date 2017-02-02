@@ -1,6 +1,6 @@
 package client;
 
-public class Case implements Icase {
-	
-// lol
+public class Case{
+	String nom;
+	int action;
 }

@@ -1,8 +1,8 @@
 package client;
 
-public class Personnage extends Element{
+public class Personnage{
 	
-	private double pv; // Les point de vie du perso
+	private double pv; // Les points de vie du perso
 	private double force;
 	private String nom;
 	
