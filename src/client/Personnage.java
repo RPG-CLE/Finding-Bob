@@ -1,6 +1,6 @@
 package client;
 
-public class Personnage {
+public class Personnage extends Element{
 	
 	private double pv; // Les point de vie du perso
 	private double force;

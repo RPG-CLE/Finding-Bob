@@ -1,7 +1,9 @@
 package client;
 
+import java.util.ArrayList;
+
 public class System {
 	
-	private Map map;
+	private ArrayList< ArrayList<Element>> carte;
 
 }

@@ -1,5 +1,5 @@
 package client;
 
-public interface Icase {
+public interface Icase{
 
 }
