@@ -1,5 +1,5 @@
 package client;
 
 public interface IAJ {
-	void action();
+	void action(Jeu j);
 }

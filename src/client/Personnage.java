@@ -49,6 +49,25 @@ public class Personnage{
 		return pos_y;
 	}
 	
+	public void deplacer(String deplacement){
+		switch (deplacement) {
+			case "haut":  //TODO;
+				setPos(this.pos_x,this.pos_y-1);
+				break;
+			case "bas":  //TODO;
+				setPos(this.pos_x,this.pos_y+1);
+			    break;
+			case "gauche":  //TODO;
+				setPos(this.pos_x-1,this.pos_y);
+			    break;
+			case "droite":  //TODO;
+				setPos(this.pos_x+1,this.pos_y);
+			    break;
+			default: //TODO invalide direction;
+			    break;
+		}
+	}
+	
 	@Override
 	public String toString() {
 		return "Personnage [pv=" + pv + ", force=" + force + ", nom=" + nom
