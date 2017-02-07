@@ -3,11 +3,13 @@ package client;
 public class Jeu {
 	Personnage hero;
 	Map map;
-
-	public Jeu(Personnage hero, Map map) {
+	Personnage ennemi;
+	
+	public Jeu(Personnage hero, Map map, Personnage ennemi) {
 		super();
 		this.hero = hero;
 		this.map = map;
+		this.ennemi = ennemi;
 	}
 	
 	
@@ -18,6 +20,15 @@ public class Jeu {
 
 	public void setHero(Personnage hero) {
 		this.hero = hero;
+	}
+
+	public Personnage getEnnemi() {
+		return this.ennemi;
+	}
+
+
+	public void setEnnemi(Personnage vilain) {
+		this.ennemi = vilain;
 	}
 
 
@@ -56,12 +67,16 @@ public class Jeu {
 	public void afficher(){
 		int x_hero = hero.getX();
 		int y_hero = hero.getY();
-		for(int i = 0; i<map.getHauteur()+1; ++i){
-			for(int j = 0; j<map.getLargeur()+1; ++j){
+		int x_ennemi = ennemi.getX();
+		int y_ennemi = ennemi.getY();
+		for(int i = 0; i<map.getHauteur(); ++i){
+			for(int j = 0; j<map.getLargeur(); ++j){
 				if(x_hero==j&&y_hero==i)
 					System.out.print("H");
+				else if(x_ennemi==j&&y_ennemi==i&&ennemi.getPv()>0)
+					System.out.print("E");
 				else
-					System.out.print("o");
+					System.out.print("O");
 			}
 			System.out.println();
 		}

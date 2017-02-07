@@ -1,19 +1,20 @@
 package client;
 
-import extension.ActionJeu;
+import java.util.Scanner;
 import framework.ChargeurPartie;
 
 public class Main {
 
 	public static void main(String[] args) {
 		Jeu jeu = ChargeurPartie.charger();
-		ActionJeu aj = new ActionJeu();
+		Scanner reader = new Scanner(System.in);  // Reading from System.in
+		System.out.println("Saissisez le fichier de config (par défaut:'src/configuration/configBasic.txt' ou 'src/configuration/config.txt')");
+		String config = reader.nextLine();
+		IAJ aj = ChargeurPartie.chargerAction(config);
 		jeu.afficher();
 		System.out.println();
-		aj.action(jeu);
-		aj.action(jeu);
-		aj.action(jeu);
-
+		while(aj.action(jeu));
+		System.out.println("Game over");
 	}
 
 }
