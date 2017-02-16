@@ -48,9 +48,10 @@ public class ActionJeu implements IAJ {
 		   while(vie_hero>0&&vie_ennemi>0){
 			   System.out.println("Vie ennemi = "+vie_ennemi+"-"+force_hero);  
 			   vie_ennemi-=force_hero;
-			   if(vie_ennemi>0)
+			   if(vie_ennemi>0){
 				   System.out.println("Vie vie_hero = "+vie_hero+"-"+force_ennemi);  
 				   vie_hero-=force_ennemi;
+			   }
 		   }
 		   if(vie_hero<1){
 			   System.out.println("Votre hero est mort.");  
