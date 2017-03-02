@@ -1,46 +1,53 @@
 package client;
 
 public class Map {
-	private Case[][] carte;
-	private int largeur;
-	private int hauteur;
-	
-	public Map(int largeur, int hauteur){
-		this.carte = new Case[largeur][hauteur];
-		this.largeur = largeur;
-		this.hauteur = hauteur;
+	protected Tile[][] tiles;
+	protected int width;
+	protected int height;
+
+	public Map(int width, int height) {
+		super();
+		this.width = width;
+		this.height = height;
+		tiles = new Tile[width][height];
+		for(int i = 0; i < width; i++){
+			for(int j = 0; j < height; j++){
+				tiles[i][j] = new Tile(i, j);
+			}
+		}
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public void setWidth(int width) {
+		this.width = width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
+	public Tile getTile(int x, int y){
+		if(x >= 0 && y >= 0 && x < width && y < height){
+			return tiles[x][y];
+		}
+		return null;
+	}
+	public Tile getTile(Point p){
+		return getTile(p.getX(), p.getY());
 	}
 	
-	
-	public int getLargeur() {
-		return largeur;
-	}
-
-
-	public void setLargeur(int largeur) {
-		this.largeur = largeur;
-	}
-
-
-	public int getHauteur() {
-		return hauteur;
-	}
-
-
-	public void setHauteur(int hauteur) {
-		this.hauteur = hauteur;
-	}
-
-
-	public Case[][] getCarte() {
-		return carte;
-	}
-
-	public void setCarte(Case[][] carte) {
-		this.carte = carte;
-	}
-	
-	public Case getCase(int x, int y){
-		return carte[x][y];
+	public void show(){
+		for(int i = 0; i < width; i++){
+			for(int j = 0; j < height; j++){
+				tiles[i][j].show();
+			}
+		}
 	}
 }

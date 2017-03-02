@@ -2,70 +2,62 @@ package extension;
 import java.util.Scanner;
 
 import client.*;
+import client.Character;
 
 public class ActionJeu implements IAJ {
 	@Override
-	public boolean action(Jeu j) {
+	public void action(Game game) {
 		// TODO Auto-generated method stub
 	   Scanner reader = new Scanner(System.in);  // Reading from System.in
 	   System.out.println("Saisissez un déplacement : z = haut, s = bas, q = gauche, d = droite ");
 	   String choix = reader.nextLine();
+	   
 	   switch(choix){
 	   case "z" :
-		   if(j.getHero().getY()>0)
-			   j.deplacer("haut");
-		   else
-			   action(j);
+		   ((Character)game.getPlayer()).move(Direction.UP);
 		   break;
 	   case "s" :
-		   if(j.getHero().getY()<j.getMap().getHauteur()-1)
-			   j.deplacer("bas");
-		   else
-			   action(j);
+		   ((Character)game.getPlayer()).move(Direction.DOWN);
 		   break;
 	   case "q" :
-		   if(j.getHero().getX()>0)
-			   j.deplacer("gauche");
-		   else
-			   action(j);
+		   ((Character)game.getPlayer()).move(Direction.LEFT);
 		   break;
 	   case "d" :
-		   if(j.getHero().getX()<j.getMap().getLargeur()-1)
-			   j.deplacer("droite");
-		   else
-			   action(j);
+		   ((Character)game.getPlayer()).move(Direction.RIGHT);
 		   break;
-	   default:
-		   action(j);
-		   break;
+	   default:{return;}
 	   }
-	   if(j.getEnnemi().getX()==j.getHero().getX()&&j.getEnnemi().getY()==j.getHero().getY()){
+	   
+	   if(game.getMonster().getX()==game.getMonster().getX()&&game.getMonster().getY()==game.getPlayer().getY()){
 		   System.out.println("Votre Héro entre en Combat !!");
-		   double force_hero = j.getHero().getForce();
-		   double force_ennemi = j.getEnnemi().getForce();
-		   double vie_hero = j.getHero().getPv();
-		   double vie_ennemi = j.getEnnemi().getPv();
-		   while(vie_hero>0&&vie_ennemi>0){
-			   System.out.println("Vie ennemi = "+vie_ennemi+"-"+force_hero);  
-			   vie_ennemi-=force_hero;
-			   if(vie_ennemi>0){
-				   System.out.println("Vie vie_hero = "+vie_hero+"-"+force_ennemi);  
-				   vie_hero-=force_ennemi;
+		   double playerStrength = ((Character)game.getPlayer()).getStrength();
+		   double monsterStrength = ((Character)game.getMonster()).getStrength();
+		   double playerLife = ((Character)game.getPlayer()).getHp();
+		   double monsterLife = ((Character)game.getMonster()).getHp();
+		   while(playerLife> 0 && monsterLife > 0){
+			   System.out.println("Vie ennemi = "+monsterLife+"-"+playerStrength);  
+			   monsterLife-=playerStrength;
+			   if(monsterLife>0){
+				   System.out.println("Vie vie_hero = "+playerLife+"-"+monsterStrength);  
+				   playerLife-=monsterStrength;
 			   }
 		   }
-		   if(vie_hero<1){
+		   if(playerLife<1){
 			   System.out.println("Votre hero est mort.");  
 		   }else{
-			   System.out.println("Vous avez tué l'énnemi et il vous reste "+vie_hero+" pv.");
+			   System.out.println("Vous avez tué l'énnemi et il vous reste "+playerLife+" pv.");
 		   }
-		   j.getHero().setPv(vie_hero);
-		   j.getEnnemi().setPv(vie_ennemi);
+		   ((Character)game.getPlayer()).setHp(playerLife);
+		   ((Character)game.getMonster()).setHp(monsterLife);
 	   }
-	   if(j.getHero().getPv()<1)
-		   return false;
-	   j.afficher();
-	   System.out.println();
-	   return true;
+	   if(((Character)game.getPlayer()).getHp() > 0){
+		   game.show();
+		   action(game);
+	   }
+	   else{
+		   return;   
+	   }
+	   
 	}
 	
 }

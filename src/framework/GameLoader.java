@@ -4,17 +4,26 @@ import java.io.FileReader;
 import java.util.Properties;
 
 import client.IAJ;
-import client.Jeu;
+import client.Game;
 import client.Map;
-import client.Personnage;
+import client.Character;
 import extension.ActionJeu;
 
-public class ChargeurPartie {
-	public static Jeu charger(){
-		Personnage principal = new Personnage(10, 2, "Robert", 0, 0);
-		Personnage vilain = new Personnage(10, 1, "Vilain", 3, 3);
-		Map map = new Map(5,5);
-		return new Jeu(principal, map, vilain);
+public class GameLoader {
+	public static Game load(){
+		Game game = null;
+		Map map = null;
+		
+		Character principal = new Character(10, 2, "Robert", 0, 0);
+		Character vilain = new Character(10, 1, "Vilain", 3, 3);
+		
+		map = new Map(5,5);
+
+		game = new Game(map);
+		game.addObject(principal, true);
+		game.addObject(vilain);
+		
+		return game;
 	}
 	public static IAJ chargerAction(String config){
 		Properties prop = new Properties();

@@ -1,21 +1,24 @@
 package client;
 
-public class Case{
-	String nom;
-	int action;
+import java.util.HashSet;
+import java.util.Set;
+
+public class Tile extends GameObject{	
+	protected Set<GameObject> containedObjects = new HashSet<GameObject>();
 	
-	public String getNom() {
-		return nom;
-	}
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-	public int getAction() {
-		return action;
-	}
-	public void setAction(int action) {
-		this.action = action;
+	public Tile(int x, int y){
+		setPosition(x, y);
 	}
 	
+	public boolean addContainedObject(GameObject object){
+		return containedObjects.add(object);
+	}
 	
+	public boolean removeContainedObject(GameObject object){
+		return containedObjects.remove(object);
+	}
+	
+	public boolean containsObject(GameObject object){
+		return containedObjects.contains(object);
+	}
 }

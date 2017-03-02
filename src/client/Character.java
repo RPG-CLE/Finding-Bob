@@ -1,77 +1,59 @@
 package client;
 
-public class Personnage{
+public class Character extends GameObject{
 	
-	private double pv; // Les points de vie du perso
-	private double force;
-	private String nom;
-	private int pos_x;
-	private int pos_y;
+	protected double hp; // Les points de vie du perso
+	protected double strength;
+	protected String name;
 	
-	public Personnage(double pv, double force, String nom, int x, int y) {
+	public Character(double hp, double strength, String name, int x, int y) {
 		super();
-		this.pv = pv;
-		this.force = force;
-		this.nom = nom;
-		this.pos_x=x;
-		this.pos_y=y;
+		this.hp = hp;
+		this.strength = strength;
+		this.name = name;
+		setPosition(x, y);
 	}
 	
-	public double getPv() {
-		return pv;
+	public double getHp() {
+		return hp;
 	}
-	public void setPv(double pv) {
-		this.pv = pv;
+
+	public void setHp(double hp) {
+		this.hp = hp;
 	}
-	public double getForce() {
-		return force;
+
+	public double getStrength() {
+		return strength;
 	}
-	public void setForce(double force) {
-		this.force = force;
+
+	public void setStrength(double strength) {
+		this.strength = strength;
 	}
-	public String getNom() {
-		return nom;
-	}
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-	
-	public void setPos(int x,int y){
-		this.pos_x = x;
-		this.pos_y = y;
+
+	public String getName() {
+		return name;
 	}
 	
-	public int getX(){
-		return pos_x;
+	public void setName(String name) {
+		this.name = name;
 	}
-	
-	public int getY(){
-		return pos_y;
-	}
-	
-	public void deplacer(String deplacement){
-		switch (deplacement) {
-			case "haut":  //TODO;
-				setPos(this.pos_x,this.pos_y-1);
-				break;
-			case "bas":  //TODO;
-				setPos(this.pos_x,this.pos_y+1);
-			    break;
-			case "gauche":  //TODO;
-				setPos(this.pos_x-1,this.pos_y);
-			    break;
-			case "droite":  //TODO;
-				setPos(this.pos_x+1,this.pos_y);
-			    break;
-			default: //TODO invalide direction;
-			    break;
+
+	public boolean move(Direction direction){
+		Point newPosition = getTileFromDirection(direction);
+		
+		if(Game.map.getTile(newPosition) == null) return false;
+		
+		if(Game.map.getTile(position).removeContainedObject(this)){
+			position = newPosition;
+			return Game.map.getTile(newPosition).addContainedObject(this);	
 		}
+		return false;
 	}
 	
 	@Override
 	public String toString() {
-		return "Personnage [pv=" + pv + ", force=" + force + ", nom=" + nom
-				+ "]";
+		return "Personnage [pv=" + hp + ", force=" + strength + ", nom=" + name
+				+ ", position=" + position + "]";
 	}
 	
 	
