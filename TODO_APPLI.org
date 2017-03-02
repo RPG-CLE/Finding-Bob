@@ -3,3 +3,8 @@
 TODO_APPLI qui indique sommairement les modules du projet, leur affectation, état d'avancement et reste à faire
 
 Modules : aucun commencé, reste tout à faire
+
+
+** TODO Redéfinir correctement le déroulement de la partie (dans Jeu)
+** TODO Refactoring de map
+** TODO Revoir les fonctions dans IAJ

@@ -9,4 +9,6 @@ TODO_PLATFORM qui indique sommairement l'API de la plateforme et les conventions
 
 ** DONE Décider de la configuration et des classes de bases
    CLOSED: [2017-02-02 jeu. 19:26]
-** Créer les plugins
+** DONE Refactoring bien propre
+   CLOSED: [2017-03-02 jeu. 18:06]
+** TODO Chargement dynamique (et auto) des données de configuration du héros (au min)

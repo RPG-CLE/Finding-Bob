@@ -1,0 +1,5 @@
+* TO DO PLUGINS
+
+** Classes de personnages
+** Maps
+** Revoir actions IAJ
