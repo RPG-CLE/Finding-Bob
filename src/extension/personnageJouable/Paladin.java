@@ -1,6 +1,6 @@
 package extension.personnageJouable;
 
-import client.IPersonnage;
+import client.interfaces.IPersonnage;
 
 public class Paladin implements IPersonnage{
 	

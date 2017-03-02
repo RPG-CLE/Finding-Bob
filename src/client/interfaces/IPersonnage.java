@@ -1,4 +1,4 @@
-package client;
+package client.interfaces;
 
 public interface IPersonnage {
 

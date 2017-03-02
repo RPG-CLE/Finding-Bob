@@ -2,6 +2,7 @@ package extension;
 import java.util.Scanner;
 
 import client.*;
+import client.interfaces.IAJ;
 
 public class ActionJeu implements IAJ {
 	@Override

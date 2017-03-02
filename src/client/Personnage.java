@@ -1,5 +1,7 @@
 package client;
 
+import client.interfaces.IPersonnage;
+
 public class Personnage implements IPersonnage{
 	
 	private double pv; // Les points de vie du perso

@@ -1,5 +1,7 @@
 package client;
 
+import client.interfaces.IPersonnage;
+
 public class Jeu {
 	IPersonnage hero;
 	Map map;

@@ -3,6 +3,7 @@ package client;
 import java.io.FileReader;
 import java.util.Properties;
 
+import client.interfaces.IPersonnage;
 import extension.ActionJeu;
 import framework.PartieProvider;
 

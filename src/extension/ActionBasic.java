@@ -1,7 +1,7 @@
 package extension;
 
-import client.IAJ;
 import client.Jeu;
+import client.interfaces.IAJ;
 
 public class ActionBasic implements IAJ {
 	@Override
