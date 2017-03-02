@@ -1,11 +1,11 @@
 package client;
 
 public class Jeu {
-	Personnage hero;
+	IPersonnage hero;
 	Map map;
-	Personnage ennemi;
+	IPersonnage ennemi;
 	
-	public Jeu(Personnage hero, Map map, Personnage ennemi) {
+	public Jeu(IPersonnage hero, Map map, IPersonnage ennemi) {
 		super();
 		this.hero = hero;
 		this.map = map;
@@ -13,21 +13,21 @@ public class Jeu {
 	}
 	
 	
-	public Personnage getHero() {
+	public IPersonnage getHero() {
 		return hero;
 	}
 
 
-	public void setHero(Personnage hero) {
+	public void setHero(IPersonnage hero) {
 		this.hero = hero;
 	}
 
-	public Personnage getEnnemi() {
+	public IPersonnage getEnnemi() {
 		return this.ennemi;
 	}
 
 
-	public void setEnnemi(Personnage vilain) {
+	public void setEnnemi(IPersonnage vilain) {
 		this.ennemi = vilain;
 	}
 
