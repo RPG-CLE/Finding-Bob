@@ -25,8 +25,8 @@ public class PartieProvider {
 			prop.load(new FileReader(config));
 			
 			Class<?> cl = Class.forName((String)prop.get("classe"));
-			
-			if(cl.isAssignableFrom(contrainte.getClass())){
+
+			if(contrainte.isAssignableFrom(cl)){
 				mon_objet = cl.newInstance();
 				//TODO Remplir extension
 			}

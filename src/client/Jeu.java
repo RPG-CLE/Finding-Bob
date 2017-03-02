@@ -1,12 +1,25 @@
 package client;
 
+import client.interfaces.IAfficheur;
 import client.interfaces.IPersonnage;
+import extension.Afficheur;
 
 public class Jeu {
 	IPersonnage hero;
 	Map map;
 	IPersonnage ennemi;
+	IAfficheur afficheur;
 	
+	public IAfficheur getAfficheur() {
+		return afficheur;
+	}
+
+
+	public void setAfficheur(IAfficheur afficheur) {
+		this.afficheur = afficheur;
+	}
+
+
 	public Jeu(IPersonnage hero, Map map, IPersonnage ennemi) {
 		super();
 		this.hero = hero;
@@ -67,21 +80,7 @@ public class Jeu {
 	}
 	
 	public void afficher(){
-		int x_hero = hero.getX();
-		int y_hero = hero.getY();
-		int x_ennemi = ennemi.getX();
-		int y_ennemi = ennemi.getY();
-		for(int i = 0; i<map.getHauteur(); ++i){
-			for(int j = 0; j<map.getLargeur(); ++j){
-				if(x_hero==j&&y_hero==i)
-					System.out.print("H");
-				else if(x_ennemi==j&&y_ennemi==i&&ennemi.getPv()>0)
-					System.out.print("E");
-				else
-					System.out.print("O");
-			}
-			System.out.println();
-		}
+		afficheur.afficher(this);
 	}
 	
 }

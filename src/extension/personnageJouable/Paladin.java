@@ -7,8 +7,8 @@ public class Paladin implements IPersonnage{
 	private double pv; // Les points de vie du perso
 	private double force;
 	private String nom;
-	private int pos_x;
-	private int pos_y;
+	private int pos_x = 0;
+	private int pos_y = 0;
 	
 	public Paladin(){
 		;

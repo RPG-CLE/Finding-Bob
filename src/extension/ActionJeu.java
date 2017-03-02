@@ -5,6 +5,8 @@ import client.*;
 import client.interfaces.IAJ;
 
 public class ActionJeu implements IAJ {
+	public ActionJeu(){}
+	
 	@Override
 	public boolean action(Jeu j) {
 		// TODO Auto-generated method stub
