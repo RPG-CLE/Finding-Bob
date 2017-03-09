@@ -1,0 +1,4 @@
+nom = Afficheur
+nomClasse = extension.Afficheur
+description = Simple extension permettant l'affichage du jeu par des caractères
+contrainte = client.interfaces.IAfficheur

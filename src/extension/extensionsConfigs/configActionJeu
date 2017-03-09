@@ -1,0 +1,4 @@
+nom = ActionJeu
+nomClasse = extension.ActionJeu
+description = Extension permettant au personnage de réaliser une action
+contrainte = client.interfaces.IAJ
