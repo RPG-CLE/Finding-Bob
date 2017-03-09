@@ -8,3 +8,4 @@ Modules : aucun commencé, reste tout à faire
 ** TODO Redéfinir correctement le déroulement de la partie (dans Jeu)
 ** TODO Refactoring de map
 ** TODO Revoir les fonctions dans IAJ
+	CLOSED: [2017-09-03 jeu. 17:54]

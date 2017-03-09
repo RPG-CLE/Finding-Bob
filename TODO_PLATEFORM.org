@@ -3,12 +3,53 @@
 
 TODO_PLATFORM qui indique sommairement l'API de la plateforme et les conventions de déclaration de plugins qui sont prévues, et l'état d'avancement
 
-- Les plugins seront déclarés dans le fichier de config json
-- Chaque plugin aura la définition de ses fichiers de config dans un fichier de config dans son dossier
-- Ces fichiers de config comporteront chacune une classe et ses attributs ?
+PRESENTATION DE L'API DE LA PLATEFORME : 
+
+la plateforme se présente en plusieurs classes :
+	***la première partie de notre framework est la classe PartieProvider. Elle possède plusieurs méthode public permettant grosso modo de lister toutes les extensions et de charger dynamiquement des objets.
+
+	public static PartieProvider getInstance() : cette fonction permet de récupérer l'instance unique de la classe PartieProvider.
+	 
+	public List<IExtensionDesc> getExtensionDescr(Class<?> contrainte) : permet de récupérer une liste de descripteur correspondant à une contrainte donnée en paramètre. Par exemple, si on veut charger la liste de tous les extensions correspondant à un afficheur pour le jeu (ndlr: implémentant donc l'interface IAfficheur pour notre appli), on appelera getExtensionDescr(IAfficheur) pour récupérer ces extensions.
+
+	public List<IExtensionDesc> getExtensionDescr() : permet de fournir une liste de la totalité des extensions existante (ndlr: les extensions listé ont donc toutes un fichier de configuration present dans le dossier configuration du package extension ).
+
+	public Object getExtensionForDescr(IExtensionDesc extension) : permet de récupérer un objet chargé dynamiquement en fonction de l'instance IExtensionDesc cré pour le plugin correspondant.
+
+
+	***La deuxième partie de notre framework est la description des plugins. Elle est composé d'une interface IExtensionDesc et de la classe ExtensionDesc.
+		La classe ExtensionDesc possède quatre information (attributs) sur chaque plugin :
+								- l'etat du plugin : Une information indiquant si le plugin est chargé ou non.
+								- l'autorun : un booleen indiquant si l'extension est en autorun ou non.
+								- le nom du plugin : un nom personnalisé pour le plugin.
+								- le nomClasse : le chemin d'accès vers la classe java du plugin.
+								- la description : une description textuel du plugin.
+								- la contrainte : l'interface ou la classe associé au plugin (hérite/implémente)
+
+		Ces attributs sont chargé dynamiquement à la lecture du fichier de configuration associé à chaque plugin.
+		Ces attributs sont accessibles via des get et setter de la forme (getNomAttribut, setNomAttribut).
+	 
+	
+	public Object getObjetByConfig(Class<?> contrainte, String config) : permet de récupérer un objet chargé dynamiquement en fonction d'une contrainte et d'un fichier de configuration. 
+	Le fichier de configuration doit être sous forme de bean avec un attribut Classe (Classe =)
+	L'objet qui sera cré vérifiera la contrainte passé en paramètre, c'est à dire que la classe récupérer dans le fichier de configuration héritera/implémentera la classe/l'interface.
+
+	Un nom respect de cela entrainera le renvoi d'un objet null.
+
+CONVENTIONS DE DECLARATIONS DES PLUGINS :
+
+	- Chaque plugins doit posséder un fichier de configuration sous forme de bean définissant à minima 3 informations : le nom du plugin (Nom =), une description du plugin(Description =) et un chemin d'accès vers la classe de ce plugin (NomClass =) et un chemin d'accès vers la contrainte, l'implémentation/ l'extension d'une interface (Contrainte =)
+
+	-Ces fichiers de configuration sous tous regroupé dans un dossier configuration dans le package extension
+
+	-Cela veut dire qu'un plugin ne peut exister pour le framework seulement si un fichier de configuration est présent dans ce dossier. Le chemin d'accès doit être à jour mais est indépendant de l'emplacement du fichier de configuration.
+
+ETAT D'AVANCEMENT :
 
 ** DONE Décider de la configuration et des classes de bases
    CLOSED: [2017-02-02 jeu. 19:26]
 ** DONE Refactoring bien propre
    CLOSED: [2017-03-02 jeu. 18:06]
 ** TODO Chargement dynamique (et auto) des données de configuration du héros (au min)
+
+**TODO : améliorer le moniteur pour qu'il utilise le descripteur des extensions plutôt que des affichage à la volé via le partie provider 
