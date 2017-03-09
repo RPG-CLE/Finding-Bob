@@ -1,5 +1,0 @@
-Nom = ActionJeu
-NomClasse = extension.ActionJeu
-Description = Extension permettant au personnage de réaliser une action
-Contrainte = client.interfaces.IAJ
-AutoRun = false
