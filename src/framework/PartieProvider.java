@@ -7,6 +7,7 @@ import java.lang.reflect.*;
 
 public class PartieProvider {
 	static PartieProvider _instance;
+	private IMoniteur moniteur;
 	
  // make singleton
 	 public static PartieProvider getInstance() {
@@ -14,12 +15,19 @@ public class PartieProvider {
 	            synchronized (PartieProvider.class) {
 	                if (_instance == null) {
 	                    _instance = new PartieProvider();
+	                   _instance.moniteur=(IMoniteur) _instance.getObjetByConfig(IMoniteur.class, "src/framework/configFramework.txt");
+	                   if(_instance.moniteur!=null){
+	                	   System.out.println("Le Moniteur a été chargé");
+	                   }
 	                }
 	            }
 	        }
 	        return _instance;
 	    }
 	 
+	 public void setMoniteur( IMoniteur moniteur){
+		 this.moniteur=moniteur;
+	 }
 		public List<IExtensionDesc> getExtensionDescr(Class<?> contrainte) {
 
 			// FIXME replace the following test code but do not load config files repeatedly
@@ -96,6 +104,11 @@ public class PartieProvider {
 					}
 					
 				}
+			}
+//			System.out.println("Contrainte -> "+mon_objet.getName());
+			
+			if (this.moniteur != null){
+				this.moniteur.notifier(cl.getName());
 			}
 	
 		}
