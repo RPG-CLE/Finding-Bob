@@ -32,7 +32,6 @@ public class PartieProvider {
 
 				for(Object key : prop.keySet()){
 					if(!key.equals("classe")){
-						//Method m = cl.getMethod("set"+(String)key, String.class);
 						Method getter = cl.getMethod("get"+(String)key);
 						Method m = cl.getMethod("set" + key, getter.getReturnType());
 						try{
