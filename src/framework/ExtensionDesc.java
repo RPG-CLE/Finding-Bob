@@ -10,6 +10,8 @@ public class ExtensionDesc implements IExtensionDesc {
 	private String description;
 	private Class<?> contrainte;
 	
+	public ExtensionDesc(){}
+	
 	public ExtensionDesc(Etat etat, String nom, String nomClasse,
 			String description, Class<?> contrainte) {
 		super();
