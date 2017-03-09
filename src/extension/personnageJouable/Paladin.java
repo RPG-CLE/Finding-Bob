@@ -7,16 +7,16 @@ public class Paladin implements IPersonnage{
 	private double pv; // Les points de vie du perso
 	private double force;
 	private String nom;
-	private int pos_x = 0;
-	private int pos_y = 0;
+	private int posX = 0;
+	private int posY = 0;
 	
 	public Paladin(){
 		super();
 		this.pv=10;
 		this.force=5;
 		this.nom="DefaultPaladin";
-		this.pos_x=0;
-		this.pos_y=0;
+		this.posX=0;
+		this.posY=0;
 	}
 	
 	public Paladin(double pv, double force, String nom, int x, int y) {
@@ -24,8 +24,8 @@ public class Paladin implements IPersonnage{
 		this.pv = pv;
 		this.force = force;
 		this.nom = nom;
-		this.pos_x=x;
-		this.pos_y=y;
+		this.posX=x;
+		this.posY=y;
 	}
 	
 	/* (non-Javadoc)
@@ -76,24 +76,34 @@ public class Paladin implements IPersonnage{
 	 */
 	@Override
 	public void setPos(int x,int y){
-		this.pos_x = x;
-		this.pos_y = y;
+		this.posX = x;
+		this.posY = y;
 	}
 	
 	/* (non-Javadoc)
 	 * @see client.IPersonnage#getX()
 	 */
 	@Override
-	public int getX(){
-		return pos_x;
+	public int getPosX(){
+		return posX;
+	}
+	
+
+	public void setPosX(int x){
+		posX = x;
 	}
 	
 	/* (non-Javadoc)
 	 * @see client.IPersonnage#getY()
 	 */
 	@Override
-	public int getY(){
-		return pos_y;
+	public int getPosY(){
+		return posY;
+	}
+	
+	
+	public void setPosY(int y){
+		posY = y;
 	}
 	
 	/* (non-Javadoc)
@@ -103,16 +113,16 @@ public class Paladin implements IPersonnage{
 	public void deplacer(String deplacement){
 		switch (deplacement) {
 			case "haut":  //TODO;
-				setPos(this.pos_x,this.pos_y-1);
+				setPos(this.posX,this.posY-1);
 				break;
 			case "bas":  //TODO;
-				setPos(this.pos_x,this.pos_y+1);
+				setPos(this.posX,this.posY+1);
 			    break;
 			case "gauche":  //TODO;
-				setPos(this.pos_x-1,this.pos_y);
+				setPos(this.posX-1,this.posY);
 			    break;
 			case "droite":  //TODO;
-				setPos(this.pos_x+1,this.pos_y);
+				setPos(this.posX+1,this.posY);
 			    break;
 			default: //TODO invalide direction;
 			    break;

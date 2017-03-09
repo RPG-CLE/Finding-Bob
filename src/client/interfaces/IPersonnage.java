@@ -16,9 +16,13 @@ public interface IPersonnage {
 
 	void setPos(int x, int y);
 
-	int getX();
+	int getPosX();
 
-	int getY();
+	void setPosX(int x);
+	
+	int getPosY();
+
+	void setPosY(int y);
 
 	void deplacer(String deplacement);
 

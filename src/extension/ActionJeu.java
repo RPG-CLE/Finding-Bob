@@ -15,25 +15,25 @@ public class ActionJeu implements IAJ {
 	   String choix = reader.nextLine();
 	   switch(choix){
 	   case "z" :
-		   if(j.getHero().getY()>0)
+		   if(j.getHero().getPosY()>0)
 			   j.deplacer("haut");
 		   else
 			   action(j);
 		   break;
 	   case "s" :
-		   if(j.getHero().getY()<j.getMap().getHauteur()-1)
+		   if(j.getHero().getPosY()<j.getMap().getHauteur()-1)
 			   j.deplacer("bas");
 		   else
 			   action(j);
 		   break;
 	   case "q" :
-		   if(j.getHero().getX()>0)
+		   if(j.getHero().getPosX()>0)
 			   j.deplacer("gauche");
 		   else
 			   action(j);
 		   break;
 	   case "d" :
-		   if(j.getHero().getX()<j.getMap().getLargeur()-1)
+		   if(j.getHero().getPosX()<j.getMap().getLargeur()-1)
 			   j.deplacer("droite");
 		   else
 			   action(j);
@@ -42,7 +42,7 @@ public class ActionJeu implements IAJ {
 		   action(j);
 		   break;
 	   }
-	   if(j.getEnnemi().getX()==j.getHero().getX()&&j.getEnnemi().getY()==j.getHero().getY()){
+	   if(j.getEnnemi().getPosX()==j.getHero().getPosX()&&j.getEnnemi().getPosY()==j.getHero().getPosY()){
 		   System.out.println("Votre Héro entre en Combat !!");
 		   double force_hero = j.getHero().getForce();
 		   double force_ennemi = j.getEnnemi().getForce();

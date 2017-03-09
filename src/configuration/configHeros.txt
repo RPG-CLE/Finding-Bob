@@ -1,1 +1,6 @@
 classe = extension.personnageJouable.Paladin
+PosX = 1
+PosY = 1
+Nom = Heros
+Force = 10
+Pv = 100

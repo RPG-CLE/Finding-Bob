@@ -59,20 +59,20 @@ public class Jeu {
 	public void deplacer(String deplacement){
 		switch (deplacement) {
 			case "haut":  //TODO;
-				if(hero.getY()!=0)
-					hero.setPos(hero.getX(),hero.getY()-1);
+				if(hero.getPosY()!=0)
+					hero.setPos(hero.getPosX(),hero.getPosY()-1);
 				break;
 			case "bas":  //TODO;
-				if(hero.getY()!=map.getLargeur())
-					hero.setPos(hero.getX(),hero.getY()+1);
+				if(hero.getPosY()!=map.getLargeur())
+					hero.setPos(hero.getPosX(),hero.getPosY()+1);
 			    break;
 			case "gauche":  //TODO;
-				if(hero.getX()!=0)
-					hero.setPos(hero.getX()-1,hero.getY());
+				if(hero.getPosX()!=0)
+					hero.setPos(hero.getPosX()-1,hero.getPosY());
 			    break;
 			case "droite":  //TODO;
-				if(hero.getX()!=map.getHauteur())
-					hero.setPos(hero.getX()+1,hero.getY());
+				if(hero.getPosX()!=map.getHauteur())
+					hero.setPos(hero.getPosX()+1,hero.getPosY());
 			    break;
 			default: //TODO invalide direction;
 			    break;

@@ -2,6 +2,7 @@ package framework;
 
 import java.io.FileReader;
 import java.util.Properties;
+import java.lang.reflect.*;
 
 public class PartieProvider {
 	static PartieProvider _instance;
@@ -28,7 +29,27 @@ public class PartieProvider {
 
 			if(contrainte.isAssignableFrom(cl)){
 				mon_objet = cl.newInstance();
-				//TODO Remplir extension
+
+				for(Object key : prop.keySet()){
+					if(!key.equals("classe")){
+						//Method m = cl.getMethod("set"+(String)key, String.class);
+						Method getter = cl.getMethod("get"+(String)key);
+						Method m = cl.getMethod("set" + key, getter.getReturnType());
+						try{
+							if(getter.getReturnType().equals(int.class)){
+								m.invoke(mon_objet, Integer.parseInt((String)prop.get(key)));
+							}else if(getter.getReturnType().equals(double.class)){
+								m.invoke(mon_objet, Double.parseDouble((String)prop.get(key)));
+							}else{
+								m.invoke(mon_objet, (String)prop.get(key));
+							}
+						}catch(Exception e){
+							e.printStackTrace();
+							System.out.println("Configuration incorrect");
+						}
+					}
+					
+				}
 			}
 	
 		}
