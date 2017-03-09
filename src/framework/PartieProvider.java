@@ -70,7 +70,7 @@ public class PartieProvider {
 					try {
 						prop.load(new FileReader(config));
 						Class<?> contrainte = Class.forName(prop.getProperty("Contrainte"));
-						desc = new ExtensionDesc(ExtensionDesc.Etat.NONCHARGE, prop.getProperty("Nom"), prop.getProperty("NomClasse"), prop.getProperty("Description"), contrainte);
+						desc = new ExtensionDesc(ExtensionDesc.Etat.NONCHARGE, prop.getProperty("Nom"), prop.getProperty("NomClasse"), prop.getProperty("Description"), contrainte, prop.getProperty("AutoRun"));
 						listDescs.add(desc);
 						
 					} catch (FileNotFoundException e) {
@@ -129,6 +129,7 @@ public class PartieProvider {
 		Properties prop = new Properties();
 		Object mon_objet = null;
 		try {
+			System.out.println("conf -> "+config);
 			prop.load(new FileReader(config));
 			
 			Class<?> cl = Class.forName((String)prop.get("classe"));
