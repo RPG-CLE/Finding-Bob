@@ -1,6 +1,7 @@
 package framework;
 
 import java.io.FileReader;
+import java.util.List;
 import java.util.Properties;
 import java.lang.reflect.*;
 
@@ -18,6 +19,52 @@ public class PartieProvider {
 	        }
 	        return _instance;
 	    }
+	 
+		public List<IExtensionDesc> getExtensionDescr(Class<?> contrainte) {
+
+			// FIXME replace the following test code but do not load config files repeatedly
+			/*
+			if (constraint == IAfficheur.class)
+				return Arrays.asList(new PluginDescr("affTest", "plugins.Afficheur", constraint));
+			if (constraint == IPersonBuilder.class)
+				return Arrays.asList(new PluginDescr("pBuildTest", "plugins.PersonBuilder", constraint));
+			*/
+
+			return null;
+		}
+		public List<IExtensionDesc> getExtensionDescr() {
+
+			// FIXME replace the following test code but do not load config files repeatedly
+			/*
+			if (constraint == IAfficheur.class)
+				return Arrays.asList(new PluginDescr("affTest", "plugins.Afficheur", constraint));
+			if (constraint == IPersonBuilder.class)
+				return Arrays.asList(new PluginDescr("pBuildTest", "plugins.PersonBuilder", constraint));
+			*/
+
+			return null;
+		}
+
+		public Object getExtensionForDescr(IExtensionDesc extension) {
+			Object obj = null;
+
+			try {
+				ExtensionDesc mypl = (ExtensionDesc) extension;
+				// Loading
+				Class<?> cl = Class.forName(mypl.getNomClasse());
+				// check constraint
+				if (mypl.getContrainte().isAssignableFrom(cl)) obj = cl.newInstance();
+
+			} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+
+				e.printStackTrace();
+			}
+
+			// retourner l'instance
+			return obj;
+		}
+
+	 
 	
 	public Object getObjetByConfig(Class<?> contrainte, String config){
 		Properties prop = new Properties();

@@ -3,12 +3,22 @@ package framework;
 
 public class ExtensionDesc implements IExtensionDesc {
 	public enum Etat{NONCHARGE, ENACTIVITE, ENECHEC};
-	
+
 	private Etat etat;
 	private String nom;
 	private String nomClasse;
-	private String Description;
+	private String description;
 	private Class<?> contrainte;
+	
+	public ExtensionDesc(Etat etat, String nom, String nomClasse,
+			String description, Class<?> contrainte) {
+		super();
+		this.etat = etat;
+		this.nom = nom;
+		this.nomClasse = nomClasse;
+		this.description = description;
+		this.contrainte = contrainte;
+	}
 	
 	public String getNomClasse() {
 		return nomClasse;
@@ -28,37 +38,34 @@ public class ExtensionDesc implements IExtensionDesc {
 
 	@Override
 	public String getNom() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.nom;
 	}
 
 	@Override
 	public void setNom(String nom) {
-		// TODO Auto-generated method stub
+		this.nom = nom;
 		
 	}
 
 	@Override
 	public String getDescription() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.description;
 	}
 
 	@Override
 	public void setDescription(String Desc) {
-		// TODO Auto-generated method stub
+		this.description = Desc;
 		
 	}
 
 	@Override
 	public Etat getEtat() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.etat;
 	}
 
 	@Override
 	public void setEtat(Etat etat) {
-		// TODO Auto-generated method stub
+		this.etat = etat;
 		
 	}
 
