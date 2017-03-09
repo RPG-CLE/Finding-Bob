@@ -9,6 +9,7 @@ public class ExtensionDesc implements IExtensionDesc {
 	private String nomClasse;
 	private String description;
 	private Class<?> contrainte;
+	private String autoRun;
 	
 	public ExtensionDesc(){}
 	
@@ -69,6 +70,20 @@ public class ExtensionDesc implements IExtensionDesc {
 	public void setEtat(Etat etat) {
 		this.etat = etat;
 		
+	}
+	@Override
+	public String getAutoRun(){
+		return autoRun;
+	}
+
+	@Override
+	public boolean isAutoRun() {
+		return autoRun.equals("true");
+	}
+
+	@Override
+	public void setAutoRun(String autorun) {
+		this.autoRun = autorun;
 	}
 
 }

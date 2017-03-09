@@ -145,6 +145,7 @@ public class PartieProvider {
 							}else{
 								m.invoke(mon_objet, (String)prop.get(key));
 							}
+							
 						}catch(Exception e){
 							e.printStackTrace();
 							System.out.println("Configuration incorrect");

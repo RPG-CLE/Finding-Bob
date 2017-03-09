@@ -10,5 +10,8 @@ public interface IExtensionDesc {
 	void setDescription(String Desc);
 	Etat getEtat();
 	void setEtat(Etat etat);
+	boolean isAutoRun();
+	String getAutoRun();
+	void setAutoRun(String autorun);
 
 }
