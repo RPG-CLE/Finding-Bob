@@ -11,7 +11,12 @@ public class Paladin implements IPersonnage{
 	private int pos_y = 0;
 	
 	public Paladin(){
-		;
+		super();
+		this.pv=10;
+		this.force=5;
+		this.nom="DefaultPaladin";
+		this.pos_x=0;
+		this.pos_y=0;
 	}
 	
 	public Paladin(double pv, double force, String nom, int x, int y) {
