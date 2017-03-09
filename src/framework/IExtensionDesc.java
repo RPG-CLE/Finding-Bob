@@ -6,6 +6,9 @@ public interface IExtensionDesc {
 
 	String getNom();
 	void setNom(String nom);
+	void setNomClasse(String nomClasse);
+	String getNomClasse();
+	Class<?> getContrainte();
 	String getDescription();
 	void setDescription(String Desc);
 	Etat getEtat();

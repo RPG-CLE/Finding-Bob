@@ -9,7 +9,7 @@ public class ExtensionDesc implements IExtensionDesc {
 	private String nomClasse;
 	private String description;
 	private Class<?> contrainte;
-	private String autoRun;
+	private String autoRun = "false";
 	
 	public ExtensionDesc(){}
 	

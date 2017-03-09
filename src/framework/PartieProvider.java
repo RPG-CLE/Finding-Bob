@@ -20,6 +20,9 @@ public class PartieProvider {
 		getExtensionDescr();
 	}
 	
+	public List<IExtensionDesc> getList(){
+		return extenstionDescripteurs;
+	}
 	public List<IExtensionDesc> getExtenstionDescripteurs() {
 		return extenstionDescripteurs;
 	}
@@ -49,7 +52,7 @@ public class PartieProvider {
 
 				for (int i = 0; i < listOfFiles.length; i++) {
 					if (listOfFiles[i].isFile()) {
-						fileNameStrings.add(directoryName + "/" + listOfFiles[i].getName());
+						fileNameStrings.add("src/"+directoryName + "/" + listOfFiles[i].getName());
 				    }
 				}
 				    
