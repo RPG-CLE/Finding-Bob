@@ -17,11 +17,19 @@ public class ChargeurPartie {
 		return new Jeu(principal, map, vilain);
 	}
 	
+	/*
 	public static IAfficheur chargerAfficheur(){
 		IAfficheur afficheur = (IAfficheur) PartieProvider.getInstance().getObjetByConfig(IAfficheur.class,"src/configuration/configAfficheur.txt");
 		if (afficheur ==null) System.out.println("erreur");
 		return afficheur;
 	}
+	*/
+	public static IAfficheur chargerAfficheur(){
+		IAfficheur afficheur = (IAfficheur) PartieProvider.getInstance().getObjetByConfig(IAfficheur.class,"src/configuration/configAfficheurGraphique.txt");
+		if (afficheur ==null) System.out.println("erreur");
+		return afficheur;
+	}
+
 	
 	public static IAJ chargerActionJeu(){
 		IAJ actionJeu = (IAJ) PartieProvider.getInstance().getObjetByConfig(IAJ.class,"src/configuration/configAction.txt");
