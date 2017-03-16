@@ -1,0 +1,5 @@
+Nom = Mage
+NomClasse = extension.personnageJouable.Mage
+Description = Extension permettant de créer un nouveau type de personnage 
+Contrainte = client.interfaces.IPersonnage
+AutoRun = false
