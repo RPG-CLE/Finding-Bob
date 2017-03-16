@@ -162,7 +162,12 @@ public class PartieProvider {
 				mon_objet = cl.newInstance();
 			}
 			if (this.moniteur != null && desc.isAutoRun()){
-				this.moniteur.notifierAutorun(cl.getName());
+				if(!(cl.getAnnotation(MethodAutorun.class)==null)){
+					this.moniteur.notifierAutorun(cl.getName());
+					Method m = cl.getMethod((String) cl.getAnnotation(MethodAutorun.class).run());
+					m.invoke(mon_objet);
+					
+				}
 			}
 		}
 		catch (Exception e){

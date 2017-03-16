@@ -10,8 +10,7 @@ public class MainFramework {
 		List<IExtensionDesc> listExtentions =  PartieProvider.getInstance().getList();
 		for(IExtensionDesc exten : listExtentions){
 			if(exten.isAutoRun()){
-				IApplication app = (IApplication) PartieProvider.getInstance().getObjetByDesc( exten);
-				app.lancer();
+				PartieProvider.getInstance().getObjetByDesc(exten);
 			}
 		}
 	}
