@@ -21,6 +21,7 @@ public class AfficheurGraphique implements IAfficheur{
 			initialiserJeu(jeu);
 			dejaAffiche = !dejaAffiche;
 		}
+		fenetre.update();
 	}
 	
 	public void initialiserFenetre(){
@@ -31,7 +32,7 @@ public class AfficheurGraphique implements IAfficheur{
 	
 	public void initialiserJeu(Jeu jeu){
 		fenetre.setSize(jeu.getMap().getLargeur() * tailleCaseX, jeu.getMap().getHauteur() * tailleCaseY);
-		fenetre.initialiserFenetre(jeu.getMap().getLargeur(), jeu.getMap().getLargeur());
+		fenetre.initialiserFenetre(jeu);
 		
 	}
 	
