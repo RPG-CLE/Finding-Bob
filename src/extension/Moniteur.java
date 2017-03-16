@@ -5,7 +5,14 @@ public class Moniteur implements IMoniteur {
 	@Override
 	public void notifier(String s) {
 		
-		System.out.println("Le plugin "+s+" a été chargé");
+		System.out.println("Le plugin "+s+" a ï¿½tï¿½ chargï¿½");
+		
+	}
+
+	@Override
+	public void notifierAutorun(String s) {
+		
+		System.out.println("Le plugin "+s+" (autorun) a Ã©tÃ© lancÃ©.");
 		
 	}
 
