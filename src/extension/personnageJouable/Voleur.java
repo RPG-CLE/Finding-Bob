@@ -10,7 +10,7 @@ public class Voleur implements IPersonnage {
 	
 	public Voleur(){
 		super();
-		this.pv=7;
+		this.pv=6;
 		this.force=9;
 		this.nom="DefaultVoleur";
 		this.posX=0;
