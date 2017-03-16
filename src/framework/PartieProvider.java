@@ -7,14 +7,15 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.Properties;
 
 import framework.ExtensionDesc.Etat;
 
-public class PartieProvider {
+public class PartieProvider extends Observable {
 	private List<IExtensionDesc> extenstionDescripteurs;
 	static PartieProvider _instance;
-	private IMoniteur moniteur;
 	
 	private PartieProvider(){
 		getExtensionDescr();
@@ -27,16 +28,13 @@ public class PartieProvider {
 		return extenstionDescripteurs;
 	}
 	
+	
  // make singleton
 	 public static PartieProvider getInstance() {
 	        if (_instance == null) {
 	            synchronized (PartieProvider.class) {
 	                if (_instance == null) {
 	                    _instance = new PartieProvider();
-	                   _instance.moniteur=(IMoniteur) _instance.getObjetByConfig(IMoniteur.class, "src/framework/configFramework.txt");
-	                   if(_instance.moniteur!=null){
-	                	   System.out.println("Le Moniteur a été chargé");
-	                   }
 	                }
 	            }
 	        }
@@ -101,10 +99,6 @@ public class PartieProvider {
 		 
 		return null;
 	}
-	 
-	 public void setMoniteur( IMoniteur moniteur){
-		 this.moniteur=moniteur;
-	 } 
 	
 	public Object getObjetByConfig(Class<?> contrainte, String config){
 		Properties prop = new Properties();
@@ -116,7 +110,8 @@ public class PartieProvider {
 
 			if(contrainte.isAssignableFrom(cl)){
 				mon_objet = cl.newInstance();
-
+				_instance.setChanged();
+				_instance.notifyObservers("une instance de "+cl.getName()+" a été chargé ");
 				for(Object key : prop.keySet()){
 					if(!key.equals("classe")){
 						Method getter = cl.getMethod("get"+(String)key);
@@ -130,6 +125,7 @@ public class PartieProvider {
 								m.invoke(mon_objet, (String)prop.get(key));
 							}
 							
+							
 						}catch(Exception e){
 							e.printStackTrace();
 							System.out.println("Configuration incorrect");
@@ -137,11 +133,6 @@ public class PartieProvider {
 					}
 					
 				}
-			}
-//			System.out.println("Contrainte -> "+mon_objet.getName());
-			
-			if (this.moniteur != null){
-				this.moniteur.notifier(cl.getName());
 			}
 	
 		}
@@ -161,12 +152,21 @@ public class PartieProvider {
 			if(desc.getContrainte().isAssignableFrom(cl)){
 				mon_objet = cl.newInstance();
 			}
-			if (this.moniteur != null && desc.isAutoRun()){
+			_instance.setChanged();
+			_instance.notifyObservers("une instance de "+cl.getName()+" a été chargé. ");
+			
+			if(desc.getContrainte().equals(Observer.class)){
+				System.out.println("test");
+				_instance.addObserver((Observer) mon_objet);
+			}
+			
+			if (desc.isAutoRun()){
 				if(!(cl.getAnnotation(MethodAutorun.class)==null)){
-					this.moniteur.notifierAutorun(cl.getName());
+					System.out.println("test");
+					_instance.setChanged();
+					_instance.notifyObservers("une instance de "+cl.getName()+" lancé. ");
 					Method m = cl.getMethod((String) cl.getAnnotation(MethodAutorun.class).run());
 					m.invoke(mon_objet);
-					
 				}
 			}
 		}

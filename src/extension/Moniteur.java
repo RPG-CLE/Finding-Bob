@@ -1,18 +1,19 @@
 package extension;
-import framework.IMoniteur;;
-public class Moniteur implements IMoniteur {
 
-	@Override
-	public void notifier(String s) {
-		
-		System.out.println("Le plugin "+s+" a été chargé.");
-		
+import java.util.Observable;
+import java.util.Observer;
+
+import framework.MethodAutorun;
+
+@MethodAutorun(run="jeMeLance")
+public class Moniteur implements Observer {
+
+	public void jeMeLance(){
+		System.out.println("je suis LE( THE) moniteur et je me lance");
 	}
-
 	@Override
-	public void notifierAutorun(String s) {
-		
-		System.out.println("Le plugin "+s+" (autorun) a été lancé.");
+	public void update(Observable o, Object arg) {
+		System.out.println(arg);
 		
 	}
 
