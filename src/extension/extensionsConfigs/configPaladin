@@ -1,4 +1,4 @@
 Nom = Paladin
 NomClasse = extension.personnageJouable.Paladin
-Description = Extension permettant de créer un nouveau type de personnage 
+Description = Extension permettant de créer un nouveau type de personnage Paladin
 Contrainte = client.interfaces.IPersonnage

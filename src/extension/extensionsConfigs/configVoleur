@@ -1,0 +1,4 @@
+Nom = Voleur
+NomClasse = extension.personnageJouable.Voleur
+Description = Extension permettant de créer un nouveau type de personnage Voleur
+Contrainte = client.interfaces.IPersonnage
