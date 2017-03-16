@@ -4,10 +4,12 @@ import java.util.Scanner;
 
 import client.interfaces.IAJ;
 import client.interfaces.IAfficheur;
+import client.interfaces.IPersonnage;
+import framework.IApplication;
 
-public class Application {
+public class Application  implements IApplication{
 
-	public static void main(String[] args) {
+	public void lancer(){
 		Jeu jeu = ChargeurPartie.charger();
 		IAfficheur afficheur = ChargeurPartie.chargerAfficheur();
 		jeu.setAfficheur(afficheur);

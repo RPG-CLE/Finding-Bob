@@ -2,3 +2,4 @@ Nom = ActionBasic
 NomClasse = extension.ActionBasic
 Description = Extension permettant au personnage de réaliser une action basique
 Contrainte = client.interfaces.IAJ
+AutoRun = false

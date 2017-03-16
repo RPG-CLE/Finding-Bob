@@ -2,3 +2,4 @@ Nom = Afficheur
 NomClasse = extension.Afficheur
 Description = Simple extension permettant l'affichage du jeu par des caractères
 Contrainte = client.interfaces.IAfficheur
+AutoRun = false

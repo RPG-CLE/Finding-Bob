@@ -70,7 +70,7 @@ public class PartieProvider {
 					try {
 						prop.load(new FileReader(config));
 						Class<?> contrainte = Class.forName(prop.getProperty("Contrainte"));
-						desc = new ExtensionDesc(ExtensionDesc.Etat.NONCHARGE, prop.getProperty("Nom"), prop.getProperty("NomClasse"), prop.getProperty("Description"), contrainte);
+						desc = new ExtensionDesc(ExtensionDesc.Etat.NONCHARGE, prop.getProperty("Nom"), prop.getProperty("NomClasse"), prop.getProperty("Description"), contrainte, prop.getProperty("AutoRun"));
 						listDescs.add(desc);
 						
 					} catch (FileNotFoundException e) {
@@ -164,14 +164,35 @@ public class PartieProvider {
 			}
 	
 		}
-			
-			
-		
 		catch (Exception e){
 			e.printStackTrace();
 			System.out.println("Bonjour, votre ordinateur a explosé");
 		}
 		return mon_objet;
 	}
+	
+		
+		public Object getObjetByDesc(Class<?> contrainte, IExtensionDesc desc){
+			Properties prop = new Properties();
+			Object mon_objet = null;
+			
+			try {
+				Class<?> cl = Class.forName((String)desc.getNomClasse());
+				if(desc.getContrainte().equals(contrainte)){
+					mon_objet = cl.newInstance();
+				}
+				if (this.moniteur != null && desc.isAutoRun()){
+					this.moniteur.notifierAutorun(cl.getName());
+				}
+			}
+			catch (Exception e){
+				return null;
+			}
+			return mon_objet;
+		}
+			
+			
+		
+		
 }
 

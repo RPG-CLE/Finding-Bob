@@ -23,6 +23,17 @@ public class ExtensionDesc implements IExtensionDesc {
 		this.contrainte = contrainte;
 	}
 	
+	public ExtensionDesc(Etat etat, String nom, String nomClasse,
+			String description, Class<?> contrainte, String autoRun) {
+		super();
+		this.etat = etat;
+		this.nom = nom;
+		this.nomClasse = nomClasse;
+		this.description = description;
+		this.contrainte = contrainte;
+		this.autoRun =  autoRun;
+	}
+	
 	public String getNomClasse() {
 		return nomClasse;
 	}
