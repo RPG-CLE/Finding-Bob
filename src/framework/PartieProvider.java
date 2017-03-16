@@ -60,66 +60,47 @@ public class PartieProvider {
 			}
 			
 			// Recuperer tous les descripteur des plugins
-			private void getExtensionDescr() {
-				List<IExtensionDesc> listDescs = new ArrayList<IExtensionDesc>();
-				//recup les fichiers du dossier
-				for (String config: getExtensionsFileNames("extension/extensionsConfigs")) {
-					Properties prop = new Properties();
-					IExtensionDesc desc = null;//new ExtensionDesc(etat, nom, nomClasse, description, contrainte
-					
-					try {
-						prop.load(new FileReader(config));
-						Class<?> contrainte = Class.forName(prop.getProperty("Contrainte"));
-						desc = new ExtensionDesc(ExtensionDesc.Etat.NONCHARGE, prop.getProperty("Nom"), prop.getProperty("NomClasse"), prop.getProperty("Description"), contrainte, prop.getProperty("AutoRun"));
-						listDescs.add(desc);
-						
-					} catch (FileNotFoundException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (ClassNotFoundException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-
-				}
+	private void getExtensionDescr() {
+		List<IExtensionDesc> listDescs = new ArrayList<IExtensionDesc>();
+		//recup les fichiers du dossier
+		for (String config: getExtensionsFileNames("extension/extensionsConfigs")) {
+			Properties prop = new Properties();
+			IExtensionDesc desc = null;//new ExtensionDesc(etat, nom, nomClasse, description, contrainte
+			
+			try {
+				prop.load(new FileReader(config));
+				Class<?> contrainte = Class.forName(prop.getProperty("Contrainte"));
+				desc = new ExtensionDesc(ExtensionDesc.Etat.NONCHARGE, prop.getProperty("Nom"), prop.getProperty("NomClasse"), prop.getProperty("Description"), contrainte, prop.getProperty("AutoRun"));
+				listDescs.add(desc);
 				
-				extenstionDescripteurs = listDescs;
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 
-			/*public Object getExtensionForDescr(IExtensionDesc extension) {
-				Object obj = null;
+		}
+		
+		extenstionDescripteurs = listDescs;
+	}
 
-				try {
-					ExtensionDesc mypl = (ExtensionDesc) extension;
-					// Loading
-					Class<?> cl = Class.forName(mypl.getNomClasse());
-					// check constraint
-					if (mypl.getContrainte().isAssignableFrom(cl)) obj = cl.newInstance();
-
-				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
-
-					e.printStackTrace();
-				}
-
-				// retourner l'instance
-				return obj;
-			}*/
-
-		 private void setDescripteurEtat(IExtensionDesc desc, Etat etat){
-			 extenstionDescripteurs.get(extenstionDescripteurs.indexOf(desc)).setEtat(etat);
-		 }
+	private void setDescripteurEtat(IExtensionDesc desc, Etat etat){
+		 extenstionDescripteurs.get(extenstionDescripteurs.indexOf(desc)).setEtat(etat);
+	}
+	 
+	private IExtensionDesc getDescripteurParNom(String nom){
+		for(IExtensionDesc d : extenstionDescripteurs){
+			 if(d.getNom().equals(nom))
+				 return d;
+		}
 		 
-		 private IExtensionDesc getDescripteurParNom(String nom){
-			 for(IExtensionDesc d : extenstionDescripteurs){
-				 if(d.getNom().equals(nom))
-					 return d;
-			 }
-			 
-			 return null;
-		 }
+		return null;
+	}
 	 
 	 public void setMoniteur( IMoniteur moniteur){
 		 this.moniteur=moniteur;
@@ -172,24 +153,23 @@ public class PartieProvider {
 	}
 	
 		
-		public Object getObjetByDesc(Class<?> contrainte, IExtensionDesc desc){
-			Properties prop = new Properties();
-			Object mon_objet = null;
-			
-			try {
-				Class<?> cl = Class.forName((String)desc.getNomClasse());
-				if(desc.getContrainte().equals(contrainte)){
-					mon_objet = cl.newInstance();
-				}
-				if (this.moniteur != null && desc.isAutoRun()){
-					this.moniteur.notifierAutorun(cl.getName());
-				}
+	public Object getObjetByDesc(IExtensionDesc desc){
+		Object mon_objet = null;
+		
+		try {
+			Class<?> cl = Class.forName((String)desc.getNomClasse());
+			if(desc.getContrainte().isAssignableFrom(cl)){
+				mon_objet = cl.newInstance();
 			}
-			catch (Exception e){
-				return null;
+			if (this.moniteur != null && desc.isAutoRun()){
+				this.moniteur.notifierAutorun(cl.getName());
 			}
-			return mon_objet;
 		}
+		catch (Exception e){
+			return null;
+		}
+		return mon_objet;
+	}
 			
 			
 		
