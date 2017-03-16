@@ -1,5 +1,5 @@
 Nom = MainClient
 NomClasse = client.Application
 Description = main permettant le lancement du jeu
-Contrainte = framework.IApplication
+Contrainte = client.Application
 AutoRun = true

@@ -5,9 +5,10 @@ import java.util.Scanner;
 import client.interfaces.IAJ;
 import client.interfaces.IAfficheur;
 import client.interfaces.IPersonnage;
-import framework.IApplication;
+import framework.MethodAutorun;
 
-public class Application  implements IApplication{
+@MethodAutorun(run="lancer")
+public class Application{
 
 	public void lancer(){
 		Jeu jeu = ChargeurPartie.charger();
