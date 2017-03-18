@@ -7,8 +7,8 @@ import client.interfaces.IAfficheur;
 
 public class AfficheurGraphique implements IAfficheur{
 	private FenetreJeu fenetre;
-	private int tailleCaseX = 100;
-	private int tailleCaseY = 100;
+	private int tailleCaseX = 32;
+	private int tailleCaseY = 32;
 	private boolean dejaAffiche = false;
 	
 	public AfficheurGraphique(){
@@ -31,8 +31,10 @@ public class AfficheurGraphique implements IAfficheur{
 	}
 	
 	public void initialiserJeu(Jeu jeu){
-		fenetre.setSize(jeu.getMap().getLargeur() * tailleCaseX, jeu.getMap().getHauteur() * tailleCaseY);
+		//fenetre.setSize(jeu.getMap().getLargeur() * tailleCaseX, jeu.getMap().getHauteur() * tailleCaseY);
 		fenetre.initialiserFenetre(jeu);
+		fenetre.pack();
+		//fenetre.setResizable(false);
 		
 	}
 	

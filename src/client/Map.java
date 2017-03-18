@@ -1,12 +1,15 @@
 package client;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Map {
-	private Case[][] carte;
+	private Case[][] cases;
 	private int largeur;
 	private int hauteur;
 	
 	public Map(int largeur, int hauteur){
-		this.carte = new Case[largeur][hauteur];
+		this.cases = new Case[largeur][hauteur];
 		this.largeur = largeur;
 		this.hauteur = hauteur;
 	}
@@ -32,15 +35,48 @@ public class Map {
 	}
 
 
-	public Case[][] getCarte() {
-		return carte;
+	public Case[][] getCases() {
+		return cases;
 	}
 
-	public void setCarte(Case[][] carte) {
-		this.carte = carte;
+	public void setCases(Case[][] carte) {
+		this.cases = carte;
+	}
+	
+	public void setCase(int x, int y, Case _case){
+		cases[x][y] = _case;
 	}
 	
 	public Case getCase(int x, int y){
-		return carte[x][y];
+		if(x >= 0 && y >= 0 && x < getLargeur() && y < getHauteur())
+			return cases[x][y];
+		else
+			return null;
 	}
+	
+	public List<Case> getCasesAdjacentes(int x, int y){
+		List<Case> listCase = new ArrayList<Case>();
+		
+		if(this.getCase(x, y-1) != null)
+			listCase.add(this.getCase(x, y-1));
+		if(this.getCase(x, y+1) != null)
+			listCase.add(this.getCase(x, y+1));
+		if(this.getCase(x-1, y) != null)
+			listCase.add(this.getCase(x-1, y));
+		if(this.getCase(x+1, y) != null)
+			listCase.add(this.getCase(x+1, y));
+		
+		if(this.getCase(x-1, y-1) != null)
+			listCase.add(this.getCase(x-1, y-1));
+		if(this.getCase(x+1, y-1) != null)
+			listCase.add(this.getCase(x+1, y-1));
+		if(this.getCase(x+1, y+1) != null)
+			listCase.add(this.getCase(x+1, y+1));
+		if(this.getCase(x-1, y+1) != null)
+			listCase.add(this.getCase(x-1, y+1));
+				
+		return listCase;
+	}
+	
+	
 }

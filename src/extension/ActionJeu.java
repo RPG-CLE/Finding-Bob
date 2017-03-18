@@ -13,33 +13,25 @@ public class ActionJeu implements IAJ {
 	   Scanner reader = new Scanner(System.in);  // Reading from System.in
 	   System.out.println("Saisissez un déplacement : z = haut, s = bas, q = gauche, d = droite ");
 	   String choix = reader.nextLine();
+
 	   switch(choix){
 	   case "z" :
 		   if(j.getHero().getPosY()>0)
-			   j.deplacer("haut");
-		   else
-			   action(j);
+			   j.getHero().deplacer("haut");
 		   break;
 	   case "s" :
 		   if(j.getHero().getPosY()<j.getMap().getHauteur()-1)
-			   j.deplacer("bas");
-		   else
-			   action(j);
+			   j.getHero().deplacer("bas");
 		   break;
 	   case "q" :
 		   if(j.getHero().getPosX()>0)
-			   j.deplacer("gauche");
-		   else
-			   action(j);
+			   j.getHero().deplacer("gauche");
 		   break;
 	   case "d" :
 		   if(j.getHero().getPosX()<j.getMap().getLargeur()-1)
-			   j.deplacer("droite");
-		   else
-			   action(j);
+			   j.getHero().deplacer("droite");
 		   break;
 	   default:
-		   action(j);
 		   break;
 	   }
 	   if(j.getEnnemi().getPosX()==j.getHero().getPosX()&&j.getEnnemi().getPosY()==j.getHero().getPosY()){
@@ -64,8 +56,10 @@ public class ActionJeu implements IAJ {
 		   j.getHero().setPv(vie_hero);
 		   j.getEnnemi().setPv(vie_ennemi);
 	   }
+	   
 	   if(j.getHero().getPv()<1)
 		   return false;
+	   
 	   j.afficher();
 	   System.out.println();
 	   return true;

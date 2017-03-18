@@ -2,11 +2,10 @@ package client;
 
 import client.interfaces.IAfficheur;
 import client.interfaces.IPersonnage;
-import extension.Afficheur;
 
 public class Jeu {
 	IPersonnage hero;
-	Map map;
+	public static Map map;
 	IPersonnage ennemi;
 	IAfficheur afficheur;
 	
@@ -23,7 +22,7 @@ public class Jeu {
 	public Jeu(IPersonnage hero, Map map, IPersonnage ennemi) {
 		super();
 		this.hero = hero;
-		this.map = map;
+		Jeu.map = map;
 		this.ennemi = ennemi;
 	}
 	
@@ -53,30 +52,7 @@ public class Jeu {
 
 
 	public void setMap(Map map) {
-		this.map = map;
-	}
-
-	public void deplacer(String deplacement){
-		switch (deplacement) {
-			case "haut":  //TODO;
-				if(hero.getPosY()!=0)
-					hero.setPos(hero.getPosX(),hero.getPosY()-1);
-				break;
-			case "bas":  //TODO;
-				if(hero.getPosY()!=map.getLargeur())
-					hero.setPos(hero.getPosX(),hero.getPosY()+1);
-			    break;
-			case "gauche":  //TODO;
-				if(hero.getPosX()!=0)
-					hero.setPos(hero.getPosX()-1,hero.getPosY());
-			    break;
-			case "droite":  //TODO;
-				if(hero.getPosX()!=map.getHauteur())
-					hero.setPos(hero.getPosX()+1,hero.getPosY());
-			    break;
-			default: //TODO invalide direction;
-			    break;
-		}
+		Jeu.map = map;
 	}
 	
 	public void afficher(){

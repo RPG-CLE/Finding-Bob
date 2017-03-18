@@ -4,11 +4,11 @@ import client.interfaces.IPersonnage;
 
 public class Personnage implements IPersonnage{
 	
-	private double pv; // Les points de vie du perso
-	private double force;
-	private String nom;
-	private int posX = 0;
-	private int posY = 0;
+	protected double pv; // Les points de vie du perso
+	protected double force;
+	protected String nom;
+	protected int posX = 0;
+	protected int posY = 0;
 	
 	public Personnage(){
 		;
@@ -106,16 +106,32 @@ public class Personnage implements IPersonnage{
 	public void deplacer(String deplacement){
 		switch (deplacement) {
 			case "haut":  //TODO;
-				setPos(this.posX,this.posY-1);
+				if(getPosY()!=0){
+					Jeu.map.getCase(getPosX(),getPosY()).setPersonnage(null);
+					setPos(getPosX(),getPosY()-1);
+					Jeu.map.getCase(getPosX(),getPosY()).setPersonnage(this);
+				}
 				break;
 			case "bas":  //TODO;
-				setPos(this.posX,this.posY+1);
+				if(getPosY()!=Jeu.map.getLargeur()){
+					Jeu.map.getCase(getPosX(),getPosY()).setPersonnage(null);
+					setPos(getPosX(),getPosY()+1);
+					Jeu.map.getCase(getPosX(),getPosY()).setPersonnage(this);
+				}
 			    break;
 			case "gauche":  //TODO;
-				setPos(this.posX-1,this.posY);
+				if(getPosX()!=0){
+					Jeu.map.getCase(getPosX(),getPosY()).setPersonnage(null);
+					setPos(getPosX()-1,getPosY());
+					Jeu.map.getCase(getPosX(),getPosY()).setPersonnage(this);
+				}
 			    break;
 			case "droite":  //TODO;
-				setPos(this.posX+1,this.posY);
+				if(getPosX()!=Jeu.map.getHauteur()){
+					Jeu.map.getCase(getPosX(),getPosY()).setPersonnage(null);
+					setPos(getPosX()+1,getPosY());
+					Jeu.map.getCase(getPosX(),getPosY()).setPersonnage(this);
+				}
 			    break;
 			default: //TODO invalide direction;
 			    break;

@@ -5,6 +5,21 @@ import java.awt.Component;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.Console;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.StringBufferInputStream;
+import java.io.StringReader;
+import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
@@ -14,7 +29,7 @@ import javax.swing.JPanel;
 import client.Case;
 import client.Jeu;
 
-public class FenetreJeu extends JFrame implements ActionListener{
+public class FenetreJeu extends JFrame implements KeyListener {
 	/**
 	 * 
 	 */
@@ -22,17 +37,17 @@ public class FenetreJeu extends JFrame implements ActionListener{
 	JPanel panneau;
 	GridLayout casesJeu; 
 	CaseApparence casesApparence[][];
+	
+	Jeu jeu;
 
 	public FenetreJeu(String nomJeu) {
 		super(nomJeu);
+		addKeyListener(this);
 	}
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+
 	
 	public void initialiserFenetre(Jeu jeu){
+		this.jeu = jeu;
 		casesJeu = new GridLayout(jeu.getMap().getLargeur(),jeu.getMap().getHauteur(), -1, -1);
 		panneau = new JPanel(casesJeu);
 		casesApparence = new CaseApparence[jeu.getMap().getLargeur()][jeu.getMap().getHauteur()];
@@ -40,14 +55,15 @@ public class FenetreJeu extends JFrame implements ActionListener{
 		panneau.setBorder(BorderFactory.createEmptyBorder(2, 2, 2, 2));
 		this.add(panneau);
 		//panneau.setBackground(Color.red);
-		for(int i = 0; i < jeu.getMap().getLargeur(); i++){
-			for(int j = 0; j < jeu.getMap().getHauteur(); j++){
-				casesApparence[i][j]= new CaseApparence();
-				casesApparence[i][j].setCaseJeu(jeu.getMap().getCase(i, j));
-				panneau.add(casesApparence[i][j]);
+		for(int y = 0; y < jeu.getMap().getHauteur(); y++){
+			for(int x = 0; x < jeu.getMap().getLargeur(); x++){
+				casesApparence[y][x]= new CaseApparence();
+				casesApparence[y][x].setCaseJeu(jeu.getMap().getCase(x, y));
+				panneau.add(casesApparence[y][x]);
 
 			}
 		}
+		
 	}
 	
 	public void update(){
@@ -56,6 +72,45 @@ public class FenetreJeu extends JFrame implements ActionListener{
 				casesApparence[i][j].update();
 			}
 		}
+	}
+
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		if(e.getKeyChar() == 'z'){
+
+		}
+		else if (e.getKeyChar() == 'q'){
+			
+				System.setIn(new ByteArrayInputStream( "q\n".getBytes()));
+			
+		}
+		else if (e.getKeyChar() == 's'){
+	
+				System.setIn(new ByteArrayInputStream( "s\n".getBytes()));
+			
+			
+		}
+		else if (e.getKeyChar() == 'd'){
+			
+				System.setIn(new ByteArrayInputStream( "d\n".getBytes()));
+	
+		}
+		
+	}
+
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

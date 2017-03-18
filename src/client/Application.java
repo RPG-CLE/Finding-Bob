@@ -1,10 +1,7 @@
 package client;
 
-import java.util.Scanner;
-
 import client.interfaces.IAJ;
 import client.interfaces.IAfficheur;
-import client.interfaces.IPersonnage;
 import framework.MethodAutorun;
 
 @MethodAutorun(run="lancer")
