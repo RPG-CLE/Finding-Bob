@@ -5,6 +5,7 @@ import java.util.Random;
 
 import client.interfaces.IAJ;
 import client.interfaces.IAfficheur;
+import client.interfaces.IMap;
 import client.interfaces.IPersonnage;
 import framework.PartieProvider;
 
@@ -14,18 +15,12 @@ public class ChargeurPartie {
 				"src/configuration/configHeros.txt");
 		IPersonnage vilain = (IPersonnage) PartieProvider.getInstance().getObjetByConfig(IPersonnage.class,
 				"src/configuration/configVilain.txt");
-		Map map = new Map(20, 20);
-
-		for (int i = 0; i < map.getLargeur(); i++) {
-			for (int j = 0; j < map.getHauteur(); j++) {
-				map.setCase(i, j, new Case("Herbe"));
-			}
-		}
-		genererMonde(map, 0.09);
+		IMap map = (IMap) PartieProvider.getInstance().getObjetByConfig(IMap.class,
+				"src/configuration/configMap.txt");
 		
-		map.getCase(principal.getPosX(), principal.getPosY()).setPersonnage(principal);
-		map.getCase(vilain.getPosX(), vilain.getPosY()).setPersonnage(vilain);
-		
+		map.setHero(principal);
+		map.setVilain(vilain);
+				
 		return new Jeu(principal, map, vilain);
 	}
 
@@ -52,28 +47,5 @@ public class ChargeurPartie {
 		return actionJeu;
 	}
 
-	public static void genererMonde(Map map, double pourcentage) {
-		int caseX, caseY;
-		Random random = new Random();
-
-		System.out.println(pourcentage * map.getHauteur()*map.getLargeur());
-		for (int i = 0; i < pourcentage * map.getHauteur()*map.getLargeur(); i++) {
-			caseX = random.nextInt(map.getLargeur());
-			caseY = random.nextInt(map.getHauteur());
-			
-			if(map.getCase(caseX, caseY) == null) continue;
-			
-			map.getCase(caseX, caseY).setNom("Eau");
-			
-			List<Case> listCase = map.getCasesAdjacentes(caseX, caseY);
-			for(Case _case : listCase){
-				if(!_case.getNom().equals("Eau")){
-					_case.setNom("Terre");
-				}
-			}
-
-		}
-
-	}
 
 }

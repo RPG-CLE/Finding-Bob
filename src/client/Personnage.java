@@ -14,6 +14,7 @@ public class Personnage implements IPersonnage{
 	protected int posX = 0;
 	protected int posY = 0;
 	protected Map<Class<? extends IAction>,IAction> actions;
+
 	
 	public Personnage(){
 		actions = new HashMap<Class<? extends IAction>,IAction>();

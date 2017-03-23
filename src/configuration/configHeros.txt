@@ -1,6 +1,12 @@
 classe = extension.personnageJouable.Paladin
+<<<<<<< HEAD
 PosX = 1
 PosY = 1
 Nom = mage
+=======
+PosX = 5
+PosY = 5
+Nom = paladin
+>>>>>>> e9aea44cf86a49421b593af4d7004c2e3f32b238
 Force = 10
 Pv = 100

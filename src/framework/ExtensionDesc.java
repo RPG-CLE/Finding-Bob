@@ -1,6 +1,11 @@
 package framework;
 
 
+/**
+ * Class ExtensionDesc pour Extension Descriptor
+ * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallée
+ *
+ */
 public class ExtensionDesc implements IExtensionDesc {
 	public enum Etat{NONCHARGE, ENACTIVITE, ENECHEC};
 
@@ -11,8 +16,20 @@ public class ExtensionDesc implements IExtensionDesc {
 	private Class<?> contrainte;
 	private String autoRun = "false";
 	
+	/**
+	 * Constructeur par défaut
+	 */
 	public ExtensionDesc(){}
 	
+	
+	/**
+	 * Constructeur prenant des paramètres
+	 * @param etat 
+	 * @param nom
+	 * @param nomClasse
+	 * @param description
+	 * @param contrainte
+	 */
 	public ExtensionDesc(Etat etat, String nom, String nomClasse,
 			String description, Class<?> contrainte) {
 		super();
