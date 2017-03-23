@@ -57,8 +57,11 @@ private static final long serialVersionUID = 446562574325842386L;
 		case "paladin" :
 			icon = "data/bobpaladin.png";
 			break;
-		case "Vilain" :
+		case "vilain" :
 			icon = "data/monstrevaricelle.png";
+			break;
+		case "monstraquatique" :
+			icon = "data/monstreaquatique.png";
 			break;
 		default:
 			icon = "data/bobpaladin.png";
