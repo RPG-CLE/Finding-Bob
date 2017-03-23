@@ -1,6 +1,7 @@
 package client;
 
 import client.interfaces.IAfficheur;
+import client.interfaces.IEntreeUtilisateur;
 import client.interfaces.IMap;
 import client.interfaces.IPersonnage;
 
@@ -9,7 +10,18 @@ public class Jeu {
 	public static IMap map;
 	IPersonnage ennemi;
 	IAfficheur afficheur;
+	IEntreeUtilisateur entree;
 	
+	public IEntreeUtilisateur getEntree() {
+		return entree;
+	}
+
+
+	public void setEntree(IEntreeUtilisateur entree) {
+		this.entree = entree;
+	}
+
+
 	public IAfficheur getAfficheur() {
 		return afficheur;
 	}
@@ -19,11 +31,12 @@ public class Jeu {
 		this.afficheur = afficheur;
 	}
 
-	public Jeu(IPersonnage hero, IMap map, IPersonnage ennemi) {
+	public Jeu(IPersonnage hero, IMap map, IPersonnage ennemi, IEntreeUtilisateur entree) {
 		super();
 		this.hero = hero;
 		Jeu.map = map;
 		this.ennemi = ennemi;
+		this.entree = entree;
 	}
 	
 	

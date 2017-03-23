@@ -77,26 +77,7 @@ public class FenetreJeu extends JFrame implements KeyListener {
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-		if(e.getKeyChar() == 'z'){
-
-		}
-		else if (e.getKeyChar() == 'q'){
-			
-				System.setIn(new ByteArrayInputStream( "q\n".getBytes()));
-			
-		}
-		else if (e.getKeyChar() == 's'){
-	
-				System.setIn(new ByteArrayInputStream( "s\n".getBytes()));
-			
-			
-		}
-		else if (e.getKeyChar() == 'd'){
-			
-				System.setIn(new ByteArrayInputStream( "d\n".getBytes()));
-	
-		}
-		
+		((EntreeIhm)jeu.getEntree()).setTyped(e.getKeyChar());
 	}
 
 

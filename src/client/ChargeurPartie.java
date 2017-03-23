@@ -4,11 +4,14 @@ package client;
 import client.interfaces.IAJ;
 import client.interfaces.IAction;
 import client.interfaces.IAfficheur;
+import client.interfaces.IEntreeUtilisateur;
 import client.interfaces.IMap;
 import client.interfaces.IPersonnage;
+import extension.EntreeConsole;
 import framework.PartieProvider;
 
 public class ChargeurPartie {
+
 	public static Jeu charger() {
 		IPersonnage principal = (IPersonnage) PartieProvider.getInstance().getObjetByConfig(IPersonnage.class,
 				"src/configuration/configHeros.txt");
@@ -18,13 +21,15 @@ public class ChargeurPartie {
 				"src/configuration/configMap.txt");
 		IAction actionDeplacer = (IAction) PartieProvider.getInstance().getObjetByConfig(IAction.class,
 				"src/configuration/configActionDeplacer.txt");
+		IEntreeUtilisateur entree = (IEntreeUtilisateur) PartieProvider.getInstance().getObjetByConfig(IEntreeUtilisateur.class,
+				"src/configuration/configEntreeIhm.txt");
 		
 		map.setHero(principal);
 		map.setVilain(vilain);
 		
 		principal.addAction(actionDeplacer.getClass(), actionDeplacer);
 				
-		return new Jeu(principal, map, vilain);
+		return new Jeu(principal, map, vilain, entree);
 	}
 
 	/*
