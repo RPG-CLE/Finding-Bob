@@ -39,6 +39,7 @@ public class CaseApparence extends JLabel {
 			}else{
 				personnageApparence.setIcon(null);
 			}
+			personnageApparence.paintComponents(personnageApparence.getGraphics());
 		}
 	}
 	
