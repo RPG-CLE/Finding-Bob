@@ -152,7 +152,6 @@ public class Map implements IMap{
 		int caseX, caseY;
 		Random random = new Random();
 
-		System.out.println(pourcentage * this.getHauteur()*getLargeur());
 		for (int i = 0; i < pourcentage * this.getHauteur()*this.getLargeur(); i++) {
 			caseX = random.nextInt(this.getLargeur());
 			caseY = random.nextInt(this.getHauteur());
