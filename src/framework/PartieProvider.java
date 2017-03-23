@@ -17,13 +17,15 @@ public class PartieProvider extends Observable {
 	private List<IExtensionDesc> extenstionDescripteurs;
 	static PartieProvider _instance;
 	/**
-	 * @brief Constructeur par défaut. Appelle getExtension pour le pattern singleton.
+	 * Constructeur par défaut. Appelle getExtension pour le pattern singleton.
+	 * 
 	 */
 	private PartieProvider(){
 		initExtensionDescr();
 	}
 	/**
-	 * @brief Accesseur à l'attribut extensionDescripteur de la classe.
+	 * Accesseur à l'attribut extensionDescripteur de la classe.
+	 * 
 	 * @return List<IExtensionDesc> : la liste des descripteur des extensions.
 	 */
 	public List<IExtensionDesc> getList(){
@@ -32,8 +34,9 @@ public class PartieProvider extends Observable {
 
 
 	/**
-	 * @brief Accesseur à l'attribut _instance de la classe. S'assure qu'il n'existe qu'une seul instance
+	 * Accesseur à l'attribut _instance de la classe. S'assure qu'il n'existe qu'une seul instance
 	 * de l'attribut _instance en même temps (singleton)
+	 * 
 	 * @return PartieProvider : l'instance du partie provider de la classe.
 	 */
 	public static PartieProvider getInstance() {
@@ -48,7 +51,8 @@ public class PartieProvider extends Observable {
 	}
 
 	/**
-	 * @brief Va chercher le nom de tout les fichier d'extension d'un dossier donnée en paramètre
+	 * Va chercher le nom de tout les fichier d'extension d'un dossier donnée en paramètre
+	 * 
 	 * @param String directoryName : le nom du dossier
 	 * @return List<String> : la liste de tout les nom des extensions de directoryName.
 	 */
@@ -68,7 +72,7 @@ public class PartieProvider extends Observable {
 	}
 
 	/**
-	 * @brief Initialise l'attribut extenstionDescripteurs avec la liste des descripteurs des extensions
+	 * Initialise l'attribut extenstionDescripteurs avec la liste des descripteurs des extensions
 	 * du dossier(package) extension/extensionsConfigs
 	 */
 	private void initExtensionDescr() {
@@ -101,7 +105,8 @@ public class PartieProvider extends Observable {
 	}
 
 	/**
-	 * @brief Change l'attribut état d'un des descripteurs de pluggin. Etat possible : NONCHARGE, ENACTIVITE, ENECHEC
+	 * Change l'attribut état d'un des descripteurs de pluggin. Etat possible : NONCHARGE, ENACTIVITE, ENECHEC.
+	 * 
 	 * @param desc : le descripteur d'on on veut changer l'état
 	 * @param etat : le nouvelle état du descripteur
 	 */
@@ -110,9 +115,10 @@ public class PartieProvider extends Observable {
 	}
 
 	/**
-	 * @brief Get un descripteur de la liste de descripteur via sont nom
+	 * Get un descripteur dans liste de descripteur via sont nom
+	 * 
 	 * @param nom : le nom du descripteur
-	 * @return etat : le nouvelle état du descripteur
+	 * @return IExtensionDesc : le descripteur rechercher. Retourne null si le descripteur n'est pas dans la liste
 	 */
 	private IExtensionDesc getDescripteurParNom(String nom){
 		for(IExtensionDesc d : extenstionDescripteurs){
@@ -123,6 +129,16 @@ public class PartieProvider extends Observable {
 		return null;
 	}
 
+	/**
+	 * Crée un objet d'une classe donnée et l'initialise via sa config. 
+	 * Notifie l'utilisateur qu'une instance de l'objet a été chargé.
+	 * 
+	 * @param contrainte : la classe de l'objet qu'on veut crée
+	 * @param config : le path du fichier de config
+	 * @return Objet : L'objet de la classe "contrainte" initialisé.  
+	 * Si le fichier de config n'a pas a classe "contrainte" retourne null. 
+	 * Si les données pour initialisé l'objet ne sont pas trouvé retourne l'objet non initialisé.
+	 */
 	public Object getObjetByConfig(Class<?> contrainte, String config){
 		Properties prop = new Properties();
 		Object mon_objet = null;
@@ -167,6 +183,15 @@ public class PartieProvider extends Observable {
 	}
 
 
+	/**
+	 * Crée un objet via un descripteur donnée. 
+	 * Notifie l'utilisateur qu'une instance de l'objet a été chargé.
+	 * 
+	 * @param desc : le descripteur du plugin de l'objet qu'on veut charger.
+	 * @return Objet : objet du type fourni par le descripteur et intialisé avec le fichier de config indiqué par le descripteur.
+	 * Si le fichier de config n'a pas a classe indiqué dans le descripteur retourne null. 
+	 * Si les données pour initialisé l'objet ne sont pas trouvé retourne l'objet non initialisé.
+	 */
 	public Object getObjetByDesc(IExtensionDesc desc){
 		Object mon_objet = null;
 
