@@ -5,7 +5,7 @@ import client.interfaces.IPersonnage;
 public class Case{
 	String nom;
 	int action;
-	IPersonnage personnage;
+	IPersonnage personnage = null;
 	
 	public Case(String caseType) {
 		this.nom = caseType;

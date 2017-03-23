@@ -8,7 +8,6 @@ import client.interfaces.IPersonnage;
 public class Jeu {
 	IPersonnage hero;
 	public static IMap map;
-	IPersonnage ennemi;
 	IAfficheur afficheur;
 	IEntreeUtilisateur entree;
 	
@@ -31,11 +30,10 @@ public class Jeu {
 		this.afficheur = afficheur;
 	}
 
-	public Jeu(IPersonnage hero, IMap map, IPersonnage ennemi, IEntreeUtilisateur entree) {
+	public Jeu(IPersonnage hero, IMap map, IEntreeUtilisateur entree) {
 		super();
 		this.hero = hero;
 		Jeu.map = map;
-		this.ennemi = ennemi;
 		this.entree = entree;
 	}
 	
@@ -47,15 +45,6 @@ public class Jeu {
 
 	public void setHero(IPersonnage hero) {
 		this.hero = hero;
-	}
-
-	public IPersonnage getEnnemi() {
-		return this.ennemi;
-	}
-
-
-	public void setEnnemi(IPersonnage vilain) {
-		this.ennemi = vilain;
 	}
 
 

@@ -13,7 +13,7 @@ public class Application{
 		jeu.setAfficheur(afficheur);
 		IAJ aj = ChargeurPartie.chargerActionJeu();
 		jeu.afficher();
-		System.out.println();
+		System.out.println("");
 		while(aj.action(jeu));
 		System.out.println("Game over");
 	}

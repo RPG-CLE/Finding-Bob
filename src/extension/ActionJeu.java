@@ -6,6 +6,7 @@ import java.util.Scanner;
 import client.*;
 import client.interfaces.IAJ;
 import client.interfaces.IEntreeUtilisateur;
+import client.interfaces.IPersonnage;
 
 public class ActionJeu implements IAJ {
 	public ActionJeu() {
@@ -14,18 +15,16 @@ public class ActionJeu implements IAJ {
 	@Override
 	public boolean action(Jeu j) {
 		// TODO Auto-generated method stub
-
 		Evenement evt = j.getEntree().lireEntree();
 		if (evt != null)
 			j.getHero().doAction(ActionDeplacer.class, evt);
-
-		if (j.getEnnemi().getPosX() == j.getHero().getPosX()
-				&& j.getEnnemi().getPosY() == j.getHero().getPosY()) {
+		IPersonnage ennemi= (IPersonnage) j.getMap().getCase(j.getHero().getPosX(), j.getHero().getPosY());
+		if (ennemi!=null) {
 			System.out.println("Votre Héro entre en Combat !!");
 			double force_hero = j.getHero().getForce();
-			double force_ennemi = j.getEnnemi().getForce();
+			double force_ennemi = ennemi.getForce();
 			double vie_hero = j.getHero().getPv();
-			double vie_ennemi = j.getEnnemi().getPv();
+			double vie_ennemi = ennemi.getPv();
 			while (vie_hero > 0 && vie_ennemi > 0) {
 				System.out.println("Vie ennemi = " + vie_ennemi + "-"
 						+ force_hero);
@@ -43,7 +42,7 @@ public class ActionJeu implements IAJ {
 						+ vie_hero + " pv.");
 			}
 			j.getHero().setPv(vie_hero);
-			j.getEnnemi().setPv(vie_ennemi);
+			ennemi.setPv(vie_ennemi);
 		}
 
 		if (j.getHero().getPv() < 1)
