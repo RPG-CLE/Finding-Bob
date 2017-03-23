@@ -51,11 +51,17 @@ private static final long serialVersionUID = 446562574325842386L;
 	
 	void SetCaseIcon(){
 		switch(personnage.getNom()){
-		case "Heros":
+		case "mage":
+			icon = "data/bobmage.png";
+			break;
+		case "paladin" :
 			icon = "data/bobpaladin.png";
 			break;
 		case "Vilain" :
 			icon = "data/monstrevaricelle.png";
+			break;
+		default:
+			icon = "data/bobpaladin.png";
 			break;
 		}
 	}
