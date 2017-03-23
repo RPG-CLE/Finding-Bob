@@ -7,8 +7,8 @@ public class Personnage implements IPersonnage{
 	protected double pv; // Les points de vie du perso
 	protected double force;
 	protected String nom;
-	protected int posX = 0;
-	protected int posY = 0;
+	protected int posX;
+	protected int posY;
 	
 	public Personnage(){
 		;

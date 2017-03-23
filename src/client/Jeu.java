@@ -1,11 +1,12 @@
 package client;
 
 import client.interfaces.IAfficheur;
+import client.interfaces.IMap;
 import client.interfaces.IPersonnage;
 
 public class Jeu {
 	IPersonnage hero;
-	public static Map map;
+	public static IMap map;
 	IPersonnage ennemi;
 	IAfficheur afficheur;
 	
@@ -19,7 +20,7 @@ public class Jeu {
 	}
 
 
-	public Jeu(IPersonnage hero, Map map, IPersonnage ennemi) {
+	public Jeu(IPersonnage hero, IMap map, IPersonnage ennemi) {
 		super();
 		this.hero = hero;
 		Jeu.map = map;
@@ -46,12 +47,12 @@ public class Jeu {
 	}
 
 
-	public Map getMap() {
+	public IMap getMap() {
 		return map;
 	}
 
 
-	public void setMap(Map map) {
+	public void setMap(IMap map) {
 		Jeu.map = map;
 	}
 	
