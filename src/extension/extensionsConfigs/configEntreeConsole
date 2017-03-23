@@ -1,0 +1,5 @@
+Nom = EntreeConsole
+NomClasse = extension.EntreeConsole
+Description = Extension permettant de récupérer les entrées utilisateur de la console
+Contrainte = client.interfaces.IEntreeUtilisateur
+AutoRun = false

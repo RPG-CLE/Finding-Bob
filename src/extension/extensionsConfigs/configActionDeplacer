@@ -1,0 +1,5 @@
+Nom = ActionDeplacer
+NomClasse = extension.ActionDeplacer
+Description = Extension permettant au personnage de réaliser une action de déplacement
+Contrainte = client.interfaces.IAction
+AutoRun = false

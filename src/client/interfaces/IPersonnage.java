@@ -1,5 +1,7 @@
 package client.interfaces;
 
+import client.Evenement;
+
 public interface IPersonnage {
 
 	double getPv();
@@ -25,6 +27,11 @@ public interface IPersonnage {
 	void setPosY(int y);
 
 	void deplacer(String deplacement);
+	
+	void addAction(Class<? extends IAction> cl, IAction action);
+	
+	void doAction(Class<? extends IAction> cl, Evenement evt);
+	
 
 	String toString();
 

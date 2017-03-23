@@ -1,6 +1,10 @@
 package client;
 
+import client.interfaces.IAction;
 import client.interfaces.IPersonnage;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Personnage implements IPersonnage{
 	
@@ -9,9 +13,10 @@ public class Personnage implements IPersonnage{
 	protected String nom;
 	protected int posX = 0;
 	protected int posY = 0;
+	protected Map<Class<? extends IAction>,IAction> actions;
 	
 	public Personnage(){
-		;
+		actions = new HashMap<Class<? extends IAction>,IAction>();
 	}
 	
 	public Personnage(double pv, double force, String nom, int x, int y) {
@@ -138,6 +143,15 @@ public class Personnage implements IPersonnage{
 		}
 	}
 	
+	public void addAction(Class<? extends IAction> cl, IAction action){
+		actions.put(cl, action);
+		
+	}
+	
+	public void doAction(Class<? extends IAction> cl, Evenement evt){
+		actions.get(cl).action(this, evt);
+		
+	}
 	/* (non-Javadoc)
 	 * @see client.IPersonnage#toString()
 	 */

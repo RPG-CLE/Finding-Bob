@@ -1,0 +1,5 @@
+Nom = ActionAttaquer
+NomClasse = extension.ActionAttaquer
+Description = Extension permettant au personnage de réaliser une action d'attaque
+Contrainte = client.interfaces.IAction
+AutoRun = false

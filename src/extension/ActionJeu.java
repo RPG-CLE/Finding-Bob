@@ -1,8 +1,10 @@
 package extension;
+import java.io.InputStream;
 import java.util.Scanner;
 
 import client.*;
 import client.interfaces.IAJ;
+import client.interfaces.IEntreeUtilisateur;
 
 public class ActionJeu implements IAJ {
 	public ActionJeu(){}
@@ -10,10 +12,15 @@ public class ActionJeu implements IAJ {
 	@Override
 	public boolean action(Jeu j) {
 		// TODO Auto-generated method stub
-	   Scanner reader = new Scanner(System.in);  // Reading from System.in
-	   System.out.println("Saisissez un déplacement : z = haut, s = bas, q = gauche, d = droite ");
-	   String choix = reader.nextLine();
-
+	  
+	   
+	  IEntreeUtilisateur e = new EntreeConsole();
+	  Evenement evt = e.lireEntree();
+	  
+	  j.getHero().doAction(ActionDeplacer.class, evt);
+	  
+	  
+/*
 	   switch(choix){
 	   case "z" :
 		   if(j.getHero().getPosY()>0)
@@ -34,6 +41,9 @@ public class ActionJeu implements IAJ {
 	   default:
 		   break;
 	   }
+	   
+	   */
+	  
 	   if(j.getEnnemi().getPosX()==j.getHero().getPosX()&&j.getEnnemi().getPosY()==j.getHero().getPosY()){
 		   System.out.println("Votre Héro entre en Combat !!");
 		   double force_hero = j.getHero().getForce();
