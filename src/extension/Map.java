@@ -20,8 +20,8 @@ public class Map implements IMap{
 	List<Personnage> ennemis;
 	
 	public Map(){
-		System.out.println("je passssseee");
-
+		this.positionPersonageY=2;
+		this.positionPersonageX=2;
 		this.cases = new Case[largeur][hauteur];
 		for (int i = 0; i < this.getLargeur(); i++) {
 			for (int j = 0; j < this.getHauteur(); j++) {
