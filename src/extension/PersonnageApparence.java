@@ -64,7 +64,7 @@ private static final long serialVersionUID = 446562574325842386L;
 			icon = "data/monstreaquatique.png";
 			break;
 		default:
-			icon = "data/bobpaladin.png";
+			icon = "data/default.png";
 			break;
 		}
 	}

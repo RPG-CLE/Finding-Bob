@@ -1,0 +1,3 @@
+- doc pour les gens qui voudraient maintenir (javadoc + choix faits)
+- doc expliquant comment faire des plugins
+- doc expliquant comment se servir de l'application

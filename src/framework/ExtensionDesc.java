@@ -23,12 +23,14 @@ public class ExtensionDesc implements IExtensionDesc {
 	
 	
 	/**
-	 * Constructeur prenant des paramètres
-	 * @param etat 
-	 * @param nom
-	 * @param nomClasse
-	 * @param description
-	 * @param contrainte
+	 * Constructeur prenant les paramètres pour donner les valeurs des attributs : 
+	 * etat, nom, nomClasse, description et contrainte.
+	 * 
+	 * @param etat l'état de l'extension parmi NONCHARGE, ENACTIVITE, ENECHEC
+	 * @param nom nom de l'extension
+	 * @param nomClasse nom de la classe de l'extension
+	 * @param description description de l'extension
+	 * @param contrainte interface ou classe de laquelle elle dérive
 	 */
 	public ExtensionDesc(Etat etat, String nom, String nomClasse,
 			String description, Class<?> contrainte) {
@@ -40,6 +42,18 @@ public class ExtensionDesc implements IExtensionDesc {
 		this.contrainte = contrainte;
 	}
 	
+	
+	/**
+	 * Constructeur prenant les paramètres pour donner les valeurs des attributs : 
+	 * etat, nom, nomClasse, description, contrainte et autoRun.
+	 * 
+	 * @param etat l'état de l'extension parmi NONCHARGE, ENACTIVITE, ENECHEC
+	 * @param nom nom de l'extension
+	 * @param nomClasse nom de la classe de l'extension
+	 * @param description description de l'extension
+	 * @param contrainte interface ou classe de laquelle elle dérive
+	 * @param autoRun booléen qui décide si l'extension est lancée au début ou non
+	 */
 	public ExtensionDesc(Etat etat, String nom, String nomClasse,
 			String description, Class<?> contrainte, String autoRun) {
 		super();
@@ -51,22 +65,6 @@ public class ExtensionDesc implements IExtensionDesc {
 		this.autoRun =  autoRun;
 	}
 	
-	public String getNomClasse() {
-		return nomClasse;
-	}
-
-	public void setNomClasse(String nomClasse) {
-		this.nomClasse = nomClasse;
-	}
-
-	public Class<?> getContrainte() {
-		return contrainte;
-	}
-
-	public void setContrainte(Class<?> contrainte) {
-		this.contrainte = contrainte;
-	}
-
 	@Override
 	public String getNom() {
 		return this.nom;
@@ -77,6 +75,29 @@ public class ExtensionDesc implements IExtensionDesc {
 		this.nom = nom;
 		
 	}
+
+	@Override
+	public String getNomClasse() {
+		return nomClasse;
+	}
+
+	@Override
+	public void setNomClasse(String nomClasse) {
+		this.nomClasse = nomClasse;
+	}
+	
+	@Override
+	public Class<?> getContrainte() {
+		return contrainte;
+	}
+	
+
+	@Override
+	public void setContrainte(Class<?> contrainte) {
+		this.contrainte = contrainte;
+	}
+
+
 
 	@Override
 	public String getDescription() {
