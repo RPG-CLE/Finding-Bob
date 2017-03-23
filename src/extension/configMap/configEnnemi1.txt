@@ -1,0 +1,6 @@
+classe = client.Personnage
+PosX = 9
+PosY = 9
+Nom = monstraquatique
+Force = 10
+Pv = 10

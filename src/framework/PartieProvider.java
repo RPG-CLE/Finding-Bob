@@ -15,23 +15,23 @@ import framework.ExtensionDesc.Etat;
 
 
 /**
- * Classe PartieProvider qui gère l'initialisations des objets avec les fichiers de config
+ * Classe PartieProvider qui gï¿½re l'initialisations des objets avec les fichiers de config
  * 
- * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallée
+ * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallï¿½e
  */
 
 public class PartieProvider extends Observable {
 	private List<IExtensionDesc> extenstionDescripteurs;
 	static PartieProvider _instance;
 	/**
-	 * Constructeur par défaut. Appelle getExtension pour le pattern singleton.
+	 * Constructeur par dï¿½faut. Appelle getExtension pour le pattern singleton.
 	 * 
 	 */
 	private PartieProvider(){
 		initExtensionDescr();
 	}
 	/**
-	 * Accesseur à l'attribut extensionDescripteur de la classe.
+	 * Accesseur ï¿½ l'attribut extensionDescripteur de la classe.
 	 * 
 	 * @return List<IExtensionDesc> : la liste des descripteur des extensions.
 	 */
@@ -41,8 +41,8 @@ public class PartieProvider extends Observable {
 
 
 	/**
-	 * Accesseur à l'attribut _instance de la classe. S'assure qu'il n'existe qu'une seul instance
-	 * de l'attribut _instance en même temps (singleton)
+	 * Accesseur ï¿½ l'attribut _instance de la classe. S'assure qu'il n'existe qu'une seul instance
+	 * de l'attribut _instance en mï¿½me temps (singleton)
 	 * 
 	 * @return PartieProvider : l'instance du partie provider de la classe.
 	 */
@@ -58,7 +58,7 @@ public class PartieProvider extends Observable {
 	}
 
 	/**
-	 * Va chercher le nom de tout les fichier d'extension d'un dossier donnée en paramètre
+	 * Va chercher le nom de tout les fichier d'extension d'un dossier donnï¿½e en paramï¿½tre
 	 * 
 	 * @param String directoryName : le nom du dossier
 	 * @return List<String> : la liste de tout les nom des extensions de directoryName.
@@ -112,10 +112,10 @@ public class PartieProvider extends Observable {
 	}
 
 	/**
-	 * Change l'attribut état d'un des descripteurs de pluggin. Etat possible : NONCHARGE, ENACTIVITE, ENECHEC.
+	 * Change l'attribut ï¿½tat d'un des descripteurs de pluggin. Etat possible : NONCHARGE, ENACTIVITE, ENECHEC.
 	 * 
-	 * @param desc : le descripteur d'on on veut changer l'état
-	 * @param etat : le nouvelle état du descripteur
+	 * @param desc : le descripteur d'on on veut changer l'ï¿½tat
+	 * @param etat : le nouvelle ï¿½tat du descripteur
 	 */
 	private void setDescripteurEtat(IExtensionDesc desc, Etat etat){
 		extenstionDescripteurs.get(extenstionDescripteurs.indexOf(desc)).setEtat(etat);
@@ -137,21 +137,20 @@ public class PartieProvider extends Observable {
 	}
 
 	/**
-	 * Crée un objet d'une classe donnée et l'initialise via sa config. 
-	 * Notifie l'utilisateur qu'une instance de l'objet a été chargé.
+	 * Crï¿½e un objet d'une classe donnï¿½e et l'initialise via sa config. 
+	 * Notifie l'utilisateur qu'une instance de l'objet a ï¿½tï¿½ chargï¿½.
 	 * 
-	 * @param contrainte : la classe de l'objet qu'on veut crée
+	 * @param contrainte : la classe de l'objet qu'on veut crï¿½e
 	 * @param config : le path du fichier de config
-	 * @return Objet : L'objet de la classe "contrainte" initialisé.  
+	 * @return Objet : L'objet de la classe "contrainte" initialisï¿½.  
 	 * Si le fichier de config n'a pas a classe "contrainte" retourne null. 
-	 * Si les données pour initialisé l'objet ne sont pas trouvé retourne l'objet non initialisé.
+	 * Si les donnï¿½es pour initialisï¿½ l'objet ne sont pas trouvï¿½ retourne l'objet non initialisï¿½.
 	 */
 	public Object getObjetByConfig(Class<?> contrainte, String config){
 		Properties prop = new Properties();
 		Object mon_objet = null;
 		try {
 			prop.load(new FileReader(config));
-
 			Class<?> cl = Class.forName((String)prop.get("classe"));
 
 			if(contrainte.isAssignableFrom(cl)){
@@ -191,13 +190,13 @@ public class PartieProvider extends Observable {
 
 
 	/**
-	 * Crée un objet via un descripteur donnée. 
-	 * Notifie l'utilisateur qu'une instance de l'objet a été chargé.
+	 * Crï¿½e un objet via un descripteur donnï¿½e. 
+	 * Notifie l'utilisateur qu'une instance de l'objet a ï¿½tï¿½ chargï¿½.
 	 * 
 	 * @param desc : le descripteur de l'extension de l'objet qu'on veut charger.
-	 * @return Objet : objet du type fourni par le descripteur et intialisé avec le fichier de config indiqué par le descripteur.
-	 * Si le fichier de config n'a pas a classe indiqué dans le descripteur retourne null. 
-	 * Si les données pour initialisé l'objet ne sont pas trouvé retourne l'objet non initialisé.
+	 * @return Objet : objet du type fourni par le descripteur et intialisï¿½ avec le fichier de config indiquï¿½ par le descripteur.
+	 * Si le fichier de config n'a pas a classe indiquï¿½ dans le descripteur retourne null. 
+	 * Si les donnï¿½es pour initialisï¿½ l'objet ne sont pas trouvï¿½ retourne l'objet non initialisï¿½.
 	 */
 	public Object getObjetByDesc(IExtensionDesc desc){
 		Object mon_objet = null;
@@ -211,13 +210,11 @@ public class PartieProvider extends Observable {
 			_instance.notifyObservers("une instance de "+cl.getName()+" a Ã©tÃ© chargÃ©. ");
 
 			if(desc.getContrainte().equals(Observer.class)){
-				System.out.println("test");
 				_instance.addObserver((Observer) mon_objet);
 			}
 
 			if (desc.isAutoRun()){
 				if(!(cl.getAnnotation(MethodAutorun.class)==null)){
-					System.out.println("test");
 					_instance.setChanged();
 					_instance.notifyObservers("une instance de "+cl.getName()+" lancÃ©. ");
 					Method m = cl.getMethod((String) cl.getAnnotation(MethodAutorun.class).run());

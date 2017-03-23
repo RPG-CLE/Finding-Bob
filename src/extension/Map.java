@@ -1,13 +1,18 @@
 package extension;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.Random;
 
 import client.Case;
 import client.Personnage;
 import client.interfaces.IMap;
 import client.interfaces.IPersonnage;
+import framework.PartieProvider;
 
 public class Map implements IMap{
 	IPersonnage heros;
@@ -17,7 +22,7 @@ public class Map implements IMap{
 	private int hauteur=20;
 	int positionPersonageY;
 	int positionPersonageX;
-	List<Personnage> ennemis;
+	List<IPersonnage> ennemis;
 	
 	public Map(){
 		this.positionPersonageY=2;
@@ -29,17 +34,29 @@ public class Map implements IMap{
 			}
 		}
 		this.genererMonde(0.09);
-		Personnage ennemis1 = new Personnage(10, 10, "monstraquatique", 8,8);
-		Personnage ennemis2 = new Personnage(10, 10, "monstraquatique", 9,9);
-		this.ennemis = new ArrayList<Personnage>();
-		this.ennemis.add(ennemis1);
-		this.ennemis.add(ennemis2);
-	
-		this.getCase(this.ennemis.get(0).getPosX(), this.ennemis.get(0).getPosY()).setPersonnage(this.ennemis.get(0));
-		this.getCase(this.ennemis.get(1).getPosX(), this.ennemis.get(1).getPosX()).setPersonnage(this.ennemis.get(1));
+		ennemis = new ArrayList<IPersonnage>();
+		initialiseEnnemis();
 	}
 	
-	
+	private void initialiseEnnemis(){
+		Properties prop = new Properties();
+		try {
+			prop.load(new FileReader("src/extension/configMap/configListeEnnemis.txt"));
+			for(Object key : prop.keySet()){
+				IPersonnage ennemi = (IPersonnage) (IPersonnage) PartieProvider.getInstance().getObjetByConfig(IPersonnage.class,
+						(String)prop.get(key));
+				this.ennemis.add(ennemi);
+				this.getCase(ennemi.getPosX(), ennemi.getPosY()).setPersonnage(ennemi);
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
 	public int getLargeur() {
 		return largeur;
 	}
@@ -135,7 +152,6 @@ public class Map implements IMap{
 		int caseX, caseY;
 		Random random = new Random();
 
-		System.out.println(pourcentage * this.getHauteur()*getLargeur());
 		for (int i = 0; i < pourcentage * this.getHauteur()*this.getLargeur(); i++) {
 			caseX = random.nextInt(this.getLargeur());
 			caseY = random.nextInt(this.getHauteur());
