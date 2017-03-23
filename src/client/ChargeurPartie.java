@@ -1,9 +1,8 @@
 package client;
 
-import java.util.List;
-import java.util.Random;
 
 import client.interfaces.IAJ;
+import client.interfaces.IAction;
 import client.interfaces.IAfficheur;
 import client.interfaces.IMap;
 import client.interfaces.IPersonnage;
@@ -17,9 +16,13 @@ public class ChargeurPartie {
 				"src/configuration/configVilain.txt");
 		IMap map = (IMap) PartieProvider.getInstance().getObjetByConfig(IMap.class,
 				"src/configuration/configMap.txt");
+		IAction actionDeplacer = (IAction) PartieProvider.getInstance().getObjetByConfig(IAction.class,
+				"src/configuration/configActionDeplacer.txt");
 		
 		map.setHero(principal);
 		map.setVilain(vilain);
+		
+		principal.addAction(IAction.class, actionDeplacer);
 				
 		return new Jeu(principal, map, vilain);
 	}

@@ -16,33 +16,9 @@ public class ActionJeu implements IAJ {
 	   
 	  IEntreeUtilisateur e = new EntreeConsole();
 	  Evenement evt = e.lireEntree();
+	  System.out.println(evt.getEvenement());
 	  
 	  j.getHero().doAction(ActionDeplacer.class, evt);
-	  
-	  
-/*
-	   switch(choix){
-	   case "z" :
-		   if(j.getHero().getPosY()>0)
-			   j.getHero().deplacer("haut");
-		   break;
-	   case "s" :
-		   if(j.getHero().getPosY()<j.getMap().getHauteur()-1)
-			   j.getHero().deplacer("bas");
-		   break;
-	   case "q" :
-		   if(j.getHero().getPosX()>0)
-			   j.getHero().deplacer("gauche");
-		   break;
-	   case "d" :
-		   if(j.getHero().getPosX()<j.getMap().getLargeur()-1)
-			   j.getHero().deplacer("droite");
-		   break;
-	   default:
-		   break;
-	   }
-	   
-	   */
 	  
 	   if(j.getEnnemi().getPosX()==j.getHero().getPosX()&&j.getEnnemi().getPosY()==j.getHero().getPosY()){
 		   System.out.println("Votre Héro entre en Combat !!");

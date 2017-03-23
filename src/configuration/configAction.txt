@@ -1,1 +1,1 @@
-classe = extension.ActionAttaquer
+classe = extension.ActionJeu
