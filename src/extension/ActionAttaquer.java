@@ -8,7 +8,6 @@ public class ActionAttaquer implements IAction {
 
 	@Override
 	public void action(IPersonnage personnage, Evenement evt) {
-		// TODO Auto-generated method stub
 
 	}
 

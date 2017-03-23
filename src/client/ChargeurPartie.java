@@ -22,7 +22,7 @@ public class ChargeurPartie {
 		map.setHero(principal);
 		map.setVilain(vilain);
 		
-		principal.addAction(IAction.class, actionDeplacer);
+		principal.addAction(actionDeplacer.getClass(), actionDeplacer);
 				
 		return new Jeu(principal, map, vilain);
 	}
