@@ -1,3 +1,1 @@
 classe = extension.Map
-PositionPersonageY = 2
-PositionPersonageX = 2
