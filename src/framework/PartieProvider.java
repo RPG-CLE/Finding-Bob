@@ -194,7 +194,7 @@ public class PartieProvider extends Observable {
 	 * Crée un objet via un descripteur donnée. 
 	 * Notifie l'utilisateur qu'une instance de l'objet a été chargé.
 	 * 
-	 * @param desc : le descripteur du plugin de l'objet qu'on veut charger.
+	 * @param desc : le descripteur de l'extension de l'objet qu'on veut charger.
 	 * @return Objet : objet du type fourni par le descripteur et intialisé avec le fichier de config indiqué par le descripteur.
 	 * Si le fichier de config n'a pas a classe indiqué dans le descripteur retourne null. 
 	 * Si les données pour initialisé l'objet ne sont pas trouvé retourne l'objet non initialisé.
