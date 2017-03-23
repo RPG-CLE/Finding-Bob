@@ -1,0 +1,2 @@
+ennemi1 = src/extension/configMap/configEnnemi1.txt
+ennemi2 = src/extension/configMap/configEnnemi2.txt
