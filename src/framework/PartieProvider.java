@@ -13,6 +13,13 @@ import java.util.Properties;
 
 import framework.ExtensionDesc.Etat;
 
+
+/**
+ * Classe PartieProvider qui gère l'initialisations des objets avec les fichiers de config
+ * 
+ * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallée
+ */
+
 public class PartieProvider extends Observable {
 	private List<IExtensionDesc> extenstionDescripteurs;
 	static PartieProvider _instance;
