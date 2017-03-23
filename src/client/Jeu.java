@@ -17,8 +17,7 @@ public class Jeu {
 	public void setAfficheur(IAfficheur afficheur) {
 		this.afficheur = afficheur;
 	}
-
-
+ 
 	public Jeu(IPersonnage hero, Map map, IPersonnage ennemi) {
 		super();
 		this.hero = hero;
