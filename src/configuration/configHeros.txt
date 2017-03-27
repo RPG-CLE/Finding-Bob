@@ -2,5 +2,5 @@ classe = extension.personnageJouable.Paladin
 PosX = 1
 PosY = 1
 Nom = Paladin
-Force = 10
-Pv = 100
+Force = 9
+Pv = 20

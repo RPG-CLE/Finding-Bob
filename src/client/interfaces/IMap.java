@@ -14,5 +14,7 @@ public interface IMap {
 	void setHero(IPersonnage heros);
 	void setVilain(IPersonnage vilain);
 	Case getCase(int x, int y);
+	IPersonnage getEnnemi(int x, int y);
+
 	
 }

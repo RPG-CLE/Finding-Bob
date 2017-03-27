@@ -1,6 +1,6 @@
 classe = client.Personnage
-PosX = 8
-PosY = 8
+PosX = 5
+PosY = 5
 Nom = Vilain
 Force = 5
 Pv = 10

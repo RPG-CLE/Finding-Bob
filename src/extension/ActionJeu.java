@@ -18,8 +18,8 @@ public class ActionJeu implements IAJ {
 		Evenement evt = j.getEntree().lireEntree();
 		if (evt != null)
 			j.getHero().doAction(ActionDeplacer.class, evt);
-		IPersonnage ennemi= (IPersonnage) j.getMap().getCase(j.getHero().getPosX(), j.getHero().getPosY());
-		if (ennemi!=null) {
+		IPersonnage ennemi= (IPersonnage) j.getMap().getEnnemi(j.getHero().getPosX(), j.getHero().getPosY());
+		if (ennemi!=null&&ennemi.getPv()>0) {
 			System.out.println("Votre Héro entre en Combat !!");
 			double force_hero = j.getHero().getForce();
 			double force_ennemi = ennemi.getForce();
@@ -44,12 +44,10 @@ public class ActionJeu implements IAJ {
 			j.getHero().setPv(vie_hero);
 			ennemi.setPv(vie_ennemi);
 		}
-
 		if (j.getHero().getPv() < 1)
 			return false;
 
 		j.afficher();
-		System.out.println();
 		return true;
 	}
 

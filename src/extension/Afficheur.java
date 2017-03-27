@@ -16,7 +16,7 @@ public class Afficheur implements IAfficheur{
 		int y_hero = jeu.getHero().getPosY();
 		for(int i = 0; i<jeu.getMap().getHauteur(); ++i){
 			for(int j = 0; j<jeu.getMap().getLargeur(); ++j){
-				IPersonnage ennemi = jeu.getMap().getCase(i, j).getPersonnage();
+				IPersonnage ennemi= (IPersonnage) jeu.getMap().getEnnemi(j,i);
 				if(x_hero==j&&y_hero==i)
 					System.out.print("H");
 				else if(ennemi!=null&&ennemi.getPv()>0)

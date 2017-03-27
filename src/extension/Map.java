@@ -96,6 +96,15 @@ public class Map implements IMap{
 			return null;
 	}
 	
+	public IPersonnage getEnnemi(int x, int y){
+		for(IPersonnage pers : ennemis){
+			if(pers.getPosX()==x && pers.getPosY() == y){
+				return pers;
+			}
+		}
+		return null;
+	}
+	
 	public List<Case> getCasesAdjacentes(int x, int y){
 		List<Case> listCase = new ArrayList<Case>();
 		

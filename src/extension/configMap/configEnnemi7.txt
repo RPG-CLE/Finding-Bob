@@ -1,6 +1,6 @@
 classe = client.Personnage
-PosX = 8
-PosY = 8
-Nom = Vilain
+PosX = 2
+PosY = 9
+Nom = Monstraquatique
 Force = 5
 Pv = 10

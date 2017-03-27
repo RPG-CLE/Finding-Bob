@@ -1,2 +1,8 @@
 ennemi1 = src/extension/configMap/configEnnemi1.txt
 ennemi2 = src/extension/configMap/configEnnemi2.txt
+ennemi3 = src/extension/configMap/configEnnemi3.txt
+ennemi4 = src/extension/configMap/configEnnemi4.txt
+ennemi5 = src/extension/configMap/configEnnemi5.txt
+ennemi6 = src/extension/configMap/configEnnemi6.txt
+ennemi7 = src/extension/configMap/configEnnemi7.txt
+ennemi8 = src/extension/configMap/configEnnemi8.txt
