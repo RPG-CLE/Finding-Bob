@@ -3,3 +3,4 @@ NomClasse = extension.Moniteur
 Description = Extension d'afficher le chargement des plugins du framework
 Contrainte = java.util.Observer
 AutoRun = true
+Priorite = 10

@@ -93,6 +93,9 @@ public class PartieProvider extends Observable {
 				prop.load(new FileReader(config));
 				Class<?> contrainte = Class.forName(prop.getProperty("Contrainte"));
 				desc = new ExtensionDesc(ExtensionDesc.Etat.NONCHARGE, prop.getProperty("Nom"), prop.getProperty("NomClasse"), prop.getProperty("Description"), contrainte, prop.getProperty("AutoRun"));
+				if(desc.isAutoRun()){
+					desc.setPriorite(Integer.parseInt(prop.getProperty("Priorite")));
+				}
 				listDescs.add(desc);
 
 			} catch (FileNotFoundException e) {

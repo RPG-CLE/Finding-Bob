@@ -21,6 +21,24 @@ public interface IExtensionDesc {
 	 */
 	void setNom(String nom);
 	
+	/**
+	 * Retourne le nom de l'extension 
+	 * 
+	 * @return la valeur de l'attribut nom de la classe
+	 */
+	int getPriorite();
+	
+
+	/**
+	 * Entregistre le nom de l'extension décrite,
+	 * remplace toute autre valeur précédente
+	 * 
+	 * @param nom le nom qu'on veut donner à l'extension
+	 */
+	void setPriorite(int prio);
+	
+	
+	
 	/** 
 	 * Retourne le nom de la classe de l'extension décrite
 	 * 
