@@ -9,9 +9,23 @@ import client.interfaces.IMap;
 import client.interfaces.IPersonnage;
 import extension.EntreeConsole;
 import framework.PartieProvider;
-
+/**
+ * Classe ChargeurPartie. S'occupe de charger les différents plugin nécessaires
+ * en utilisant les méthodes du PartieProvider (fraework).
+ *  
+ * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, VallÃ©e
+ *
+ */
 public class ChargeurPartie {
 
+	/**
+	 * Chargeur qui s'occupe de charger le jeu. Charge les pulgins de base pour : le personnage principal,
+	 *  la map, l'actionDeplacer, et l'IEntreeUtilisateur (ce que tape l'utilisateur sur le clavier)
+	 * 
+	 * @return Jeu : le jeu avec les plugins de bases.
+	 * @warning Si vous voulez de nouveaux plugins de base c'est dans cette méthode qu'il faut mettre les paths vers
+	 * les fichiers de config de ces derniers.
+	 */
 	public static Jeu charger() {
 		IPersonnage principal = (IPersonnage) PartieProvider.getInstance().getObjetByConfig(IPersonnage.class,
 				"src/configuration/configHeros.txt");
@@ -39,6 +53,14 @@ public class ChargeurPartie {
 	 * "src/configuration/configAfficheur.txt"); if (afficheur ==null)
 	 * System.out.println("erreur"); return afficheur; }
 	 */
+	/**
+	 * Chargeur qui s'occupe de charger un afficheur qui s'occupe de la partie graphique du jeu.
+	 * Charge le plugins définit "de base" comme afficheur. Signal si l'afficheur n'est pas chargé.
+	 * 
+	 * @return IAfficheur : l'afficheur de base.
+	 * @warning Si vous voulez un nouvelle afficheur "de base" changer le path vers votre nouveau 
+	 * fichier de config dans cette méthode.
+	 */
 	public static IAfficheur chargerAfficheur() {
 		IAfficheur afficheur = (IAfficheur) PartieProvider.getInstance().getObjetByConfig(IAfficheur.class,
 				"src/configuration/configAfficheurGraphique.txt");
@@ -47,6 +69,14 @@ public class ChargeurPartie {
 		return afficheur;
 	}
 
+	/**
+	 * Chargeur qui s'occupe de charger un IAJ (interface action jeu) qui s'occupe des actions du jeu.
+	 * Charge le plugins définit "de base" comme IAJ. Signal si l'IAJ n'est pas chargé.
+	 * 
+	 * @return IAJ: IAJ de base.
+	 * @warning Si vous voulez un nouvelle IAJ "de base" changer le path vers votre nouveau 
+	 * fichier de config dans cette méthode.
+	 */
 	public static IAJ chargerActionJeu() {
 		IAJ actionJeu = (IAJ) PartieProvider.getInstance().getObjetByConfig(IAJ.class,
 				"src/configuration/configAction.txt");
