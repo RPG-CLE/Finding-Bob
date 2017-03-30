@@ -3,4 +3,3 @@ NomClasse = client.Application
 Description = main permettant le lancement du jeu
 Contrainte = client.Application
 AutoRun = true
-Priorite = 0
