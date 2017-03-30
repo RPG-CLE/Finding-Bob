@@ -15,7 +15,7 @@ public class ExtensionDesc implements IExtensionDesc {
 	private String description;
 	private Class<?> contrainte;
 	private String autoRun = "false";
-	
+	private int priorite = 0;
 	/**
 	 * Constructeur par défaut
 	 */
@@ -73,6 +73,17 @@ public class ExtensionDesc implements IExtensionDesc {
 	@Override
 	public void setNom(String nom) {
 		this.nom = nom;
+		
+	}
+	
+	@Override
+	public int getPriorite() {
+		return this.priorite;
+	}
+
+	@Override
+	public void setPriorite(int prio) {
+		this.priorite = prio;
 		
 	}
 
