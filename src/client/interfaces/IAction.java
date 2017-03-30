@@ -2,7 +2,7 @@ package client.interfaces;
 
 import client.Evenement;
 /**
- *  Interface IPersonnage regroupant les méthodes gérant les personnages du jeu
+ *  Interface IAction gérant les actions du jeu.
  *  
  * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallée
  *
