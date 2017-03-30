@@ -14,6 +14,7 @@ public class Jeu {
 	public static IMap map;
 	IAfficheur afficheur;
 	IEntreeUtilisateur entree;
+	boolean gameOn;
 	
 	
 	/**
@@ -68,6 +69,7 @@ public class Jeu {
 		this.hero = hero;
 		Jeu.map = map;
 		this.entree = entree;
+		this.gameOn = true;
 	}
 	
 	
@@ -114,6 +116,24 @@ public class Jeu {
 	 */
 	public void afficher(){
 		afficheur.afficher(this);
+	}
+	
+	/**
+	 * Accesseur de l'attribut gameOn de la classe Jeu
+	 * 
+	 * @return gameOn : l'attribut gameOn de la classe Jeu
+	 */
+	public boolean getGameOn() {
+		return gameOn;
+	}
+	
+	/**
+	 * Setter de l'attribut gameOn de la classe Jeu
+	 * 
+	 * @param gameOn : l'attribut gameOn de la classe Jeu
+	 */
+	public void setGameOn(boolean gameOn) {
+		this.gameOn = gameOn;
 	}
 	
 }
