@@ -1,6 +1,7 @@
 package extension;
 
 import java.io.InputStream;
+import java.util.Random;
 import java.util.Scanner;
 
 import client.*;
@@ -16,8 +17,17 @@ public class ActionJeu implements IAJ {
 	public boolean action(Jeu j) {
 		// TODO Auto-generated method stub
 		Evenement evt = j.getEntree().lireEntree();
-		if (evt != null)
+		if (evt != null){
 			j.getHero().doAction(ActionDeplacer.class, evt);
+			for(IPersonnage ennemi:j.getMap().getEnnemis()){
+		    	Random random = new Random();
+		    	int result = random.nextInt(4);
+		    	Evenement evntEnnemi = new Evenement(result);
+		    	ennemi.doAction(ActionDeplacer.class, evntEnnemi);
+		    }
+		}
+		
+	    
 		
 		IPersonnage ennemi= (IPersonnage) j.getMap().getEnnemi(j.getHero().getPosX(), j.getHero().getPosY());
 		if (ennemi!=null&&ennemi.getPv()>0) {
