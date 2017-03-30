@@ -79,7 +79,7 @@ public class FenetreJeu extends JFrame implements KeyListener {
 	}
 	
 	public void rechargerFenetre(){
-		//this.removeAll();
+		this.remove(panneau);
 		initialiserFenetre(jeu);
 		
 	}

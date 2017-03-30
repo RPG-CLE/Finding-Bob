@@ -19,7 +19,7 @@ public class AfficheurGraphique implements IAfficheur{
 	public void afficher(Jeu jeu){
 		if(!dejaAffiche){
 			initialiserJeu(jeu);
-			dejaAffiche = true;
+			dejaAffiche = !dejaAffiche;
 		}
 		else if(jeu.getMap().rechargementTexture()){
 			rechargerFenetre();
