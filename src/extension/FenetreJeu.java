@@ -78,6 +78,12 @@ public class FenetreJeu extends JFrame implements KeyListener {
 		
 	}
 	
+	public void rechargerFenetre(){
+		//this.removeAll();
+		initialiserFenetre(jeu);
+		
+	}
+	
 	public void update(){
 		if (!this.jeu.getGameOn()){
 			System.out.println("Ici");

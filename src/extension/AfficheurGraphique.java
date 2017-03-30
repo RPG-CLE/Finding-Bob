@@ -19,16 +19,28 @@ public class AfficheurGraphique implements IAfficheur{
 	public void afficher(Jeu jeu){
 		if(!dejaAffiche){
 			initialiserJeu(jeu);
-			dejaAffiche = !dejaAffiche;
+			dejaAffiche = true;
 		}
+		else if(jeu.getMap().rechargementTexture()){
+			rechargerFenetre();
+		}
+			
 		fenetre.update();
 	}
 	
 	public void initialiserFenetre(){
+		
 		fenetre = new FenetreJeu("Finding Bob");
 		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		fenetre.setVisible(true);
 	}
+	
+	public void rechargerFenetre(){
+			
+			fenetre.rechargerFenetre();
+			fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			fenetre.setVisible(true);
+		}
 	
 	public void initialiserJeu(Jeu jeu){
 		//fenetre.setSize(jeu.getMap().getLargeur() * tailleCaseX, jeu.getMap().getHauteur() * tailleCaseY);

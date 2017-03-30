@@ -4,9 +4,9 @@ import java.util.List;
 
 import client.Case;
 /**
- *  Interface IMap gérant la map du jeu
+ *  Interface IMap gï¿½rant la map du jeu
  *  
- * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallée
+ * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallï¿½e
  *
  */
 public interface IMap {
@@ -21,56 +21,62 @@ public interface IMap {
 	void setHero(IPersonnage heros);
 	void setVilain(IPersonnage vilain);
 	/**
-	 *  Récupère une case de la map selon ses coordonnées.
+	 *  Rï¿½cupï¿½re une case de la map selon ses coordonnï¿½es.
 	 *  
 	 * @param int x : la position de la case selon l'axe X.
 	 * @param int y : la position de la case selon l'axe Y.
-	 * @return Case : la case à ces coordonnées.
+	 * @return Case : la case ï¿½ ces coordonnï¿½es.
 	 */
 	Case getCase(int x, int y);
 	/**
-	 *  Récupère un ennemie de la map selon ses coordonnées.
+	 *  Rï¿½cupï¿½re un ennemie de la map selon ses coordonnï¿½es.
 	 *  
 	 * @param int x : la position de l'ennemi selon l'axe X.
 	 * @param int y : la position de l'ennemi selon l'axe Y.
-	 * @return IPersonnage : l'ennemie à ces coordonnées.
-	 * @warning Prévu pour récupéré les ennemies mais peut aussi 
-	 * récupéré tout type de personnage.
+	 * @return IPersonnage : l'ennemie ï¿½ ces coordonnï¿½es.
+	 * @warning Prï¿½vu pour rï¿½cupï¿½rï¿½ les ennemies mais peut aussi 
+	 * rï¿½cupï¿½rï¿½ tout type de personnage.
 	 */
 	IPersonnage getEnnemi(int x, int y);
 	public List<IPersonnage> getEnnemis();
 	public void setEnnemis(List<IPersonnage> ennemis);
 
 	/**
-	 *  Déplace vers la droite le personnage passer en paramètre.
+	 *  Dï¿½place vers la droite le personnage passer en paramï¿½tre.
 	 *  
-	 * @param perso : le personnage à déplacer.
+	 * @param perso : le personnage ï¿½ dï¿½placer.
 	 */
 	void deplacerDroite(IPersonnage perso);
 	/**
-	 *  Déplace vers la gauche le personnage passer en paramètre.
+	 *  Dï¿½place vers la gauche le personnage passer en paramï¿½tre.
 	 *  
-	 * @param perso : le personnage à déplacer.
+	 * @param perso : le personnage ï¿½ dï¿½placer.
 	 */
 	void deplacerGauche(IPersonnage perso);
 	/**
-	 *  Déplace vers le haut le personnage passer en paramètre.
+	 *  Dï¿½place vers le haut le personnage passer en paramï¿½tre.
 	 *  
-	 * @param perso : le personnage à déplacer.
+	 * @param perso : le personnage ï¿½ dï¿½placer.
 	 */
 	void deplacerHaut(IPersonnage perso);
 	/**
-	 *  Déplace vers le bas le personnage passer en paramètre.
+	 *  Dï¿½place vers le bas le personnage passer en paramï¿½tre.
 	 *  
-	 * @param perso : le personnage à déplacer.
+	 * @param perso : le personnage ï¿½ dï¿½placer.
 	 */
 	void deplacerBas(IPersonnage perso);
 	/**
-	 *  Enlève un personnage de la map
+	 *  Enlï¿½ve un personnage de la map
 	 *  
-	 * @param personnage : le personnage à enlever
+	 * @param personnage : le personnage ï¿½ enlever
 	 */
 	void removePersonnage(IPersonnage personnage);
+	/**
+	 *  permet de savoir si la carte a modifier ses textures
+	 *  
+	 * @return vraie si la texture a changÃ©, faux si seuls les Ã©lements ont bougÃ©
+	 */
+	boolean rechargementTexture();
 
 
 	

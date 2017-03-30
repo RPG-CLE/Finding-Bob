@@ -57,15 +57,26 @@ public class CaseApparence extends JLabel {
 	
 	void SetCaseIcon(){
 		switch(caseJeu.getNom()){
-		case "Herbe":
-			icon = "data/herbe.jpg";
-			break;
-		case "Eau" :
-			icon = "data/eau.png";
-			break;
-		case "Terre" :
-			icon = "data/terre.png";
-			break;
+			case "Herbe":
+				icon = "data/herbe.jpg";
+				break;
+				
+			case "Eau" :
+				icon = "data/eau.png";
+				break;
+				
+			case "Terre" :
+				icon = "data/terre.png";
+				break;
+			
+			case "Portail" :
+				icon = "data/portal.png";
+				break;
+			
+			default:
+				icon = "data/default.png";
+				break;
 		}
+		
 	}
 }
