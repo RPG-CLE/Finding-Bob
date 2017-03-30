@@ -24,6 +24,8 @@ import java.io.StringBufferInputStream;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -83,9 +85,9 @@ public class FenetreJeu extends JFrame implements KeyListener {
 			this.remove(panneau);
 	
 			JPanel gameOverPanneau = new JPanel();
-			
-			Image image = new ImageIcon("data/gameover.png").getImage();
-			JLabel gameOver = new JLabel (new ImageIcon((getScaledImage(image,jeu.getMap().getLargeur()*32, jeu.getMap().getHauteur()*32))));
+			Image image = this.getToolkit().createImage("data/GameOver.gif");//new ImageIcon(urlImage).getImage();
+			JLabel gameOver = new JLabel (new ImageIcon(image));
+			//JLabel gameOver = new JLabel (new ImageIcon((getScaledImage(image,jeu.getMap().getLargeur()*32, jeu.getMap().getHauteur()*32))));
 	
 			gameOverPanneau.add(gameOver);
 			this.add(gameOverPanneau);

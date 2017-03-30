@@ -27,6 +27,8 @@ public class ActionJeu implements IAJ {
 			
 		}   
 		
+		j.getHero().setPv(0);
+		
 		if(System.currentTimeMillis() - lastTurn > 1000){
 			for(IPersonnage ennemi:j.getMap().getEnnemis()){
 				if(ennemi.getPosX() == j.getHero().getPosX() && ennemi.getPosY() == j.getHero().getPosY()) continue;
@@ -42,7 +44,7 @@ public class ActionJeu implements IAJ {
 		
 		IPersonnage ennemi= (IPersonnage) j.getMap().getEnnemi(j.getHero().getPosX(), j.getHero().getPosY());
 		if (ennemi!=null&&ennemi.getPv()>0) {
-			System.out.println("Votre Héro entre en Combat !!");
+			System.out.println("Votre Héros entre en Combat !!");
 			double force_hero = j.getHero().getForce();
 			double force_ennemi = ennemi.getForce();
 			double vie_hero = j.getHero().getPv();
@@ -52,15 +54,15 @@ public class ActionJeu implements IAJ {
 						+ force_hero);
 				vie_ennemi -= force_hero;
 				if (vie_ennemi > 0) {
-					System.out.println("Vie vie_hero = " + vie_hero + "-"
+					System.out.println("Vie du héros = " + vie_hero + "-"
 							+ force_ennemi);
 					vie_hero -= force_ennemi;
 				}
 			}
 			if (vie_hero < 1) {
-				System.out.println("Votre hero est mort.");
+				System.out.println("Votre héros est mort.");
 			} else {
-				System.out.println("Vous avez tué l'énnemi et il vous reste "
+				System.out.println("Vous avez tué l'ennemi et il vous reste "
 						+ vie_hero + " pv.");
 				Jeu.map.removePersonnage(ennemi);
 				Jeu.map.getCase(j.getHero().getPosX(), j.getHero().getPosY()).setPersonnage(j.getHero());
