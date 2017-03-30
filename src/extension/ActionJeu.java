@@ -55,9 +55,10 @@ public class ActionJeu implements IAJ {
 			j.getHero().setPv(vie_hero);
 			ennemi.setPv(vie_ennemi);
 		}
-		if (j.getHero().getPv() < 1)
+		if (j.getHero().getPv() < 1){
+			j.setGameOn(false);
 			return false;
-
+		}
 		j.afficher();
 		return true;
 	}
