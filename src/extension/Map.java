@@ -158,67 +158,67 @@ public class Map implements IMap{
 		this.getCase(vilain.getPosX(), vilain.getPosY()).setPersonnage(vilain);
 	}
 	
-	public void deplacerHeroDroite(){
-		if(heros.getPosX()<this.largeur-1){
-			if(Jeu.map.getCase(heros.getPosX()+1,heros.getPosY()).isPassable()){
-				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
-				heros.setPosX(heros.getPosX()+1);
-				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+	public void deplacerDroite(IPersonnage perso){
+		if(perso.getPosX()<this.largeur-1){
+			if(Jeu.map.getCase(perso.getPosX()+1,perso.getPosY()).isPassable()){
+				this.getCase(perso.getPosX(), perso.getPosY()).setPersonnage(null);
+				perso.setPosX(perso.getPosX()+1);
+				this.getCase(perso.getPosX(), perso.getPosY()).setPersonnage(perso);
 			}
 		}
 		else{
-			if(Jeu.map.getCase(0,heros.getPosY()).isPassable()){
-				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
-				heros.setPosX(0);
-				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+			if(Jeu.map.getCase(0,perso.getPosY()).isPassable()){
+				this.getCase(perso.getPosX(), perso.getPosY()).setPersonnage(null);
+				perso.setPosX(0);
+				this.getCase(perso.getPosX(), perso.getPosY()).setPersonnage(perso);
 			}
 		}
 	}
-	public void deplacerHeroGauche(){		
-		if(heros.getPosX()>0){
-			if(Jeu.map.getCase(heros.getPosX()-1,heros.getPosY()).isPassable()){
-				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
-				heros.setPosX(heros.getPosX()-1);
-				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+	public void deplacerGauche(IPersonnage perso){		
+		if(perso.getPosX()>0){
+			if(Jeu.map.getCase(perso.getPosX()-1,perso.getPosY()).isPassable()){
+				this.getCase(perso.getPosX(), perso.getPosY()).setPersonnage(null);
+				perso.setPosX(perso.getPosX()-1);
+				this.getCase(perso.getPosX(), perso.getPosY()).setPersonnage(perso);
 			}
 		}
 		else{
-			if(Jeu.map.getCase(this.largeur-1,heros.getPosY()).isPassable()){
-				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
-				heros.setPosX(this.largeur-1);
-				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+			if(Jeu.map.getCase(this.largeur-1,perso.getPosY()).isPassable()){
+				this.getCase(perso.getPosX(), perso.getPosY()).setPersonnage(null);
+				perso.setPosX(this.largeur-1);
+				this.getCase(perso.getPosX(), perso.getPosY()).setPersonnage(perso);
 			}
 		}
 	}
-	public void deplacerHeroHaut(){
-		if(heros.getPosY()>0){
-			if(Jeu.map.getCase(heros.getPosX(),heros.getPosY()-1).isPassable()){
-				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
-				heros.setPosY(heros.getPosY()-1);
-				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+	public void deplacerHaut(IPersonnage perso){
+		if(perso.getPosY()>0){
+			if(Jeu.map.getCase(perso.getPosX(),perso.getPosY()-1).isPassable()){
+				this.getCase(perso.getPosX(), perso.getPosY()).setPersonnage(null);
+				perso.setPosY(perso.getPosY()-1);
+				this.getCase(perso.getPosX(), perso.getPosY()).setPersonnage(perso);
 			}
 		}
 		else{
-			if(Jeu.map.getCase(heros.getPosX(), this.hauteur-1).isPassable()){
-				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
-				heros.setPosY(this.hauteur-1);
-				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+			if(Jeu.map.getCase(perso.getPosX(), this.hauteur-1).isPassable()){
+				this.getCase(perso.getPosX(), perso.getPosY()).setPersonnage(null);
+				perso.setPosY(this.hauteur-1);
+				this.getCase(perso.getPosX(), perso.getPosY()).setPersonnage(perso);
 			}
 		}
 	}
-	public void deplacerHeroBas(){
-		if(heros.getPosY()<this.hauteur-1){
-			if(Jeu.map.getCase(heros.getPosX(),heros.getPosY()+1).isPassable()){
-				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
-				heros.setPosY(heros.getPosY()+1);
-				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+	public void deplacerBas(IPersonnage perso){
+		if(perso.getPosY()<this.hauteur-1){
+			if(Jeu.map.getCase(perso.getPosX(),perso.getPosY()+1).isPassable()){
+				this.getCase(perso.getPosX(), perso.getPosY()).setPersonnage(null);
+				perso.setPosY(perso.getPosY()+1);
+				this.getCase(perso.getPosX(), perso.getPosY()).setPersonnage(perso);
 			}
 		}
 		else{
-			if(Jeu.map.getCase(heros.getPosX(),0).isPassable()){
-				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
-				heros.setPosY(0);
-				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+			if(Jeu.map.getCase(perso.getPosX(),0).isPassable()){
+				this.getCase(perso.getPosX(), perso.getPosY()).setPersonnage(null);
+				perso.setPosY(0);
+				this.getCase(perso.getPosX(), perso.getPosY()).setPersonnage(perso);
 			}
 		}
 	}
@@ -254,7 +254,7 @@ public class Map implements IMap{
 	public void setEnnemis(List<IPersonnage> ennemis) {
 		this.ennemis = ennemis;
 	}
-	
+
 	@Override
 	public void removePersonnage(IPersonnage personnage){
 		cases[personnage.getPosX()][personnage.getPosY()].setPersonnage(null);

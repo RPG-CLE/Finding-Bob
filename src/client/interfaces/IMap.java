@@ -19,10 +19,11 @@ public interface IMap {
 	IPersonnage getEnnemi(int x, int y);
 	public List<IPersonnage> getEnnemis();
 	public void setEnnemis(List<IPersonnage> ennemis);
-	void deplacerHeroDroite();
-	void deplacerHeroGauche();
-	void deplacerHeroHaut();
-	void deplacerHeroBas();
+
+	void deplacerDroite(IPersonnage perso);
+	void deplacerGauche(IPersonnage perso);
+	void deplacerHaut(IPersonnage perso);
+	void deplacerBas(IPersonnage perso);
 	void removePersonnage(IPersonnage personnage);
 
 
