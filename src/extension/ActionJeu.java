@@ -27,8 +27,6 @@ public class ActionJeu implements IAJ {
 			
 		}   
 		
-		j.getHero().setPv(0);
-		
 		if(System.currentTimeMillis() - lastTurn > 1000){
 			for(IPersonnage ennemi:j.getMap().getEnnemis()){
 				if(ennemi.getPosX() == j.getHero().getPosX() && ennemi.getPosY() == j.getHero().getPosY()) continue;
