@@ -157,6 +157,55 @@ public class Map implements IMap{
 		this.getCase(vilain.getPosX(), vilain.getPosY()).setPersonnage(vilain);
 	}
 	
+	public void deplacerDroite(){
+		if(heros.getPosX()<this.largeur-1){
+			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
+			heros.setPosX(heros.getPosX()+1);
+			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+		}
+		else{
+			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
+			heros.setPosX(0);
+			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+		}
+	}
+	public void deplacerGauche(){
+		if(heros.getPosX()>0){
+			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
+			heros.setPosX(heros.getPosX()-1);
+			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+		}
+		else{
+			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
+			heros.setPosX(this.largeur-1);
+			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+		}
+	}
+	public void deplacerHaut(){
+		if(heros.getPosY()>0){
+			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
+			heros.setPosX(heros.getPosY()-1);
+			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+		}
+		else{
+			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
+			heros.setPosX(this.hauteur-1);
+			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+		}
+	}
+	public void deplacerBas(){
+		if(heros.getPosY()<this.hauteur-1){
+			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
+			heros.setPosX(heros.getPosY()+1);
+			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+		}
+		else{
+			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
+			heros.setPosX(0);
+			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+		}
+	}
+	
 	private void genererMonde(double pourcentage) {
 		int caseX, caseY;
 		Random random = new Random();

@@ -17,9 +17,13 @@ public interface IMap {
 	void setVilain(IPersonnage vilain);
 	Case getCase(int x, int y);
 	IPersonnage getEnnemi(int x, int y);
-	
 	public List<IPersonnage> getEnnemis();
 	public void setEnnemis(List<IPersonnage> ennemis);
+	void deplacerDroite();
+	void deplacerGauche();
+	void deplacerHaut();
+	void deplacerBas();
+
 
 	
 }
