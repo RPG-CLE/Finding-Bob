@@ -3,6 +3,7 @@ package extension;
 import java.io.InputStream;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Timer;
 
 import client.*;
 import client.interfaces.IAJ;
@@ -20,14 +21,13 @@ public class ActionJeu implements IAJ {
 		if (evt != null){
 			j.getHero().doAction(ActionDeplacer.class, evt);
 			for(IPersonnage ennemi:j.getMap().getEnnemis()){
-				
+				if(ennemi.getPosX() == j.getHero().getPosX() && ennemi.getPosY() == j.getHero().getPosY()) continue;
 		    	Random random = new Random();
 		    	int result = random.nextInt(4);
 		    	Evenement evntEnnemi = new Evenement(result);
 		    	ennemi.doAction(ActionDeplacer.class, evntEnnemi);
 		    }
 		}
-		
 	    
 		
 		IPersonnage ennemi= (IPersonnage) j.getMap().getEnnemi(j.getHero().getPosX(), j.getHero().getPosY());
@@ -60,10 +60,10 @@ public class ActionJeu implements IAJ {
 		}
 		if (j.getHero().getPv() < 1){
 			j.setGameOn(false);
-			return false;
 		}
+
 		j.afficher();
-		return true;
+		return j.getGameOn();
 	}
 
 }
