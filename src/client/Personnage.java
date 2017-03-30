@@ -112,16 +112,16 @@ public class Personnage implements IPersonnage{
 	public void deplacer(String deplacement){
 		switch (deplacement) {
 			case "haut":  //TODO;
-				Jeu.map.deplacerHeroHaut();
+				Jeu.map.deplacerHaut(this);
 				break;
 			case "bas":  //TODO;
-				Jeu.map.deplacerHeroBas();
+				Jeu.map.deplacerBas(this);
 			    break;
 			case "gauche":  //TODO;
-				Jeu.map.deplacerHeroGauche();
+				Jeu.map.deplacerGauche(this);
 			    break;
 			case "droite":  //TODO;
-				Jeu.map.deplacerHeroDroite();
+				Jeu.map.deplacerDroite(this);
 			    break;
 			default: //TODO invalide direction;
 			    break;
