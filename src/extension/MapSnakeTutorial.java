@@ -341,4 +341,10 @@ public class MapSnakeTutorial implements IMap{
 		this.up = false;
 
 	}
+
+	@Override
+	public boolean rechargementTexture() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
