@@ -69,7 +69,7 @@ public class FenetreJeu extends JFrame implements KeyListener {
 		
 	}
 	
-	public void update(){
+	public void update(){		
 		for(int i = 0; i <casesApparence.length; i++){
 			for(int j = 0; j < casesApparence[0].length; j++){
 				casesApparence[i][j].update();

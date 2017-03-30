@@ -1,11 +1,11 @@
 package client;
 
 /**
- * Classe Evenement. S'occupe de définir plusieurs événement : les 
- * entrées que peut faire l'utilisateur avec le clavier.
+ * Classe Evenement. S'occupe de dï¿½finir plusieurs ï¿½vï¿½nement : les 
+ * entrï¿½es que peut faire l'utilisateur avec le clavier.
  *  
- * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallée
- * @warning Ne s'occupe pour l'instant que des déplacements : haut,bas,gauche,droite.
+ * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallï¿½e
+ * @warning Ne s'occupe pour l'instant que des dï¿½placements : haut,bas,gauche,droite.
  *
  */
 
@@ -19,11 +19,34 @@ public class Evenement {
 	/**
 	 * Constructeur de la classe Evenement
 	 * 
-	 * @param evenement : string qui définit à quel type d'événement on a affaire (haut, bas, etc...).
-	 * @return Evenement: événement avec l'attribut evenement définit.
+	 * @param evenement : string qui dï¿½finit ï¿½ quel type d'ï¿½vï¿½nement on a affaire (haut, bas, etc...).
+	 * @return Evenement: ï¿½vï¿½nement avec l'attribut evenement dï¿½finit.
 	 */
 	public Evenement(String evenement) {
 		this.evenement = evenement;
+	}
+	
+	/**
+	 * Constructeur de la classe Evenement
+	 * 
+	 * @param enumValue : valeur qui dï¿½finit ï¿½ quel type d'ï¿½vï¿½nement on a affaire suivant l'ordre de dÃ©claration (haut, bas, etc...).
+	 * @return Evenement: ï¿½vï¿½nement avec l'attribut evenement dï¿½finit.
+	 */
+	public Evenement(int enumValue) {
+		switch (enumValue) {
+		case 0:
+			this.evenement = HAUT;
+			break;
+		case 1:
+			this.evenement = BAS;
+			break;
+		case 2:
+			this.evenement = GAUCHE;
+			break;
+		case 3:
+			this.evenement = DROITE;
+			break;
+		}
 	}
 	
 	/**

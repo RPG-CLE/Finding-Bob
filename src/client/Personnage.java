@@ -154,7 +154,9 @@ public class Personnage implements IPersonnage{
 	}
 	
 	public void doAction(Class<? extends IAction> cl, Evenement evt){
-		actions.get(cl).action(this, evt);
+		if(actions.containsKey(cl)){
+			actions.get(cl).action(this, evt);
+		}
 		
 	}
 	/* (non-Javadoc)
