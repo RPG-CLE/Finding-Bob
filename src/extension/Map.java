@@ -23,7 +23,7 @@ public class Map implements IMap{
 	int positionPersonageY;
 	int positionPersonageX;
 	List<IPersonnage> ennemis;
-	
+
 	public Map(){
 		this.positionPersonageY=2;
 		this.positionPersonageX=2;
@@ -179,5 +179,13 @@ public class Map implements IMap{
 
 		}
 
+	}
+	
+	public List<IPersonnage> getEnnemis() {
+		return ennemis;
+	}
+
+	public void setEnnemis(List<IPersonnage> ennemis) {
+		this.ennemis = ennemis;
 	}
 }

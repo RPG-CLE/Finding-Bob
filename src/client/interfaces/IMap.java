@@ -1,5 +1,7 @@
 package client.interfaces;
 
+import java.util.List;
+
 import client.Case;
 
 public interface IMap {
@@ -15,6 +17,9 @@ public interface IMap {
 	void setVilain(IPersonnage vilain);
 	Case getCase(int x, int y);
 	IPersonnage getEnnemi(int x, int y);
+	
+	public List<IPersonnage> getEnnemis();
+	public void setEnnemis(List<IPersonnage> ennemis);
 
 	
 }
