@@ -9,6 +9,7 @@ import java.util.Properties;
 import java.util.Random;
 
 import client.Case;
+import client.Jeu;
 import client.Personnage;
 import client.interfaces.IMap;
 import client.interfaces.IPersonnage;
@@ -157,52 +158,68 @@ public class Map implements IMap{
 		this.getCase(vilain.getPosX(), vilain.getPosY()).setPersonnage(vilain);
 	}
 	
-	public void deplacerDroite(){
+	public void deplacerHeroDroite(){
 		if(heros.getPosX()<this.largeur-1){
-			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
-			heros.setPosX(heros.getPosX()+1);
-			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+			if(Jeu.map.getCase(heros.getPosX()+1,heros.getPosY()).isPassable()){
+				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
+				heros.setPosX(heros.getPosX()+1);
+				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+			}
 		}
 		else{
-			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
-			heros.setPosX(0);
-			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+			if(Jeu.map.getCase(0,heros.getPosY()).isPassable()){
+				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
+				heros.setPosX(0);
+				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+			}
 		}
 	}
-	public void deplacerGauche(){
+	public void deplacerHeroGauche(){		
 		if(heros.getPosX()>0){
-			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
-			heros.setPosX(heros.getPosX()-1);
-			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+			if(Jeu.map.getCase(heros.getPosX()-1,heros.getPosY()).isPassable()){
+				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
+				heros.setPosX(heros.getPosX()-1);
+				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+			}
 		}
 		else{
-			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
-			heros.setPosX(this.largeur-1);
-			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+			if(Jeu.map.getCase(this.largeur-1,heros.getPosY()).isPassable()){
+				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
+				heros.setPosX(this.largeur-1);
+				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+			}
 		}
 	}
-	public void deplacerHaut(){
+	public void deplacerHeroHaut(){
 		if(heros.getPosY()>0){
-			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
-			heros.setPosX(heros.getPosY()-1);
-			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+			if(Jeu.map.getCase(heros.getPosX(),heros.getPosY()-1).isPassable()){
+				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
+				heros.setPosY(heros.getPosY()-1);
+				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+			}
 		}
 		else{
-			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
-			heros.setPosX(this.hauteur-1);
-			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+			if(Jeu.map.getCase(heros.getPosX(), this.hauteur-1).isPassable()){
+				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
+				heros.setPosY(this.hauteur-1);
+				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+			}
 		}
 	}
-	public void deplacerBas(){
+	public void deplacerHeroBas(){
 		if(heros.getPosY()<this.hauteur-1){
-			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
-			heros.setPosX(heros.getPosY()+1);
-			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+			if(Jeu.map.getCase(heros.getPosX(),heros.getPosY()+1).isPassable()){
+				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
+				heros.setPosY(heros.getPosY()+1);
+				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+			}
 		}
 		else{
-			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
-			heros.setPosX(0);
-			this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+			if(Jeu.map.getCase(heros.getPosX(),0).isPassable()){
+				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(null);
+				heros.setPosY(0);
+				this.getCase(heros.getPosX(), heros.getPosY()).setPersonnage(heros);
+			}
 		}
 	}
 	
