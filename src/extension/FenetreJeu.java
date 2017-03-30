@@ -80,8 +80,6 @@ public class FenetreJeu extends JFrame implements KeyListener {
 	
 	public void update(){
 		if (!this.jeu.getGameOn()){
-			System.out.println("Ici");
-
 			this.remove(panneau);
 	
 			JPanel gameOverPanneau = new JPanel();
