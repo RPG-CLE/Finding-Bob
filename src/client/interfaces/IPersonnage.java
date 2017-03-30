@@ -1,7 +1,12 @@
 package client.interfaces;
 
 import client.Evenement;
-
+/**
+ *  Interface IPersonnage regroupent les méthode gérant les personnages du jeu
+ *  
+ * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallée
+ *
+ */
 public interface IPersonnage {
 
 	double getPv();

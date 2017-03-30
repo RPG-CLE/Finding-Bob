@@ -56,7 +56,7 @@ public class MainFramework {
 			priorites.remove(pos);
 			
 			if(max_prio>0){
-				TimeUnit.SECONDS.sleep(5);							
+				TimeUnit.SECONDS.sleep(1);							
 			}
 		}
 		

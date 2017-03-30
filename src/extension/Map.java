@@ -217,6 +217,7 @@ public class Map implements IMap{
 			if(this.getCase(caseX, caseY) == null) continue;
 			
 			this.getCase(caseX, caseY).setNom("Eau");
+			this.getCase(caseX, caseY).setPassable(false);
 			
 			List<Case> listCase = this.getCasesAdjacentes(caseX, caseY);
 			for(Case _case : listCase){

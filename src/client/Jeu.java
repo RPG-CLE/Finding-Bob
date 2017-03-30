@@ -7,7 +7,7 @@ import client.interfaces.IPersonnage;
 /**
  * Classe Jeu. Définit le jeu.
  *  
- * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, VallÃ©e
+ * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallée
  */
 public class Jeu {
 	IPersonnage hero;

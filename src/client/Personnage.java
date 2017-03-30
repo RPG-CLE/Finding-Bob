@@ -113,6 +113,7 @@ public class Personnage implements IPersonnage{
 		switch (deplacement) {
 			case "haut":  //TODO;
 				if(getPosY()!=0){
+					if(!Jeu.map.getCase(getPosX(),getPosY()-1).isPassable())return;
 					Jeu.map.getCase(getPosX(),getPosY()).setPersonnage(null);
 					setPos(getPosX(),getPosY()-1);
 					Jeu.map.getCase(getPosX(),getPosY()).setPersonnage(this);
@@ -120,6 +121,7 @@ public class Personnage implements IPersonnage{
 				break;
 			case "bas":  //TODO;
 				if(getPosY()!=Jeu.map.getLargeur()){
+					if(!Jeu.map.getCase(getPosX(),getPosY()+1).isPassable())return;
 					Jeu.map.getCase(getPosX(),getPosY()).setPersonnage(null);
 					setPos(getPosX(),getPosY()+1);
 					Jeu.map.getCase(getPosX(),getPosY()).setPersonnage(this);
@@ -127,13 +129,19 @@ public class Personnage implements IPersonnage{
 			    break;
 			case "gauche":  //TODO;
 				if(getPosX()!=0){
+					if(!Jeu.map.getCase(getPosX()-1,getPosY()).isPassable())return;
 					Jeu.map.getCase(getPosX(),getPosY()).setPersonnage(null);
 					setPos(getPosX()-1,getPosY());
 					Jeu.map.getCase(getPosX(),getPosY()).setPersonnage(this);
 				}
 			    break;
 			case "droite":  //TODO;
-					Jeu.map.deplacerDroite();
+				if(getPosX()!=Jeu.map.getHauteur()){
+					if(!Jeu.map.getCase(getPosX()+1,getPosY()).isPassable())return;
+					Jeu.map.getCase(getPosX(),getPosY()).setPersonnage(null);
+					setPos(getPosX()+1,getPosY());
+					Jeu.map.getCase(getPosX(),getPosY()).setPersonnage(this);
+				}
 			    break;
 			default: //TODO invalide direction;
 			    break;

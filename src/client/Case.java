@@ -3,9 +3,9 @@ package client;
 import client.interfaces.IPersonnage;
 
 /**
- * Classe Case. Définit les cases de la maap.
+ * Classe Case. Dï¿½finit les cases de la maap.
  *  
- * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, VallÃ©e
+ * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallée
  *
  */
 
@@ -14,12 +14,13 @@ public class Case{
 	String nom;
 	int action;
 	IPersonnage personnage = null;
+	boolean passable = true;
 	/**
 	 * Constructeur de la classe Case
 	 * 
-	 * @param caseType : string qui définit le type de la case (attribut nom)
+	 * @param caseType : string qui dï¿½finit le type de la case (attribut nom)
 	 * @return Case : la case construite avec l'attribut nom = caseType, l'attribut action non
-	 * initialisé et l'attribut personage = null
+	 * initialisï¿½ et l'attribut personage = null
 	 */
 	public Case(String caseType) {
 		this.nom = caseType;
@@ -28,7 +29,7 @@ public class Case{
 	 * Accesseur de l'attribut nom de la classe Case
 	 * 
 	 * @return String : le nom de la case
-	 * @warning le nom définit le type de la case
+	 * @warning le nom dï¿½finit le type de la case
 	 */
 	public String getNom() {
 		return nom;
@@ -37,7 +38,7 @@ public class Case{
 	 * Setter de l'attribut nom de la classe Case
 	 * 
 	 * @param nom : le nouveau nom de la case
-	 * @warning le nom définit le type de la case
+	 * @warning le nom dï¿½finit le type de la case
 	 */
 	public void setNom(String nom) {
 		this.nom = nom;
@@ -73,6 +74,22 @@ public class Case{
 	 */
 	public void setPersonnage(IPersonnage personnage) {
 		this.personnage = personnage;
+	}
+	/**
+	 * Accesseur de l'attribut passable de la classe Case
+	 * 
+	 * @return Boolean: si la case est passable
+	 */
+	public boolean isPassable() {
+		return passable;
+	}
+	/**
+	 * Setter de l'attribut passable de la classe Case
+	 * 
+	 * @param passable : la case est dÃ©finie Ã  passable
+	 */
+	public void setPassable(boolean passable) {
+		this.passable = passable;
 	}
 	
 	
