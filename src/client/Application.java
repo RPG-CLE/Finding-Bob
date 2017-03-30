@@ -7,7 +7,7 @@ import framework.MethodAutorun;
  * Classe Application. Classe qui charge et démarre le jeu. Comme la classe
  * a l'annotation autorun elle sera lancer au démarrage par le framework.
  *  
- * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, VallÃ©e
+ * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallée
  *
  */
 @MethodAutorun(run="lancer")

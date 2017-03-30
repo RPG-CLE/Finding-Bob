@@ -4,7 +4,7 @@ import client.Jeu;
 /**
  * Interface IAfficheur qui s'occupe de l'affichage graphique de l'application.
  *  
- * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, VallÃ©e
+ * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallée
  *
  */
 public interface IAfficheur {

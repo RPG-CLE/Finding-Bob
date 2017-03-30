@@ -5,7 +5,7 @@ import client.interfaces.IPersonnage;
 /**
  * Classe Case. Définit les cases de la maap.
  *  
- * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, VallÃ©e
+ * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallée
  *
  */
 
