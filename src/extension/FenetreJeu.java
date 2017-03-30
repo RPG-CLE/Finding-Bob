@@ -72,9 +72,12 @@ public class FenetreJeu extends JFrame implements KeyListener {
 	
 	public void update(){
 		if (!this.jeu.getGameOn()){
+			System.out.println("Ici");
 			panneau.removeAll();
 			panneau.add(new JLabel(new ImageIcon("data/gameover.png")));
-			System.out.println("Ici");
+			//panneau.getLayout().removeLayoutComponent(panneau);
+			this.revalidate();
+			this.repaint();
 		}
 		for(int i = 0; i <casesApparence.length; i++){
 			for(int j = 0; j < casesApparence[0].length; j++){
