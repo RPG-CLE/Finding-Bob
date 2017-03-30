@@ -133,11 +133,7 @@ public class Personnage implements IPersonnage{
 				}
 			    break;
 			case "droite":  //TODO;
-				if(getPosX()!=Jeu.map.getHauteur()){
-					Jeu.map.getCase(getPosX(),getPosY()).setPersonnage(null);
-					setPos(getPosX()+1,getPosY());
-					Jeu.map.getCase(getPosX(),getPosY()).setPersonnage(this);
-				}
+					Jeu.map.deplacerDroite();
 			    break;
 			default: //TODO invalide direction;
 			    break;
