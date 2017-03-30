@@ -23,6 +23,7 @@ public interface IMap {
 	void deplacerHeroGauche();
 	void deplacerHeroHaut();
 	void deplacerHeroBas();
+	void removePersonnage(IPersonnage personnage);
 
 
 	

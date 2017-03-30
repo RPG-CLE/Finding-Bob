@@ -20,6 +20,7 @@ public class ActionJeu implements IAJ {
 		if (evt != null){
 			j.getHero().doAction(ActionDeplacer.class, evt);
 			for(IPersonnage ennemi:j.getMap().getEnnemis()){
+				
 		    	Random random = new Random();
 		    	int result = random.nextInt(4);
 		    	Evenement evntEnnemi = new Evenement(result);
@@ -51,9 +52,11 @@ public class ActionJeu implements IAJ {
 			} else {
 				System.out.println("Vous avez tué l'énnemi et il vous reste "
 						+ vie_hero + " pv.");
+				Jeu.map.removePersonnage(ennemi);
+				Jeu.map.getCase(j.getHero().getPosX(), j.getHero().getPosY()).setPersonnage(j.getHero());
 			}
 			j.getHero().setPv(vie_hero);
-			ennemi.setPv(vie_ennemi);
+			//ennemi.setPv(vie_ennemi);
 		}
 		if (j.getHero().getPv() < 1){
 			j.setGameOn(false);

@@ -254,4 +254,10 @@ public class Map implements IMap{
 	public void setEnnemis(List<IPersonnage> ennemis) {
 		this.ennemis = ennemis;
 	}
+	
+	@Override
+	public void removePersonnage(IPersonnage personnage){
+		cases[personnage.getPosX()][personnage.getPosY()].setPersonnage(null);
+		ennemis.remove(personnage);
+	}
 }
