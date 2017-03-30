@@ -3,11 +3,16 @@ package extension;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Graphics2D;
 import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.Label;
+import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
@@ -27,6 +32,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.IconifyAction;
 
 import client.Case;
 import client.Jeu;
@@ -73,15 +79,25 @@ public class FenetreJeu extends JFrame implements KeyListener {
 	public void update(){
 		if (!this.jeu.getGameOn()){
 			System.out.println("Ici");
-			panneau.removeAll();
-			panneau.add(new JLabel(new ImageIcon("data/gameover.png")));
-			//panneau.getLayout().removeLayoutComponent(panneau);
+
+			this.remove(panneau);
+	
+			JPanel gameOverPanneau = new JPanel();
+			
+			Image image = new ImageIcon("data/gameover.png").getImage();
+			JLabel gameOver = new JLabel (new ImageIcon((getScaledImage(image,jeu.getMap().getLargeur()*32, jeu.getMap().getHauteur()*32))));
+	
+			gameOverPanneau.add(gameOver);
+			this.add(gameOverPanneau);
+			
 			this.revalidate();
 			this.repaint();
 		}
-		for(int i = 0; i <casesApparence.length; i++){
-			for(int j = 0; j < casesApparence[0].length; j++){
-				casesApparence[i][j].update();
+		else {
+			for(int i = 0; i <casesApparence.length; i++){
+				for(int j = 0; j < casesApparence[0].length; j++){
+					casesApparence[i][j].update();
+				}
 			}
 		}
 	}
@@ -104,6 +120,17 @@ public class FenetreJeu extends JFrame implements KeyListener {
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	private Image getScaledImage(Image srcImg, int w, int h){
+	    BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+	    Graphics2D g2 = resizedImg.createGraphics();
+
+	    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+	    g2.drawImage(srcImg, 0, 0, w, h, null);
+	    g2.dispose();
+
+	    return resizedImg;
 	}
 
 }
