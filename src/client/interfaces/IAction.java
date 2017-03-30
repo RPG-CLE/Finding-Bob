@@ -2,7 +2,7 @@ package client.interfaces;
 
 import client.Evenement;
 /**
- *  Interface IAction gérant les actions du jeu.
+ *  Interface IAction gérant les actions du jeu selon ce que fait l'utilisateur.
  *  
  * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallée
  *
