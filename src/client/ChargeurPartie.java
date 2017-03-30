@@ -13,7 +13,7 @@ import framework.PartieProvider;
  * Classe ChargeurPartie. S'occupe de charger les différents plugin nécessaires
  * en utilisant les méthodes du PartieProvider (fraework).
  *  
- * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, VallÃ©e
+ * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallée
  *
  */
 public class ChargeurPartie {

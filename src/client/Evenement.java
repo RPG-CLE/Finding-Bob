@@ -4,7 +4,7 @@ package client;
  * Classe Evenement. S'occupe de définir plusieurs événement : les 
  * entrées que peut faire l'utilisateur avec le clavier.
  *  
- * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, VallÃ©e
+ * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallée
  * @warning Ne s'occupe pour l'instant que des déplacements : haut,bas,gauche,droite.
  *
  */
