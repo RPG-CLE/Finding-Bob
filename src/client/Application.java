@@ -7,7 +7,7 @@ import framework.MethodAutorun;
  * Classe Application. Classe qui charge et dï¿½marre le jeu. Comme la classe
  * a l'annotation autorun elle sera lancer au dï¿½marrage par le framework.
  *  
- * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallée
+ * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallï¿½e
  *
  */
 @MethodAutorun(run="lancer")
@@ -22,7 +22,6 @@ public class Application{
 		System.out.println("");
 		while(aj.action(jeu));
 		System.out.println("Game over");
-		System.exit(0);;
 	}
 
 }
