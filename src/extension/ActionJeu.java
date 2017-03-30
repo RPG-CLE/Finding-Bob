@@ -11,7 +11,11 @@ import client.interfaces.IEntreeUtilisateur;
 import client.interfaces.IPersonnage;
 
 public class ActionJeu implements IAJ {
+	
+	long lastTurn;
+	
 	public ActionJeu() {
+		lastTurn = System.currentTimeMillis();
 	}
 
 	@Override
@@ -20,6 +24,10 @@ public class ActionJeu implements IAJ {
 		Evenement evt = j.getEntree().lireEntree();
 		if (evt != null){
 			j.getHero().doAction(ActionDeplacer.class, evt);
+			
+		}   
+		
+		if(System.currentTimeMillis() - lastTurn > 1000){
 			for(IPersonnage ennemi:j.getMap().getEnnemis()){
 				if(ennemi.getPosX() == j.getHero().getPosX() && ennemi.getPosY() == j.getHero().getPosY()) continue;
 		    	Random random = new Random();
@@ -27,8 +35,10 @@ public class ActionJeu implements IAJ {
 		    	Evenement evntEnnemi = new Evenement(result);
 		    	ennemi.doAction(ActionDeplacer.class, evntEnnemi);
 		    }
+			lastTurn = System.currentTimeMillis();
 		}
-	    
+		
+		
 		
 		IPersonnage ennemi= (IPersonnage) j.getMap().getEnnemi(j.getHero().getPosX(), j.getHero().getPosY());
 		if (ennemi!=null&&ennemi.getPv()>0) {
