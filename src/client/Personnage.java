@@ -120,7 +120,7 @@ public class Personnage implements IPersonnage{
 				}
 				break;
 			case "bas":  //TODO;
-				if(getPosY()!=Jeu.map.getLargeur()){
+				if(getPosY()!=Jeu.map.getLargeur() - 1){
 					if(!Jeu.map.getCase(getPosX(),getPosY()+1).isPassable())return;
 					Jeu.map.getCase(getPosX(),getPosY()).setPersonnage(null);
 					setPos(getPosX(),getPosY()+1);
@@ -136,7 +136,7 @@ public class Personnage implements IPersonnage{
 				}
 			    break;
 			case "droite":  //TODO;
-				if(getPosX()!=Jeu.map.getHauteur()){
+				if(getPosX()!=Jeu.map.getHauteur() - 1){
 					if(!Jeu.map.getCase(getPosX()+1,getPosY()).isPassable())return;
 					Jeu.map.getCase(getPosX(),getPosY()).setPersonnage(null);
 					setPos(getPosX()+1,getPosY());
