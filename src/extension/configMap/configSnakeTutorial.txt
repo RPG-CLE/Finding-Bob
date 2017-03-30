@@ -1,2 +1,2 @@
 bonbonsnake = src/extension/configMap/bonbonsnake.txt
-queusnake = src/extension/configMap/partieQueu.txt
+queuxsnake = src/extension/configMap/partieQueux.txt
