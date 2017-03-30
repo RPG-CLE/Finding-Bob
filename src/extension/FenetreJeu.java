@@ -2,6 +2,7 @@ package extension;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -63,6 +64,8 @@ public class FenetreJeu extends JFrame implements KeyListener {
 
 			}
 		}
+		this.setMaximumSize(new Dimension(jeu.getMap().getLargeur()*32, jeu.getMap().getHauteur()*32));
+		this.setResizable(false);
 		
 	}
 	

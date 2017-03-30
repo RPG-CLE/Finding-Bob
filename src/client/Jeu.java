@@ -5,9 +5,9 @@ import client.interfaces.IEntreeUtilisateur;
 import client.interfaces.IMap;
 import client.interfaces.IPersonnage;
 /**
- * Classe Jeu. Définit le jeu.
+ * Classe Jeu. Dï¿½finit le jeu.
  *  
- * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallée
+ * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, VallÃ©e
  */
 public class Jeu {
 	IPersonnage hero;
@@ -61,7 +61,7 @@ public class Jeu {
 	 * @param map : la map du jeu.
 	 * @param entree : l'entree utilisateur du jeu
 	 * @return Jeu : le jeu construit.
-	 * @warning l'attribut afficheur n'est pas définit par le constructeur
+	 * @warning l'attribut afficheur n'est pas dï¿½finit par le constructeur
 	 */
 	public Jeu(IPersonnage hero, IMap map, IEntreeUtilisateur entree) {
 		super();
@@ -109,7 +109,7 @@ public class Jeu {
 	}
 	
 	/**
-	 * Procéde à l'affichage graphique du jeu.
+	 * Procï¿½de ï¿½ l'affichage graphique du jeu.
 	 * 
 	 */
 	public void afficher(){
