@@ -50,7 +50,7 @@ public class MapSnakeTutorial implements IMap{
 		this.corpsMonstreY = new LinkedList<Integer>() ;
 		
 		ennemis = new ArrayList<IPersonnage>();
-		partieCorps = getPartieQueu(0,0);
+		partieCorps = getPartieQueux(0,0);
 		initialiseEnnemis();
 	}
 	
@@ -75,14 +75,14 @@ public class MapSnakeTutorial implements IMap{
 		}
 	}
 	
-	private IPersonnage getPartieQueu(int x, int y){
+	private IPersonnage getPartieQueux(int x, int y){
 		Properties prop = new Properties();
-		IPersonnage partieQueu = null;
+		IPersonnage partieQueux = null;
 		try {
 			prop.load(new FileReader("src/extension/configMap/configSnakeTutorial.txt"));
 			for(Object key : prop.keySet()){
-				if(key.toString().equals("queusnake")){
-					partieQueu = (IPersonnage) (IPersonnage) PartieProvider.getInstance().getObjetByConfig(IPersonnage.class,
+				if(key.toString().equals("queuxsnake")){
+					partieQueux = (IPersonnage) (IPersonnage) PartieProvider.getInstance().getObjetByConfig(IPersonnage.class,
 							(String)prop.get(key));
 				}
 			}
@@ -93,7 +93,7 @@ public class MapSnakeTutorial implements IMap{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return partieQueu;
+		return partieQueux;
 	}
 	
 	public int getLargeur() {

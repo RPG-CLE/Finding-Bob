@@ -13,6 +13,7 @@ import client.Jeu;
 import client.Personnage;
 import client.interfaces.IMap;
 import client.interfaces.IPersonnage;
+import extension.configMap.Portail;
 import framework.PartieProvider;
 
 public class Map implements IMap{
@@ -23,9 +24,12 @@ public class Map implements IMap{
 	private int hauteur=20;
 	int positionPersonageY;
 	int positionPersonageX;
+	boolean bossVivant;
 	List<IPersonnage> ennemis;
+	List<Portail> portails;
 
 	public Map(){
+		bossVivant = true;
 		this.positionPersonageY=2;
 		this.positionPersonageX=2;
 		this.cases = new Case[largeur][hauteur];
@@ -34,9 +38,20 @@ public class Map implements IMap{
 				this.setCase(i, j, new Case("Herbe"));
 			}
 		}
+		
+		portails = new ArrayList<Portail>();
+		portails.add(new Portail(0,0));
+		portails.add(new Portail(this.largeur-1,this.hauteur-1));
+		
+		
+		
 		this.genererMonde(0.09);
 		ennemis = new ArrayList<IPersonnage>();
 		initialiseEnnemis();
+		for (int i = 0; i < portails.size(); i++) {
+			this.setCase(portails.get(i).getPosX(), portails.get(i).getPosY(), new Case("Portail"));
+		}
+		
 	}
 	
 	private void initialiseEnnemis(){
@@ -158,6 +173,7 @@ public class Map implements IMap{
 		this.getCase(vilain.getPosX(), vilain.getPosY()).setPersonnage(vilain);
 	}
 	
+	
 	public void deplacerDroite(IPersonnage perso){
 		if(perso.getPosX()<this.largeur-1){
 			if(Jeu.map.getCase(perso.getPosX()+1,perso.getPosY()).isPassable()){
@@ -223,6 +239,21 @@ public class Map implements IMap{
 		}
 	}
 	
+	public boolean changementDeCarte(){
+		int i = 0;
+		while(i<portails.size()){
+			if(portails.get(i).getPosX() == heros.getPosX()
+					&& portails.get(i).getPosY() == heros.getPosY()){
+				if(!bossVivant)
+					return true;
+				else
+					System.out.println("Vous devez battre le boss avant de prendre un portail");
+			}
+			i++;
+		}
+		return false;
+	}
+	
 	private void genererMonde(double pourcentage) {
 		int caseX, caseY;
 		Random random = new Random();
@@ -257,7 +288,22 @@ public class Map implements IMap{
 
 	@Override
 	public void removePersonnage(IPersonnage personnage){
+		System.out.println(personnage.getNom());
+		
+		if (personnage.getNom().equals("Monstraquatique")){
+			bossVivant = false;
+		}
 		cases[personnage.getPosX()][personnage.getPosY()].setPersonnage(null);
 		ennemis.remove(personnage);
+		
+	}
+	
+	public IPersonnage getHero(){
+		return heros;
+	}
+	
+	public boolean rechargementTexture(){
+			return false;
+
 	}
 }

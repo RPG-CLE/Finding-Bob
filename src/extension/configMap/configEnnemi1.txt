@@ -1,6 +1,6 @@
 classe = client.Personnage
 PosX = 9
 PosY = 9
-Nom = Monstraquatique
+Nom =Monstraquatique
 Force = 5
-Pv = 10
+Pv = 20
