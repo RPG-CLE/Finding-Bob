@@ -1,5 +1,7 @@
 package extension;
 
+import java.io.File;
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -50,24 +52,13 @@ private static final long serialVersionUID = 446562574325842386L;
 
 	
 	void SetCaseIcon(){
-		switch(personnage.getNom()){
-		case "Mage":
-			icon = "data/bobmage.png";
-			break;
-		case "Paladin" :
-			icon = "data/bobpaladin.png";
-			break;
-		case "Voleur" :
-			icon = "data/bobvoleur.png";
-		case "Vilain" :
-			icon = "data/monstrevaricelle.png";
-			break;
-		case "Monstraquatique" :
-			icon = "data/monstreaquatique.png";
-			break;
-		default:
+		File monFichier = new File("data/"+personnage.getNom()+".png");
+		
+		if(monFichier.exists()) 
+		{
+			icon ="data/"+personnage.getNom()+".png";
+		}else{
 			icon = "data/default.png";
-			break;
 		}
 	}
 

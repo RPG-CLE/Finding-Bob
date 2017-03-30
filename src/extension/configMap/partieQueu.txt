@@ -1,0 +1,2 @@
+classe = client.Personnage
+Nom = Paladin

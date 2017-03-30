@@ -1,0 +1,4 @@
+classe = client.Personnage
+PosX = 9
+PosY = 9
+Nom = Bonbon
