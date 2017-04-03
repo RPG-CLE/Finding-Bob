@@ -35,11 +35,11 @@ la plateforme se présente en plusieurs classes :
 
 	Un nom respect de cela entrainera le renvoi d'un objet null.
 
-ETAT D'AVANCEMENT :
+** ETAT D'AVANCEMENT :
 
-** DONE Décider de la configuration et des classes de bases
+**** DONE Décider de la configuration et des classes de bases
    CLOSED: [2017-02-02 jeu. 19:26]
-** DONE Refactoring bien propre
+**** DONE Refactoring bien propre
    CLOSED: [2017-03-02 jeu. 18:06]
-** TODO Chargement dynamique (et auto) des données de configuration du héros (au min)
+**** TODO Chargement dynamique (et auto) des données de configuration du héros (au min)
    CLOSED: [2017-03-30 jeu. 18:00]
