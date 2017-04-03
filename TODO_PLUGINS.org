@@ -1,7 +1,0 @@
-* TO DO PLUGINS
-
-** Classes de personnages
-** Maps
-** IAJ
-** IEntreeUtilisateur
-** IAfficheur
