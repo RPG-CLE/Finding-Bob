@@ -1,1 +1,1 @@
-classe = extension.ActionJeuSnakeTutorial
+classe = extension.ActionJeu
