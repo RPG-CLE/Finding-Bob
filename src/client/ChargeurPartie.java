@@ -30,9 +30,7 @@ public class ChargeurPartie {
 	public static Jeu charger() {
 		IPersonnage principal = (IPersonnage) PartieProvider.getInstance().getObjetByConfig(IPersonnage.class,
 				"src/configuration/configHeros.txt");
-//		IPersonnage vilain = (IPersonnage) PartieProvider.getInstance().getObjetByConfig(IPersonnage.class,
-//				"src/configuration/configVilain.txt");
-//		A supprimer configVilain
+
 		IMap map = (IMap) PartieProvider.getInstance().getObjetByConfig(IMap.class,
 				"src/configuration/configMap.txt");
 		IAction actionDeplacer = (IAction) PartieProvider.getInstance().getObjetByConfig(IAction.class,
