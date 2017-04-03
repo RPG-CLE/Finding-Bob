@@ -10,10 +10,10 @@ import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-import javax.print.attribute.standard.Media;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.DataLine;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -66,14 +66,15 @@ public class FenetreJeu extends JFrame implements KeyListener {
 	public static void play(String filename)
 	{
 	    try
-	    {
-	        Clip clip = AudioSystem.getClip();
-	        clip.open(AudioSystem.getAudioInputStream(new File(filename)));
-	        clip.setLoopPoints(0, -1);
+	    {	        
+	    	Clip clip = AudioSystem.getClip();
+	        AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File(filename));
+	        DataLine.Info info = new DataLine.Info(Clip.class, inputStream.getFormat());
+	        clip = (Clip)AudioSystem.getLine(info);
+	        clip.open(inputStream);
+	      	clip.setLoopPoints(0, -1);
 	        clip.loop(Clip.LOOP_CONTINUOUSLY);
 	        clip.start();
-	      
-	        
 	    }
 	    catch (Exception exc)
 	    {
