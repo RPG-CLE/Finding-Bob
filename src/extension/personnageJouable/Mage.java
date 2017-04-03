@@ -1,7 +1,6 @@
 package extension.personnageJouable;
 
 import client.Personnage;
-import client.interfaces.IPersonnage;
 
 public class Mage extends Personnage{
 

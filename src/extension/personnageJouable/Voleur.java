@@ -1,5 +1,4 @@
 package extension.personnageJouable;
-import client.interfaces.IPersonnage;
 import client.Personnage;
 
 public class Voleur extends Personnage {

@@ -1,13 +1,9 @@
 package extension;
 
-import java.io.InputStream;
 import java.util.Random;
-import java.util.Scanner;
-import java.util.Timer;
 
 import client.*;
 import client.interfaces.IAJ;
-import client.interfaces.IEntreeUtilisateur;
 import client.interfaces.IPersonnage;
 
 public class ActionJeu implements IAJ {

@@ -1,6 +1,5 @@
 package extension;
 
-import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import client.Evenement;

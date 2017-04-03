@@ -10,7 +10,6 @@ import java.util.Random;
 
 import client.Case;
 import client.Jeu;
-import client.Personnage;
 import client.interfaces.IMap;
 import client.interfaces.IPersonnage;
 import extension.configMap.Portail;
