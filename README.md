@@ -1,9 +1,13 @@
 # FINDING BOB
 
-# Where to find us
+# Où nous trouver
 
 https://github.com/RPG-CLE/Finding-Bob
 
-# Launch
+# Exécution
 
-Exécuter le main du framework
+Exécuter le main du framework (src/framework/MainFramework.java)
+
+# Documentation
+
+Voir le fichier Documentation_Finding_Bob.pdf
