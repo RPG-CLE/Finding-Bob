@@ -1,7 +1,6 @@
-* TO DO PLATEFORM
+* API_PLATEFORM
 
-
-TODO_PLATFORM qui indique sommairement l'API de la plateforme et les conventions de déclaration de plugins qui sont prévues, et l'état d'avancement
+API_PLATFORM qui indique sommairement l'API de la plateforme et les conventions de déclaration de plugins qui sont prévues, et l'état d'avancement
 
 PRESENTATION DE L'API DE LA PLATEFORME : 
 
