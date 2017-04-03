@@ -12,8 +12,8 @@ public class Afficheur implements IAfficheur{
 	 */
 	@Override
 	public void afficher(Jeu jeu){
-		int x_hero = jeu.getHero().getPosX();
-		int y_hero = jeu.getHero().getPosY();
+		int x_hero = jeu.getHeros().getPosX();
+		int y_hero = jeu.getHeros().getPosY();
 		for(int i = 0; i<jeu.getMap().getHauteur(); ++i){
 			for(int j = 0; j<jeu.getMap().getLargeur(); ++j){
 				IPersonnage ennemi= (IPersonnage) jeu.getMap().getEnnemi(j,i);

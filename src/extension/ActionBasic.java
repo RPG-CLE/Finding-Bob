@@ -7,9 +7,9 @@ public class ActionBasic implements IAJ {
 	@Override
 	public boolean action(Jeu j) {
 		// TODO Auto-generated method stub
-	   j.getHero().deplacer("droite");
-	   j.getHero().setPos(j.getHero().getPosX()+1, j.getHero().getPosY());
-	   if(j.getHero().getPosX()>j.getMap().getLargeur())
+	   j.getHeros().deplacer("droite");
+	   j.getHeros().setPos(j.getHeros().getPosX()+1, j.getHeros().getPosY());
+	   if(j.getHeros().getPosX()>j.getMap().getLargeur())
 		   return false;
 	   j.afficher();
 	   System.out.println();

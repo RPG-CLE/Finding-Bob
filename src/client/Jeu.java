@@ -10,7 +10,7 @@ import client.interfaces.IPersonnage;
  * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallée
  */
 public class Jeu {
-	IPersonnage hero;
+	IPersonnage heros;
 	public static IMap map;
 	IAfficheur afficheur;
 	IEntreeUtilisateur entree;
@@ -58,15 +58,15 @@ public class Jeu {
 	/**
 	 * Constructeur de la classe Jeu
 	 * 
-	 * @param hero : le hero du jeu.
+	 * @param heros : le heros du jeu.
 	 * @param map : la map du jeu.
 	 * @param entree : l'entree utilisateur du jeu
 	 * @return Jeu : le jeu construit.
 	 * @warning l'attribut afficheur n'est pas d�finit par le constructeur
 	 */
-	public Jeu(IPersonnage hero, IMap map, IEntreeUtilisateur entree) {
+	public Jeu(IPersonnage heros, IMap map, IEntreeUtilisateur entree) {
 		super();
-		this.hero = hero;
+		this.heros = heros;
 		Jeu.map = map;
 		this.entree = entree;
 		this.gameOn = true;
@@ -74,21 +74,21 @@ public class Jeu {
 	
 	
 	/**
-	 * Accesseur de l'attribut hero de la classe Jeu
+	 * Accesseur de l'attribut heros de la classe Jeu
 	 * 
-	 * @return IPersonnage : l'attribut hero de la classe Jeu
+	 * @return IPersonnage : l'attribut heros de la classe Jeu
 	 */
-	public IPersonnage getHero() {
-		return hero;
+	public IPersonnage getHeros() {
+		return heros;
 	}
 
 	/**
-	 * Setter de l'attribut hero de la classe Jeu
+	 * Setter de l'attribut heros de la classe Jeu
 	 * 
-	 * @param hero : le nouveau attribut hero.
+	 * @param heros : le nouveau attribut heros.
 	 */
-	public void setHero(IPersonnage hero) {
-		this.hero = hero;
+	public void setHeros(IPersonnage heros) {
+		this.heros = heros;
 	}
 
 	

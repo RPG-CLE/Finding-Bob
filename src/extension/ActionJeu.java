@@ -19,13 +19,13 @@ public class ActionJeu implements IAJ {
 		// TODO Auto-generated method stub
 		Evenement evt = j.getEntree().lireEntree();
 		if (evt != null){
-			j.getHero().doAction(ActionDeplacer.class, evt);
+			j.getHeros().doAction(ActionDeplacer.class, evt);
 			
 		}   
 		
 		if(System.currentTimeMillis() - lastTurn > 1000){
 			for(IPersonnage ennemi:j.getMap().getEnnemis()){
-				if(ennemi.getPosX() == j.getHero().getPosX() && ennemi.getPosY() == j.getHero().getPosY()) continue;
+				if(ennemi.getPosX() == j.getHeros().getPosX() && ennemi.getPosY() == j.getHeros().getPosY()) continue;
 		    	Random random = new Random();
 		    	int result = random.nextInt(4);
 		    	Evenement evntEnnemi = new Evenement(result);
@@ -36,12 +36,12 @@ public class ActionJeu implements IAJ {
 		
 		
 		
-		IPersonnage ennemi= (IPersonnage) j.getMap().getEnnemi(j.getHero().getPosX(), j.getHero().getPosY());
+		IPersonnage ennemi= (IPersonnage) j.getMap().getEnnemi(j.getHeros().getPosX(), j.getHeros().getPosY());
 		if (ennemi!=null&&ennemi.getPv()>0) {
 			System.out.println("Votre Héros entre en Combat !!");
-			double force_hero = j.getHero().getForce();
+			double force_hero = j.getHeros().getForce();
 			double force_ennemi = ennemi.getForce();
-			double vie_hero = j.getHero().getPv();
+			double vie_hero = j.getHeros().getPv();
 			double vie_ennemi = ennemi.getPv();
 			while (vie_hero > 0 && vie_ennemi > 0) {
 				System.out.println("Vie ennemi = " + vie_ennemi + "-"
@@ -59,12 +59,12 @@ public class ActionJeu implements IAJ {
 				System.out.println("Vous avez tué l'ennemi et il vous reste "
 						+ vie_hero + " pv.");
 				Jeu.map.removePersonnage(ennemi);
-				Jeu.map.getCase(j.getHero().getPosX(), j.getHero().getPosY()).setPersonnage(j.getHero());
+				Jeu.map.getCase(j.getHeros().getPosX(), j.getHeros().getPosY()).setPersonnage(j.getHeros());
 			}
-			j.getHero().setPv(vie_hero);
+			j.getHeros().setPv(vie_hero);
 			//ennemi.setPv(vie_ennemi);
 		}
-		if (j.getHero().getPv() < 1){
+		if (j.getHeros().getPv() < 1){
 			j.setGameOn(false);
 		}
 
