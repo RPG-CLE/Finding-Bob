@@ -159,7 +159,7 @@ public class PartieProvider extends Observable {
 			if(contrainte.isAssignableFrom(cl)){
 				mon_objet = cl.newInstance();
 				_instance.setChanged();
-				_instance.notifyObservers("une instance de "+cl.getName()+" a été chargé ");
+				_instance.notifyObservers("CHARGEMENT_INSTANCE : "+cl.getName());
 				for(Object key : prop.keySet()){
 					if(!key.equals("classe")){
 						Method getter = cl.getMethod("get"+(String)key);
@@ -210,7 +210,7 @@ public class PartieProvider extends Observable {
 				mon_objet = cl.newInstance();
 			}
 			_instance.setChanged();
-			_instance.notifyObservers("une instance de "+cl.getName()+" a été chargé. ");
+			_instance.notifyObservers("CHARGEMENT_INSTANCE : "+cl.getName());
 
 			if(desc.getContrainte().equals(Observer.class)){
 				_instance.addObserver((Observer) mon_objet);
@@ -219,7 +219,7 @@ public class PartieProvider extends Observable {
 			if (desc.isAutoRun()){
 				if(!(cl.getAnnotation(MethodAutorun.class)==null)){
 					_instance.setChanged();
-					_instance.notifyObservers("une instance de "+cl.getName()+" lancé. ");
+					_instance.notifyObservers("LANCEMENT_INSTANCE : "+cl.getName());
 					Method m = cl.getMethod((String) cl.getAnnotation(MethodAutorun.class).run());
 					m.invoke(mon_objet);
 				}
