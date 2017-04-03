@@ -2,44 +2,44 @@ package client.interfaces;
 
 import client.Evenement;
 /**
- *  Interface IPersonnage regroupant les méthodes gérant les personnages du jeu
+ *  Interface IPersonnage regroupant les mÃ©thodes gÃ©rant les personnages du jeu
  *  
- * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallée
+ * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, VallÃ©e
  *
  */
 public interface IPersonnage {
 	/**
-	 * Accesseur de l'attribut pv des classes héritants de IPersonnage.
+	 * Accesseur de l'attribut pv des classes hÃ©ritants de IPersonnage.
 	 * 
 	 * @return double : le nombre de pv du personnage
 	 */
 	double getPv();
 	/**
-	 * Setter de l'attribut pv des classes héritants de IPersonnage.
+	 * Setter de l'attribut pv des classes hÃ©ritants de IPersonnage.
 	 * 
 	 * @param double : le nouveau nombre de pv du personnage
 	 */
 	void setPv(double pv);
 	/**
-	 * Accesseur de l'attribut force des classes héritants de IPersonnage.
+	 * Accesseur de l'attribut force des classes hÃ©ritants de IPersonnage.
 	 * 
 	 * @return double : la force du personnage 
 	 */
 	double getForce();
 	/**
-	 * Setter de l'attribut force des classes héritants de IPersonnage.
+	 * Setter de l'attribut force des classes hÃ©ritants de IPersonnage.
 	 * 
 	 * @param double : la nouvelle force du personnage
 	 */
 	void setForce(double force);
 	/**
-	 * Accesseur de l'attribut nom des classes héritants de IPersonnage.
+	 * Accesseur de l'attribut nom des classes hÃ©ritants de IPersonnage.
 	 * 
 	 * @return String : le nom du personnage
 	 */
 	String getNom();
 	/**
-	 * Setter de l'attribut nom des classes héritants de IPersonnage.
+	 * Setter de l'attribut nom des classes hÃ©ritants de IPersonnage.
 	 * 
 	 * @param string : le nouveau nom du personnage
 	 */
@@ -52,25 +52,25 @@ public interface IPersonnage {
 	 */
 	void setPos(int x, int y);
 	/**
-	 * Accesseur de l'attribut posX des classes héritants de IPersonnage.
+	 * Accesseur de l'attribut posX des classes hÃ©ritants de IPersonnage.
 	 * 
 	 * @return int : la position sur l'axe X du personnage
 	 */
 	int getPosX();
 	/**
-	 * Setter de l'attribut pv des classes héritants de IPersonnage.
+	 * Setter de l'attribut pv des classes hÃ©ritants de IPersonnage.
 	 * 
 	 * @param int : la nouvelle position sur l'axe X du personnage
 	 */
 	void setPosX(int x);
 	/**
-	 * Accesseur de l'attribut posY des classes héritants de IPersonnage.
+	 * Accesseur de l'attribut posY des classes hÃ©ritants de IPersonnage.
 	 * 
 	 * @return int : la position sur l'axe Y du personnage
 	 */
 	int getPosY();
 	/**
-	 * Setter de l'attribut pv des classes héritants de IPersonnage.
+	 * Setter de l'attribut pv des classes hÃ©ritants de IPersonnage.
 	 * 
 	 * @param int : la nouvelle position sur l'axe Y du personnage
 	 */
@@ -78,26 +78,26 @@ public interface IPersonnage {
 
 	
 	/**
-	 * Déplace le personnage sur la map
+	 * DÃ©place le personnage sur la map
 	 * 
-	 * @param string : la direction dans la quel on ce déplace
+	 * @param string : la direction dans la quel on ce dÃ©place
 	 */
 	void deplacer(String deplacement);
 	
 	/**
-	 * Rajoute une action à la liste d'action du personnage.
+	 * Rajoute une action Ã  la liste d'action du personnage.
 	 * 
-	 * @param cl : la classe de l'IAction ajouté
-	 * @param action : l'IAction ajouté
+	 * @param cl : la classe de l'IAction ajoutÃ©
+	 * @param action : l'IAction ajoutÃ©
 	 */
 	void addAction(Class<? extends IAction> cl, IAction action);
 	
 	
 	/**
-	 * Effectue une action selon un événement donné.
+	 * Effectue une action selon un Ã©vÃ©nement donnÃ©.
 	 * 
-	 * @param cl : la classe de l'IAction à efféctuer
-	 * @param evt : l'évenement déclenchant l'action
+	 * @param cl : la classe de l'IAction Ã  effectuer
+	 * @param evt : l'Ã©venement dÃ©clenchant l'action
 	 */
 	void doAction(Class<? extends IAction> cl, Evenement evt);
 	

@@ -21,54 +21,54 @@ public interface IMap {
 	void setHero(IPersonnage heros);
 	void setVilain(IPersonnage vilain);
 	/**
-	 *  R�cup�re une case de la map selon ses coordonn�es.
+	 *  Récupére une case de la map selon ses coordonnées.
 	 *  
 	 * @param int x : la position de la case selon l'axe X.
 	 * @param int y : la position de la case selon l'axe Y.
-	 * @return Case : la case � ces coordonn�es.
+	 * @return Case : la case à ces coordonnées.
 	 */
 	Case getCase(int x, int y);
 	/**
-	 *  R�cup�re un ennemie de la map selon ses coordonn�es.
+	 *  Récupére un ennemie de la map selon ses coordonnées.
 	 *  
 	 * @param int x : la position de l'ennemi selon l'axe X.
 	 * @param int y : la position de l'ennemi selon l'axe Y.
-	 * @return IPersonnage : l'ennemie � ces coordonn�es.
-	 * @warning Pr�vu pour r�cup�r� les ennemies mais peut aussi 
-	 * r�cup�r� tout type de personnage.
+	 * @return IPersonnage : l'ennemie à ces coordonnées.
+	 * @warning Prévu pour récupéré les ennemies mais peut aussi 
+	 * récupéré tout type de personnage.
 	 */
 	IPersonnage getEnnemi(int x, int y);
 	public List<IPersonnage> getEnnemis();
 	public void setEnnemis(List<IPersonnage> ennemis);
 
 	/**
-	 *  D�place vers la droite le personnage passer en param�tre.
+	 *  Déplace vers la droite le personnage passer en paramètre.
 	 *  
-	 * @param perso : le personnage � d�placer.
+	 * @param perso : le personnage à déplacer.
 	 */
 	void deplacerDroite(IPersonnage perso);
 	/**
-	 *  D�place vers la gauche le personnage passer en param�tre.
+	 *  Déplace vers la gauche le personnage passer en paramètre.
 	 *  
-	 * @param perso : le personnage � d�placer.
+	 * @param perso : le personnage à déplacer.
 	 */
 	void deplacerGauche(IPersonnage perso);
 	/**
-	 *  D�place vers le haut le personnage passer en param�tre.
+	 *  Déplace vers le haut le personnage passer en paramètre.
 	 *  
-	 * @param perso : le personnage � d�placer.
+	 * @param perso : le personnage à déplacer.
 	 */
 	void deplacerHaut(IPersonnage perso);
 	/**
-	 *  D�place vers le bas le personnage passer en param�tre.
+	 *  Déplace vers le bas le personnage passer en paramètre.
 	 *  
-	 * @param perso : le personnage � d�placer.
+	 * @param perso : le personnage à déplacer.
 	 */
 	void deplacerBas(IPersonnage perso);
 	/**
-	 *  Enl�ve un personnage de la map
+	 *  Enlève un personnage de la map
 	 *  
-	 * @param personnage : le personnage � enlever
+	 * @param personnage : le personnage à enlever
 	 */
 	void removePersonnage(IPersonnage personnage);
 	/**

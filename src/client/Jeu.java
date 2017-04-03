@@ -5,7 +5,7 @@ import client.interfaces.IEntreeUtilisateur;
 import client.interfaces.IMap;
 import client.interfaces.IPersonnage;
 /**
- * Classe Jeu. D�finit le jeu.
+ * Classe Jeu. Définit le jeu.
  *  
  * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallée
  */

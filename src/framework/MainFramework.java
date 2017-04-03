@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Classe contenant le main � lancer pour d�marrer le jeu
+ * Classe contenant le main à lancer pour démarrer le jeu
  * 
- * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vall�e
+ * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallée
  *
  */
 

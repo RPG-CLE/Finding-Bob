@@ -1,11 +1,11 @@
 package client;
 
 /**
- * Classe Evenement. S'occupe de d�finir plusieurs �v�nement : les 
+ * Classe Evenement. S'occupe de définir plusieurs événements : les 
  * entr�es que peut faire l'utilisateur avec le clavier.
  *  
- * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vall�e
- * @warning Ne s'occupe pour l'instant que des d�placements : haut,bas,gauche,droite.
+ * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallée
+ * @warning Ne s'occupe pour l'instant que des déplacements : haut,bas,gauche,droite.
  *
  */
 
@@ -19,8 +19,8 @@ public class Evenement {
 	/**
 	 * Constructeur de la classe Evenement
 	 * 
-	 * @param evenement : string qui d�finit � quel type d'�v�nement on a affaire (haut, bas, etc...).
-	 * @return Evenement: �v�nement avec l'attribut evenement d�finit.
+	 * @param evenement : string qui définit à quel type d'événement on a affaire (haut, bas, etc...).
+	 * @return Evenement: événement avec l'attribut evenement définit.
 	 */
 	public Evenement(String evenement) {
 		this.evenement = evenement;
@@ -29,8 +29,8 @@ public class Evenement {
 	/**
 	 * Constructeur de la classe Evenement
 	 * 
-	 * @param enumValue : valeur qui d�finit � quel type d'�v�nement on a affaire suivant l'ordre de déclaration (haut, bas, etc...).
-	 * @return Evenement: �v�nement avec l'attribut evenement d�finit.
+	 * @param enumValue : valeur qui définit à quel type d'événement on a affaire suivant l'ordre de déclaration (haut, bas, etc...).
+	 * @return Evenement: événement avec l'attribut evenement définit.
 	 */
 	public Evenement(int enumValue) {
 		switch (enumValue) {

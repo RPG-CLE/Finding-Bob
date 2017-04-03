@@ -2,17 +2,17 @@ package client.interfaces;
 
 import client.Evenement;
 /**
- *  Interface IEntreeUtilisateur gérant les entrées utilisateur
+ *  Interface IEntreeUtilisateur gÃ©rant les entrÃ©es utilisateur
  *  (ce qu'il tape sur le clavier).
  *  
- * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallée
+ * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, VallÃ©e
  *
  */
 public interface IEntreeUtilisateur {
 	/**
-	 *  Lit l'entrée taper par l'utilisateur et génére l'évenement approprié
+	 *  Lit l'entrÃ©e taper par l'utilisateur et gÃ©nÃ©re l'Ã©venement appropriÃ©
 	 *  
-	 * @return Evenement : l'évenement généré.
+	 * @return Evenement : l'Ã©venement gÃ©nÃ©rÃ©.
 	 *
 	 */
 	public Evenement lireEntree();

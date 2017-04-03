@@ -3,9 +3,9 @@ package client;
 import client.interfaces.IPersonnage;
 
 /**
- * Classe Case. D�finit les cases de la maap.
+ * Classe Case. Définit les cases de la maap.
  *  
- * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vall�e
+ * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallée
  *
  */
 
@@ -18,7 +18,7 @@ public class Case{
 	/**
 	 * Constructeur de la classe Case
 	 * 
-	 * @param caseType : string qui d�finit le type de la case (attribut nom)
+	 * @param caseType : string qui définit le type de la case (attribut nom)
 	 * @return Case : la case construite avec l'attribut nom = caseType, l'attribut action non
 	 * initialis� et l'attribut personage = null
 	 */
@@ -29,7 +29,7 @@ public class Case{
 	 * Accesseur de l'attribut nom de la classe Case
 	 * 
 	 * @return String : le nom de la case
-	 * @warning le nom d�finit le type de la case
+	 * @warning le nom définit le type de la case
 	 */
 	public String getNom() {
 		return nom;
@@ -38,7 +38,7 @@ public class Case{
 	 * Setter de l'attribut nom de la classe Case
 	 * 
 	 * @param nom : le nouveau nom de la case
-	 * @warning le nom d�finit le type de la case
+	 * @warning le nom définit le type de la case
 	 */
 	public void setNom(String nom) {
 		this.nom = nom;

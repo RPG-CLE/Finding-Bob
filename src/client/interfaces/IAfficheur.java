@@ -4,15 +4,15 @@ import client.Jeu;
 /**
  * Interface IAfficheur qui s'occupe de l'affichage graphique de l'application.
  *  
- * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallée
+ * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, VallÃ©e
  *
  */
 public interface IAfficheur {
 
 	/**
-	 * Affiche l'état actuel du jeu
+	 * Affiche l'Ã©tat actuel du jeu
 	 *  
-	 * @param jeu : le jeu à afficher
+	 * @param jeu : le jeu Ã  afficher
 	 *
 	 */
 	void afficher(Jeu jeu);

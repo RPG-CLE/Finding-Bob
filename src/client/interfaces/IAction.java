@@ -2,17 +2,17 @@ package client.interfaces;
 
 import client.Evenement;
 /**
- *  Interface IAction gérant les actions du jeu selon ce que fait l'utilisateur.
+ *  Interface IAction gÃ©rant les actions du jeu selon ce que fait l'utilisateur.
  *  
- * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallée
+ * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, VallÃ©e
  *
  */
 public interface IAction {
 	/**
-	 * Fait faire une action au personnage selon un évenement donné.
+	 * Fait faire une action au personnage selon un Ã©venement donnÃ©.
 	 *  
 	 *@param personnage : le personnage effectuant l'action
-	 *@param evt : l'évenement déclenchant l'action
+	 *@param evt : l'Ã©venement dÃ©clenchant l'action
 	 */
 	void action(IPersonnage personnage, Evenement evt);
 

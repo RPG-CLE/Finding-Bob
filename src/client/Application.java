@@ -4,10 +4,10 @@ import client.interfaces.IAJ;
 import client.interfaces.IAfficheur;
 import framework.MethodAutorun;
 /**
- * Classe Application. Classe qui charge et d�marre le jeu. Comme la classe
- * a l'annotation autorun elle sera lancer au d�marrage par le framework.
+ * Classe Application. Classe qui charge et démarre le jeu. Comme la classe
+ * a l'annotation autorun elle sera lancer au démarrage par le framework.
  *  
- * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vall�e
+ * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallée
  *
  */
 @MethodAutorun(run="lancer")

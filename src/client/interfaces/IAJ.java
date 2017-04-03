@@ -3,9 +3,9 @@ package client.interfaces;
 import client.Jeu;
 /**
  * Interface IAJ qui s'occupe des actions de base qui constituent
- * les règles du jeu.
+ * les rÃ¨gles du jeu.
  *  
- * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallée
+ * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, VallÃ©e
  *
  */
 public interface IAJ {

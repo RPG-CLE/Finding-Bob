@@ -2,6 +2,11 @@ package framework;
 
 import framework.ExtensionDesc.Etat;
 
+/**
+ * Interface IExtensionDesc pour IExtension Descriptor
+ * @author Araya, Boutahlil, Delavergne, Donnart, Pineau, Vallée
+ *
+ */
 public interface IExtensionDesc {
 
 	
