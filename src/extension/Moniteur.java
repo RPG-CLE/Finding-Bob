@@ -21,7 +21,7 @@ public class Moniteur implements Observer {
 		myFrame.setTitle("Moniteur");
 		myFrame.setSize(500, 300);
 		myFrame.setLocationRelativeTo(null);
-		myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.myFrame.setVisible(true);
 	}
 	

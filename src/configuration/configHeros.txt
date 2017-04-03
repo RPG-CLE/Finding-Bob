@@ -3,5 +3,5 @@ PosX = 5
 PosY = 5
 Nom = Paladin
 Force = 9
-Pv = 20
+Pv = 100
 

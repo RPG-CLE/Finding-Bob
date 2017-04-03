@@ -37,7 +37,7 @@ public class MapSnakeTutorial implements IMap{
 	private boolean up = false; // qui représente lorsque le snake level up (mange un bonbon)
 	private IPersonnage partieCorps; // qui servira d'apparence pour le corps
 	private Evenement dernierEvt = new Evenement(Evenement.DROITE); // qui représente le déplacement par défaut (dernier déplacement initialisé à droite)
-	
+
 	/**
 	 * Constructeur de la classe MapSnakeTutorial
 	 * 
@@ -262,9 +262,9 @@ public class MapSnakeTutorial implements IMap{
 			this.getCase(perso.getPosX(), perso.getPosY()).setPersonnage(null);
 			perso.setPosX(perso.getPosX()+1);
 			this.getCase(perso.getPosX(), perso.getPosY()).setPersonnage(perso);
+			seMangeOuMur(perso);
+			actualise(xavant,yavant);
 		}
-		seMangeOuMur(perso);
-		actualise(xavant,yavant);
 	}
 	
 	/**
@@ -340,8 +340,8 @@ public class MapSnakeTutorial implements IMap{
 		this.up=true;
 		cases[personnage.getPosX()][personnage.getPosY()].setPersonnage(null);
 		Random random = new Random();
-		int caseX = random.nextInt(this.getLargeur());
-		int caseY = random.nextInt(this.getHauteur());
+		int caseX = random.nextInt(this.getLargeur()-1);
+		int caseY = random.nextInt(this.getHauteur()-1);
 		while(!dispoCase(caseX,caseY)){
 			random = new Random();
 			caseX = random.nextInt(this.getLargeur()-1);
@@ -406,6 +406,7 @@ public class MapSnakeTutorial implements IMap{
 			this.corpsMonstreX.addFirst(x);
 			this.corpsMonstreY.addFirst(y);
 			this.getCase(x, y).setPersonnage(partieCorps);
+			System.out.println("Score : "+this.corpsMonstreX.size()+"");
 		}
 		this.up = false;
 
