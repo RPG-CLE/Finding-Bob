@@ -8,7 +8,12 @@ import java.awt.RenderingHints;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
+import java.io.File;
 
+import javax.print.attribute.standard.Media;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -35,6 +40,7 @@ public class FenetreJeu extends JFrame implements KeyListener {
 
 	
 	public void initialiserFenetre(Jeu jeu){
+		
 		this.jeu = jeu;
 		casesJeu = new GridLayout(jeu.getMap().getLargeur(),jeu.getMap().getHauteur(), -1, -1);
 		panneau = new JPanel(casesJeu);
@@ -54,8 +60,26 @@ public class FenetreJeu extends JFrame implements KeyListener {
 		this.setMaximumSize(new Dimension(jeu.getMap().getLargeur()*32, jeu.getMap().getHauteur()*32));
 		this.setResizable(false);
 		
+		play("data/finding-bob.wav");
 	}
 	
+	public static void play(String filename)
+	{
+	    try
+	    {
+	        Clip clip = AudioSystem.getClip();
+	        clip.open(AudioSystem.getAudioInputStream(new File(filename)));
+	        clip.setLoopPoints(0, -1);
+	        clip.loop(Clip.LOOP_CONTINUOUSLY);
+	        clip.start();
+	      
+	        
+	    }
+	    catch (Exception exc)
+	    {
+	        exc.printStackTrace(System.out);
+	    }
+	}
 	public void rechargerFenetre(){
 		this.remove(panneau);
 		initialiserFenetre(jeu);
