@@ -10,6 +10,7 @@ import java.util.Random;
 
 import client.Case;
 import client.Jeu;
+import client.interfaces.IAction;
 import client.interfaces.IMap;
 import client.interfaces.IPersonnage;
 import extension.configMap.Portail;
@@ -49,6 +50,12 @@ public class Map implements IMap{
 		initialiseEnnemis();
 		for (int i = 0; i < portails.size(); i++) {
 			this.setCase(portails.get(i).getPosX(), portails.get(i).getPosY(), new Case("Portail"));
+		}
+		
+		IAction actionDeplacer = (IAction) PartieProvider.getInstance().getObjetByConfig(IAction.class,
+				"src/configuration/configActionDeplacer.txt");
+		for(IPersonnage ennemi : ennemis){
+			ennemi.addAction(actionDeplacer.getClass(), actionDeplacer);
 		}
 		
 	}

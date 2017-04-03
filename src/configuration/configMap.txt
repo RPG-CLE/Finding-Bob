@@ -1,1 +1,1 @@
-classe = extension.GestionnaireDeMap
+classe = extension.MapSnakeTutorial

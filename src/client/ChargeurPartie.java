@@ -43,9 +43,6 @@ public class ChargeurPartie {
 		map.setHero(principal);
 		
 		principal.addAction(actionDeplacer.getClass(), actionDeplacer);
-		for(IPersonnage ennemi : map.getEnnemis()){
-			ennemi.addAction(actionDeplacer.getClass(), actionDeplacer);
-		}
 				
 		return new Jeu(principal, map, entree);
 	}
