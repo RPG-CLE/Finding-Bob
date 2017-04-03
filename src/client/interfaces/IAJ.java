@@ -13,7 +13,7 @@ public interface IAJ {
 	 * Effectue une action. 
 	 * 
 	 * @param j : le jeu dans le quel s'effectue l'action
-	 * @return bool : return true si tout ce passe bien, return false sinon
+	 * @return bool : return faux si le jeu est terminé (ou qu'aucune action est disponible)
 	 *
 	 */
 	boolean action(Jeu j);
