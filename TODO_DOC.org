@@ -1,3 +1,0 @@
-* TO DO DOC
-
-- Une documentation complète se trouve dans la racine du projet.
